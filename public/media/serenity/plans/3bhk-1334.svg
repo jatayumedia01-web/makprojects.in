@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none">
+  <rect width="400" height="320" fill="#f6f3ec"/>
+  <rect x="24" y="24" width="352" height="272" fill="#fff" stroke="#07110e" stroke-width="2.5"/>
+  <path d="M24 140h120v156H24V140zm120 0h110v100H144V140zm110 0h122v156H254V140zM144 240h110v72H144v-72z" stroke="#07110e" stroke-width="2" fill="#faf8f5"/>
+  <rect x="40" y="160" width="70" height="50" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="160" y="155" width="78" height="55" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="270" y="160" width="86" height="90" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="160" y="255" width="78" height="28" fill="#f0d78c" stroke="#d4af37" stroke-width="1.2" opacity=".5"/>
+  <text x="55" y="190" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">BED</text>
+  <text x="175" y="188" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">BED</text>
+  <text x="292" y="210" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">LIVING</text>
+  <text x="178" y="274" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="10">KITCHEN</text>
+  <text x="200" y="42" fill="#07110e" font-family="Poppins,sans-serif" font-size="12" font-weight="600" text-anchor="middle">3 BHK � 1334 SFT</text>
+</svg>

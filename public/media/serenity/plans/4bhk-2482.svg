@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none">
+  <rect width="400" height="320" fill="#f6f3ec"/>
+  <rect x="24" y="24" width="352" height="272" fill="#fff" stroke="#07110e" stroke-width="2.5"/>
+  <path d="M24 24h120v130H24V24zm120 0h120v130H144V24zm120 0h112v272H264V24zM24 154h120v142H24V154zm120 0h120v70H144V154zm0 70h120v72H144v-72z" stroke="#07110e" stroke-width="2" fill="#faf8f5"/>
+  <rect x="40" y="48" width="85" height="75" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="160" y="48" width="85" height="75" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="40" y="180" width="85" height="80" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="280" y="60" width="80" height="120" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="160" y="180" width="85" height="50" fill="#f0d78c" stroke="#d4af37" stroke-width="1.2" opacity=".45"/>
+  <text x="60" y="92" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="10">BED</text>
+  <text x="180" y="92" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="10">BED</text>
+  <text x="60" y="228" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="10">BED</text>
+  <text x="298" y="125" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">LIVING</text>
+  <text x="178" y="210" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="9">KITCHEN</text>
+  <text x="200" y="42" fill="#07110e" font-family="Poppins,sans-serif" font-size="12" font-weight="600" text-anchor="middle">4 BHK � 2482 SFT</text>
+</svg>

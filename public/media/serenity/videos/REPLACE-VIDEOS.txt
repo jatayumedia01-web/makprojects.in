@@ -1,0 +1,7 @@
+Replace these files with Serenity feature videos (same names):
+- living.mp4
+- pool.mp4
+- exterior.mp4
+- amenities.mp4
+
+Optional: also drop copies in Desktop\MAK Projects Website\03-BTR-Serenity\videos

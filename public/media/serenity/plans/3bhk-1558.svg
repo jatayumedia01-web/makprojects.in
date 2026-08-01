@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none">
+  <rect width="400" height="320" fill="#f6f3ec"/>
+  <rect x="24" y="24" width="352" height="272" fill="#fff" stroke="#07110e" stroke-width="2.5"/>
+  <path d="M24 24h160v150H24V24zm160 0h192v110H184V24zM24 174h110v122H24V174zm110 0h100v122H134V174zm100 0h142v70H234V174zm0 70h142v52H234v-52z" stroke="#07110e" stroke-width="2" fill="#faf8f5"/>
+  <rect x="44" y="50" width="110" height="80" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="210" y="48" width="140" height="70" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="44" y="200" width="70" height="70" fill="#eef2ef" stroke="#1f6b55" stroke-width="1.2"/>
+  <rect x="250" y="190" width="100" height="40" fill="#f0d78c" stroke="#d4af37" stroke-width="1.2" opacity=".45"/>
+  <text x="75" y="98" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">MASTER</text>
+  <text x="255" y="90" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">LIVING</text>
+  <text x="58" y="242" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="11">BED</text>
+  <text x="278" y="215" fill="#5f6f68" font-family="Poppins,sans-serif" font-size="10">KITCHEN</text>
+  <text x="200" y="42" fill="#07110e" font-family="Poppins,sans-serif" font-size="12" font-weight="600" text-anchor="middle">3 BHK � 1558 SFT</text>
+</svg>

@@ -1,0 +1,38 @@
+const MAK_LOGO = '/media/shared/logo/mak-projects.jpg'
+const BTR_LOGO = '/media/shared/logo/btr.png'
+
+/** Official MAK Projects logo */
+export function MakLogo({
+  className = 'h-12',
+  alt = 'MAK Projects',
+}: {
+  className?: string
+  alt?: string
+}) {
+  return (
+    <img
+      src={MAK_LOGO}
+      alt={alt}
+      className={`w-auto object-contain object-left ${className}`}
+      draggable={false}
+    />
+  )
+}
+
+/** Official BTR — Life is Beautiful logo */
+export function BtrLogo({
+  className = 'h-10',
+  alt = 'BTR — Life is Beautiful',
+}: {
+  className?: string
+  alt?: string
+}) {
+  return (
+    <img
+      src={BTR_LOGO}
+      alt={alt}
+      className={`w-auto object-contain object-left ${className}`}
+      draggable={false}
+    />
+  )
+}
