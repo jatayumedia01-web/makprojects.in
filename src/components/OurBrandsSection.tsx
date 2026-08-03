@@ -9,11 +9,8 @@ import { BtrLogo } from './BrandLogos'
  * Home — half-width, advanced brand carousel above footer
  */
 const brands = [
+  { id: 'township', label: 'TOWNSHIP', href: '/btr-township' },
   { id: 'serenity', label: 'SERENITY', href: '/btr-serenity' },
-  { id: 'golf', label: 'GOLF', href: '/btr-golf-plots' },
-  { id: 'villas', label: 'VILLAS', href: '/btr-villas' },
-  { id: 'greens', label: 'GREENS', href: '/btr-greens' },
-  { id: 'gardenia', label: 'GARDENIA', href: '/btr-villa-plots' },
   { id: 'btr', label: 'BTR', href: '/projects' },
 ]
 

@@ -16,16 +16,10 @@ const brands = [
     href: '/projects',
   },
   {
-    id: 'greens',
-    label: 'GREENS',
+    id: 'township',
+    label: 'TOWNSHIP',
     style: 'caps' as const,
-    href: '/btr-greens',
-  },
-  {
-    id: 'gardenia',
-    label: 'Gardenia',
-    style: 'script' as const,
-    href: '/btr-villa-plots',
+    href: '/btr-township',
   },
   {
     id: 'serenity',
@@ -33,26 +27,11 @@ const brands = [
     style: 'caps' as const,
     href: '/btr-serenity',
   },
-  {
-    id: 'golf',
-    label: 'GOLF',
-    style: 'caps' as const,
-    href: '/btr-golf-plots',
-  },
-  {
-    id: 'villas',
-    label: 'VILLAS',
-    style: 'caps' as const,
-    href: '/btr-villas',
-  },
 ]
 
 const VISIBLE = 3
 
 function labelClass(style: (typeof brands)[number]['style']) {
-  if (style === 'script') {
-    return 'mt-3 font-[Georgia,serif] text-[1.15rem] italic tracking-wide text-[#2e7d32]'
-  }
   if (style === 'soft') {
     return 'mt-3 text-[10px] font-medium tracking-[0.28em] text-[#8a9199] uppercase'
   }

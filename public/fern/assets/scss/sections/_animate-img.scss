@@ -1,0 +1,37 @@
+.animate_img {
+  position: relative;
+
+  &-sticky {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &-inner {
+    width: min(72%, 960px);
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    will-change: width, border-radius;
+
+    img {
+      width: 100%;
+      height: auto!important;
+      object-fit: contain;
+      // will-change: height;
+    }
+  }
+
+  @include lessTab {
+    &-inner {
+      width: 88%;
+
+      img {
+        height: auto !important;
+        max-height: none;
+        object-fit: contain;
+      }
+    }
+  }
+}

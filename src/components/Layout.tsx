@@ -13,7 +13,7 @@ const PROJECT_PATHS = [
   '/fern-villas',
   '/canadian-wood-villa',
   '/btr-greens',
-  '/btr-golf-plots',
+  '/btr-township',
   '/amenities',
   '/management',
   '/about',

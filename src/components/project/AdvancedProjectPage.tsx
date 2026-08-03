@@ -86,6 +86,8 @@ export default function AdvancedProjectPage({
                 ) : (
                   <a
                     href={data.secondaryCta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition hover:bg-white hover:text-ink"
                   >
                     {data.secondaryCta.label}
@@ -190,6 +192,60 @@ export default function AdvancedProjectPage({
           </div>
         </div>
       </section>
+
+      {/* Offerings (parent projects e.g. Township → Serenity / Gardenia / Villas / Canadian) */}
+      {data.offerings ? (
+        <section id="offerings" className="relative overflow-hidden pb-12 md:pb-16">
+          <SoftScene />
+          <div className="relative mx-auto max-w-7xl px-6">
+            <FadeIn>
+              <SectionHead
+                eyebrow={data.offerings.eyebrow}
+                title={data.offerings.title}
+              />
+            </FadeIn>
+            <FadeIn delay={0.05}>
+              <p className="mx-auto mb-8 max-w-2xl text-center text-[15px] leading-relaxed text-[#4a5560]">
+                {data.offerings.body}
+              </p>
+            </FadeIn>
+            <div className="grid gap-6 md:grid-cols-2">
+              {data.offerings.items.map((item, i) => (
+                <FadeIn key={item.href} delay={i * 0.08}>
+                  <Link to={item.href} className="group block h-full">
+                    <CardShell>
+                      <div className="overflow-hidden">
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
+                          <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] text-ink uppercase">
+                            {item.status}
+                          </span>
+                        </div>
+                        <div className="px-6 py-6">
+                          <h3 className="text-xl font-bold tracking-tight text-ink">
+                            {item.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-[#4a5560]">
+                            {item.subtitle}
+                          </p>
+                          <span className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.16em] text-sage uppercase transition group-hover:text-ink">
+                            View details <ArrowUpRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
+                      </div>
+                    </CardShell>
+                  </Link>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Gallery */}
       <section className="bg-white py-12 md:py-16">

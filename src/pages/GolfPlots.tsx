@@ -1,7 +1,6 @@
-import AdvancedProjectPage from '../components/project/AdvancedProjectPage'
-import { golfPage } from '../data/projectPages'
+import { Navigate } from 'react-router-dom'
 
-/** BTR Golf Residential Plots */
+/** Golf residential plots are part of BTR Township (Gardenia / villa plots) */
 export default function GolfPlots() {
-  return <AdvancedProjectPage data={golfPage} />
+  return <Navigate to="/btr-township" replace />
 }

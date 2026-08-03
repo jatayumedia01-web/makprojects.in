@@ -31,9 +31,8 @@ const EASE = [0.22, 1, 0.36, 1] as const
 type Filter = 'all' | 'apartments' | 'plots' | 'villas'
 
 function projectKind(slug: string): Filter {
-  if (slug === 'serenity') return 'apartments'
-  if (slug === 'canadian' || slug === 'villas') return 'villas'
-  if (slug === 'gardenia' || slug === 'greens' || slug === 'golf') return 'plots'
+  if (slug === 'fern') return 'villas'
+  if (slug === 'township') return 'all'
   return 'all'
 }
 
@@ -74,7 +73,9 @@ export default function Projects() {
 
   const list = useMemo(() => {
     if (filter === 'all') return projects
-    return projects.filter((p) => projectKind(p.slug) === filter)
+    return projects.filter(
+      (p) => p.slug === 'township' || projectKind(p.slug) === filter,
+    )
   }, [filter])
 
   useEffect(() => {
@@ -121,7 +122,11 @@ export default function Projects() {
             transition={{ duration: 0.85, ease: EASE }}
             className="max-w-2xl"
           >
-            <p className="text-[11px] font-medium tracking-[0.28em] text-gold-soft uppercase">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/15 px-4 py-1.5 text-[11px] font-semibold tracking-[0.2em] text-gold-soft uppercase backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              285+ Acres of Land
+            </p>
+            <p className="text-[11px] font-medium tracking-[0.28em] text-gold-soft/80 uppercase">
               Completed · South Hyderabad
             </p>
             <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.6rem)] font-semibold leading-[0.98] tracking-tight text-white">
@@ -130,7 +135,7 @@ export default function Projects() {
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
               Telangana’s pioneer integrated luxury township across 285+ acres
-              of lush greenery.
+              of land.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -531,6 +536,65 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.4, delay: i * 0.04, ease: EASE }}
                 >
+                  {p.href.startsWith('http') || p.href.startsWith('/fern') ? (
+                    <a href={p.href} className="group relative block h-full">
+                      <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-white to-sage/25 opacity-55 transition duration-500 group-hover:opacity-100" />
+
+                      <motion.article
+                        whileHover={reduce ? undefined : { y: -6 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 360,
+                          damping: 24,
+                        }}
+                        className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/95 shadow-[0_18px_50px_rgba(7,17,14,0.08)] transition duration-500 group-hover:shadow-[0_28px_70px_rgba(7,17,14,0.14)]"
+                      >
+                        <div className="pointer-events-none absolute inset-0 z-10 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-[130%]" />
+
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                          <img
+                            src={p.image}
+                            alt={p.title}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
+                          {p.status && (
+                            <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
+                              {p.status}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="relative flex flex-1 flex-col gap-3 px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6 sm:py-6">
+                          <div className="min-w-0 flex-1">
+                            <p className="flex items-start gap-1.5 text-[10px] font-medium tracking-[0.08em] text-stone uppercase">
+                              <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-sage" />
+                              <span className="leading-relaxed">{p.location}</span>
+                            </p>
+                            <h3 className="mt-2 text-lg font-bold tracking-tight text-ink sm:text-xl">
+                              {p.title}
+                            </h3>
+                            {p.size ? (
+                              <p className="mt-1.5 text-[12px] font-medium tracking-wide text-[#5a6670] uppercase">
+                                {p.size}
+                              </p>
+                            ) : null}
+                            {p.possession ? (
+                              <p className="mt-1 text-[12px] font-semibold tracking-wide text-sage uppercase">
+                                {p.possession}
+                              </p>
+                            ) : null}
+                          </div>
+
+                          <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-ink/15 bg-white px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-ink uppercase transition duration-300 group-hover:border-transparent group-hover:bg-ink group-hover:text-cream sm:self-auto">
+                            More info
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
+                      </motion.article>
+                    </a>
+                  ) : (
                   <Link to={p.href} className="group relative block h-full">
                     <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-white to-sage/25 opacity-55 transition duration-500 group-hover:opacity-100" />
 
@@ -588,6 +652,7 @@ export default function Projects() {
                       </div>
                     </motion.article>
                   </Link>
+                  )}
                 </motion.div>
               ))}
             </AnimatePresence>

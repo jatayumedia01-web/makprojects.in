@@ -1,0 +1,382 @@
+.amenities {
+  &.amenities--modern {
+    background: #faf9fb;
+
+    .section-title {
+      color: var(--black);
+    }
+
+    .section-desc {
+      color: rgba(43, 42, 41, 0.65);
+    }
+  }
+
+  .amenities-outdoor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+
+    .amenity-card.large {
+      grid-column: span 2;
+      min-height: 360px;
+
+      .amenity-card-link {
+        min-height: 360px;
+      }
+    }
+  }
+
+  .amenity-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    min-height: 280px;
+    border: 1px solid rgba(123, 75, 134, 0.1);
+    box-shadow: 0 14px 34px rgba(43, 42, 41, 0.05);
+
+    .amenity-card-link {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      color: inherit;
+      text-decoration: none;
+      cursor: zoom-in;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+    }
+
+    &:hover img {
+      transform: scale(1.06);
+    }
+
+    .amenity-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 22px;
+      background: linear-gradient(transparent 40%, rgba(18, 16, 20, 0.78));
+
+      h4 {
+        font-size: 17px;
+        margin-bottom: 4px;
+        color: var(--white);
+      }
+
+      p {
+        font-family: 'regular';
+        font-size: 13px;
+        color: rgba(254, 254, 254, 0.78);
+      }
+    }
+  }
+
+  // Portrait technical diagrams need full-width showcases —
+  // half-column splits make labels unreadable and feel sparse vs heavy.
+  .amenities-features {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 8px;
+  }
+
+  .feature-showcase {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1.1fr);
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--white);
+    border: 1px solid rgba(123, 75, 134, 0.1);
+    box-shadow: 0 16px 40px rgba(43, 42, 41, 0.05);
+
+    &--water {
+      grid-template-columns: minmax(280px, 1.1fr) minmax(240px, 0.9fr);
+
+      .feature-showcase__header {
+        order: 2;
+      }
+
+      .feature-showcase__media {
+        order: 1;
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+        background: #fff;
+
+        img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          max-width: none;
+          max-height: none;
+          object-fit: cover;
+          object-position: center top;
+          filter: none;
+          border-radius: 0;
+        }
+
+        &:hover img {
+          transform: scale(1.01);
+        }
+      }
+    }
+
+    &--security .feature-showcase__media {
+      background:
+        radial-gradient(ellipse at 70% 15%, rgba(123, 75, 134, 0.1), transparent 50%),
+        linear-gradient(160deg, #f8f6fa 0%, #f3f0f6 100%);
+    }
+  }
+
+  .feature-showcase__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(28px, 4vw, 44px) clamp(24px, 3.5vw, 40px);
+  }
+
+  .feature-showcase__eyebrow {
+    margin: 0 0 10px;
+    font-family: 'regular';
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--maincolor);
+  }
+
+  .feature-showcase__header h3 {
+    margin: 0 0 12px;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.2;
+    color: var(--maincolordark);
+  }
+
+  .feature-showcase__desc {
+    margin: 0 0 22px;
+    font-family: 'regular';
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(43, 42, 41, 0.65);
+    max-width: 36ch;
+  }
+
+  .feature-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-family: 'regular';
+      font-size: 12.5px;
+      line-height: 1.3;
+      color: var(--maincolordark);
+      background: rgba(123, 75, 134, 0.07);
+      border: 1px solid rgba(123, 75, 134, 0.12);
+    }
+  }
+
+  .feature-showcase--water .feature-pills li {
+    background: rgba(72, 160, 140, 0.08);
+    border-color: rgba(72, 160, 140, 0.18);
+  }
+
+  .feature-showcase__media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 3vw, 36px);
+    text-decoration: none;
+    cursor: zoom-in;
+    min-height: 420px;
+
+    img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      max-height: min(58vh, 560px);
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      filter: drop-shadow(0 18px 28px rgba(43, 42, 41, 0.1));
+      transition: transform 0.45s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.02);
+    }
+  }
+
+  .feature-showcase__zoom {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-family: 'regular';
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    color: var(--maincolordark);
+    background: rgba(254, 254, 254, 0.92);
+    border: 1px solid rgba(123, 75, 134, 0.12);
+    box-shadow: 0 8px 20px rgba(43, 42, 41, 0.1);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+
+  @include tab {
+    .amenities-outdoor {
+      grid-template-columns: 1fr 1fr;
+
+      .amenity-card.large {
+        grid-column: span 2;
+      }
+    }
+
+    .feature-showcase,
+    .feature-showcase--water {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-showcase--water {
+      .feature-showcase__header,
+      .feature-showcase__media {
+        order: initial;
+      }
+
+      .feature-showcase__media {
+        padding: 0;
+        min-height: 360px;
+
+        img {
+          max-width: none;
+          max-height: none;
+          width: 100%;
+          height: 100%;
+          min-height: 360px;
+          object-fit: cover;
+          object-position: center top;
+        }
+      }
+    }
+
+    .feature-showcase__media {
+      min-height: 0;
+      padding: 24px 20px 28px;
+
+      img {
+        max-width: 360px;
+        max-height: none;
+      }
+    }
+
+    .feature-showcase__desc {
+      max-width: none;
+    }
+  }
+
+  @include mobile {
+    .amenities-outdoor {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+
+      .amenity-card.large {
+        grid-column: span 1;
+        min-height: 260px;
+
+        .amenity-card-link {
+          min-height: 260px;
+        }
+      }
+    }
+
+    .amenity-card,
+    .amenity-card .amenity-card-link {
+      min-height: 240px;
+      border-radius: 16px;
+    }
+
+    .amenity-overlay {
+      padding: 16px;
+
+      h4 {
+        font-size: 15px;
+      }
+
+      p {
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    .feature-showcase {
+      border-radius: 18px;
+    }
+
+    .feature-showcase__header {
+      padding: 22px 18px;
+    }
+
+    .feature-showcase__media {
+      min-height: 0;
+      padding: 16px 14px 52px;
+
+      img {
+        max-width: 100%;
+        max-height: min(70vh, 480px);
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    .feature-showcase--water .feature-showcase__media {
+      padding: 0;
+      min-height: 320px;
+
+      img {
+        max-height: none;
+        height: 100%;
+        min-height: 320px;
+        object-fit: cover;
+        object-position: center top;
+      }
+    }
+
+    .feature-showcase__zoom {
+      right: 12px;
+      bottom: 12px;
+    }
+
+    .feature-pills li {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+  }
+}

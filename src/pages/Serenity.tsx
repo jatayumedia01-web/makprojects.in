@@ -32,8 +32,7 @@ import {
  * proven on Home Ongoing / Why Choose Us / Projects grid.
  */
 
-const HERO =
-  'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2200&q=80'
+const HERO = '/media/serenity/hero.jpg'
 
 const gallery = [
   {
@@ -189,7 +188,7 @@ export default function Serenity() {
           >
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
-              BTR Township · Ready to Move-In
+              Part of MAK — BTR Township · Ready to Move-In
             </p>
             <h1 className="text-[clamp(2rem,5.5vw,4.25rem)] font-semibold leading-[1.05] tracking-tight text-white uppercase">
               BTR —{' '}
@@ -256,7 +255,7 @@ export default function Serenity() {
         <SoftScene />
         <div className="relative mx-auto max-w-7xl px-6">
           <FadeIn>
-            <SectionHead eyebrow="Overview" title="Quiet Splendor, Redefined" />
+            <SectionHead eyebrow="Part of MAK — BTR Township" title="Quiet Splendor, Redefined" />
           </FadeIn>
 
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-7">

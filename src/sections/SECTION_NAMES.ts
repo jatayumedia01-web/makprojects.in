@@ -5,7 +5,7 @@
  *
  * 1. HeroSection        → Full-screen video hero (src/components/HeroVideo.tsx)
  * 2. WelcomeSection     → Welcome to MAK + You Dream We Deliver
- * 3. OngoingProjectsSection → Apartments · Fern Villas · Villa Plots
+ * 3. OngoingProjectsSection → Apartments · Fern Villas · BTR Township
  * 4. WhyChooseUsSection → Years of Dedication · Workmanship · Quality Assurance
  * 5. LocationSection    → Prime Knowledge City address + badges
  *    Footer             → Layout (site-wide)

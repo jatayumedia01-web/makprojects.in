@@ -1,5 +1,5 @@
 export const contact = {
-  phones: ['+91 99127 97979', '+91 99858 23239'],
+  phones: ['+91 99127 97979'],
   email: 'info@makprojects.com',
   web: 'www.makprojects.com',
   corporate:
@@ -12,9 +12,7 @@ export const contact = {
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects' },
-  { label: 'BTR Serenity', to: '/btr-serenity' },
-  { label: 'Villa Plots', to: '/btr-villa-plots' },
-  { label: 'BTR Villas', to: '/btr-villas' },
+  { label: 'BTR Township', to: '/btr-township' },
   { label: 'Amenities', to: '/amenities' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
@@ -27,20 +25,20 @@ export const btrTownship = {
   location: 'South Hyderabad · 26th Milestone, Srisailam Highway',
   status: 'Completed',
   summary: [
-    'We delivered MAK — BTR Township, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 285+ acres of lush greenery, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
+    'We delivered MAK — BTR Township, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 285+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
     'Today, it stands as a vibrant community home to over 650+ families. The township features wide 30, 40, and 50-foot internal roads, offering smooth connectivity across 333 luxury villas, 150 3 & 4 BHK apartment units with a clubhouse, and exclusive villa plots.',
     'The entire community spreads over 1,100+ units in MAK — BTR Township, with easy access to public transport facilities.',
   ],
   connectivity: [
     'ORR Exit 14',
-    'RGIA',
+    'RGI Airport',
     'Financial District',
     'Educational institutions',
     'Healthcare hubs',
     '& more',
   ],
   stats: [
-    { value: '285+', label: 'Acres of greenery' },
+    { value: '285+', label: 'Acres of land' },
     { value: '650+', label: 'Families living here' },
     { value: '1,100+', label: 'Units across township' },
     { value: '150', label: '3 & 4 BHK · Ready to move in' },
@@ -119,82 +117,28 @@ export const btrTownship = {
 
 export const projects = [
   {
-    slug: 'serenity',
-    title: 'BTR – Serenity Apartments',
-    subtitle: 'Ready to Move-In Luxury Apartments',
-    size: 'SIZE : 3 & 4 BHK | 1334 – 3068 SFT ( UNITS – 150 )',
-    status: 'Ready to Move-In',
-    possession: 'POSSESSION – READY TO MOVE-IN',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80',
-    href: '/btr-serenity',
-    rera: 'P02400002599',
-  },
-  {
-    slug: 'gardenia',
-    title: 'BTR – Gardenia',
-    subtitle: 'Premium Villa Plots',
-    size: 'SIZE : 325 – 1000sq.Yds',
-    status: 'Running',
-    possession: 'POSSESSION – RUNNING',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80',
-    href: '/btr-villa-plots',
-    rera: 'P02400001288 / P02400001289',
-  },
-  {
-    slug: 'villas',
-    title: 'BTR – Villas',
-    subtitle: 'Luxury Golf Community',
-    size: '',
+    slug: 'township',
+    title: 'MAK – BTR Township',
+    subtitle: 'Serenity · Gardenia · Villas · Canadian Wood',
+    size: '285+ acres · 1,100+ units · 80+ amenities',
     status: 'Completed',
-    possession: 'POSSESSION – COMPLETED',
+    possession: 'INTEGRATED TOWNSHIP',
     location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80',
-    href: '/btr-villas',
-    rera: 'HMDA / RERA Approved',
+    image: '/media/gardenia/hero.jpg',
+    href: '/btr-township',
+    rera: 'P02400002599 / P02400001288 / P02400001289',
   },
   {
-    slug: 'canadian',
-    title: 'Canadian Wood Villa',
-    subtitle: 'Signature Residence',
-    size: 'SIZE : 8750 SFT',
-    status: 'Exclusive',
-    possession: '',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
-    href: '/canadian-wood-villa',
-    rera: '—',
-  },
-  {
-    slug: 'greens',
-    title: 'BTR – Greens Residential Plots',
-    subtitle: 'Residential Plots',
-    size: 'SIZE : 325 – 1000',
-    status: 'Completed',
-    possession: 'POSSESSION – COMPLETED',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80',
-    href: '/btr-greens',
-    rera: '—',
-  },
-  {
-    slug: 'golf',
-    title: 'BTR – Golf Residential Plots',
-    subtitle: 'Golf Residential Plots',
-    size: 'SIZE : 325 – 1000sq.Yds',
-    status: 'Completed',
-    possession: 'POSSESSION – COMPLETED',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image:
-      'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1600&q=80',
-    href: '/btr-golf-plots',
-    rera: '—',
+    slug: 'fern',
+    title: 'Fern by MAK Projects',
+    subtitle: '4BHK + Home Theatre Villas · Tukkuguda',
+    size: '15 acres · 109 villas · Club Fernessa 30,000 Sft',
+    status: 'New Launch',
+    possession: 'TUKKUGUDA · NEAR ORR',
+    location: 'TUKKUGUDA / MALIKDANGUDA – HYDERABAD',
+    image: '/media/fern/hero.jpg',
+    href: '/fern/',
+    rera: 'P02400010645',
   },
 ]
 
@@ -469,7 +413,7 @@ export const plotFaqs = [
 export const villaFaqs = [
   {
     q: 'How many villas and what area?',
-    a: '333 luxury villas across ~260 acres in Hyderabad’s Knowledge City, within MAK — BTR Township.',
+    a: '333 luxury villas within MAK — BTR Township’s 285+ acres of land in Hyderabad’s Knowledge City.',
   },
   {
     q: 'Who designed the project?',

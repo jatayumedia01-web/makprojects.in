@@ -5,7 +5,7 @@ import { FadeIn } from '../components/Motion'
 /**
  * Section name: OngoingProjectsSection
  * Home page order: 3 (after WelcomeSection)
- * Three cards: Apartments · Fern Villas · Villa Plots
+ * Three cards: Apartments · Fern Villas · BTR Township
  */
 const cards = [
   {
@@ -13,33 +13,33 @@ const cards = [
     n: '01',
     category: 'Apartments',
     title: 'BTR – Serenity',
-    status: 'Ready to Move-In',
+    status: 'Part of MAK — BTR Township',
     href: '/btr-serenity',
-    image:
-      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
+    external: false,
+    image: '/media/home/btr-serenity.jpg',
     body: 'BTR – SERENITY like a tranquil oasis nestled within the bustling urban landscape. With 150 residential apartments spread across 3 acres of prime land, it offers a spacious and serene environment for its residents.',
   },
   {
     key: 'fern-villas',
     n: '02',
     category: 'Villas',
-    title: 'Fern Villas by MAK Projects',
-    status: 'New Launch',
-    href: '/fern-villas',
-    image:
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80',
-    body: 'Fern Villas by MAK Projects brings a fresh chapter of premium villa living — thoughtfully planned homes crafted for modern families, with refined design, greenery, and the trusted legacy of MAK craftsmanship.',
+    title: 'Fern by MAK Projects',
+    status: 'New Launch · Tukkuguda',
+    href: '/fern/',
+    external: true,
+    image: '/media/home/fern-villas.jpg',
+    body: 'Fern by MAK Projects at Tukkuguda — RERA-approved 4BHK + Home Theatre villas on 15 acres with Club Fernessa (30,000 sft), just 5 minutes from ORR.',
   },
   {
-    key: 'plots',
+    key: 'township',
     n: '03',
-    category: 'Villa Plots',
-    title: 'Villa Plots',
-    status: 'Ready to Build',
-    href: '/btr-villa-plots',
-    image:
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
-    body: 'BTR Gardenia residential plots offer an exclusive and luxurious lifestyle opportunity. With premium residential plots ranging from 325 to 1000 square yards, residents have the flexibility to choose the size that best suits their preferences and needs.',
+    category: 'Township',
+    title: 'MAK – BTR Township',
+    status: 'Serenity · Gardenia · Villas · Canadian',
+    href: '/btr-township',
+    external: false,
+    image: '/media/home/btr-villa-plots.jpg',
+    body: 'MAK — BTR Township is the master community on Srisailam Highway — home to Serenity apartments, Gardenia villa plots, BTR Villas, and Canadian Wood Villa, with full township amenities.',
   },
 ]
 
@@ -64,9 +64,10 @@ export default function OngoingProjectsSection() {
         </FadeIn>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
-          {cards.map((card, i) => (
-            <FadeIn key={card.key} delay={i * 0.1}>
-              <Link to={card.href} className="group relative block h-full">
+          {cards.map((card, i) => {
+            const cardClassName = 'group relative block h-full'
+            const cardInner = (
+                <>
                 <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/50 via-white to-sage/25 opacity-60 transition duration-500 group-hover:opacity-100" />
 
                 <article className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/95 shadow-[0_20px_55px_rgba(7,17,14,0.08)] backdrop-blur-sm transition duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_32px_70px_rgba(7,17,14,0.16)]">
@@ -111,9 +112,28 @@ export default function OngoingProjectsSection() {
                     </span>
                   </div>
                 </article>
-              </Link>
+                </>
+            )
+
+            return (
+            <FadeIn key={card.key} delay={i * 0.1}>
+              {card.external ? (
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cardClassName}
+                >
+                  {cardInner}
+                </a>
+              ) : (
+                <Link to={card.href} className={cardClassName}>
+                  {cardInner}
+                </Link>
+              )}
             </FadeIn>
-          ))}
+            )
+          })}
         </div>
 
         <FadeIn delay={0.28}>

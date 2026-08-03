@@ -9,9 +9,7 @@ import { ProjectsDropdown, ContactDropdown } from './NavMenus'
 const mainLinks = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects', dropdown: 'projects' as const },
-  { label: 'BTR Serenity', to: '/btr-serenity' },
-  { label: 'Villa Plots', to: '/btr-villa-plots' },
-  { label: 'BTR Villas', to: '/btr-villas' },
+  { label: 'BTR Township', to: '/btr-township' },
   { label: 'Amenities', to: '/amenities' },
   { label: 'Contact', to: '/contact', dropdown: 'contact' as const },
 ]
@@ -162,27 +160,49 @@ export default function Navbar() {
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden pb-3"
                             >
-                              {projects.slice(0, 4).map((p) => (
-                                <Link
-                                  key={p.slug}
-                                  to={p.href}
-                                  className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-mist"
-                                >
-                                  <img
-                                    src={p.image}
-                                    alt=""
-                                    className="h-11 w-11 rounded-lg object-cover"
-                                  />
-                                  <span>
-                                    <span className="block text-sm font-semibold">
-                                      {p.title}
+                              {projects.slice(0, 4).map((p) =>
+                                p.href.startsWith('/fern') ? (
+                                  <a
+                                    key={p.slug}
+                                    href={p.href}
+                                    className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-mist"
+                                  >
+                                    <img
+                                      src={p.image}
+                                      alt=""
+                                      className="h-11 w-11 rounded-lg object-cover"
+                                    />
+                                    <span>
+                                      <span className="block text-sm font-semibold">
+                                        {p.title}
+                                      </span>
+                                      <span className="block text-[11px] text-stone">
+                                        {p.status}
+                                      </span>
                                     </span>
-                                    <span className="block text-[11px] text-stone">
-                                      {p.status}
+                                  </a>
+                                ) : (
+                                  <Link
+                                    key={p.slug}
+                                    to={p.href}
+                                    className="flex items-center gap-3 rounded-xl px-2 py-2.5 hover:bg-mist"
+                                  >
+                                    <img
+                                      src={p.image}
+                                      alt=""
+                                      className="h-11 w-11 rounded-lg object-cover"
+                                    />
+                                    <span>
+                                      <span className="block text-sm font-semibold">
+                                        {p.title}
+                                      </span>
+                                      <span className="block text-[11px] text-stone">
+                                        {p.status}
+                                      </span>
                                     </span>
-                                  </span>
-                                </Link>
-                              ))}
+                                  </Link>
+                                ),
+                              )}
                               <Link
                                 to="/projects"
                                 className="mt-1 block px-2 py-2 text-xs font-semibold tracking-wider text-sage uppercase"

@@ -1,7 +1,20 @@
-import AdvancedProjectPage from '../components/project/AdvancedProjectPage'
-import { fernPage } from '../data/projectPages'
+import { useEffect } from 'react'
 
-/** Fern Villas — new launch (Serenity-parity advanced UI) */
+/** Exact Fern site is hosted at /fern/ (same as fernvillas.in) */
 export default function FernVillas() {
-  return <AdvancedProjectPage data={fernPage} />
+  useEffect(() => {
+    window.location.replace('/fern/')
+  }, [])
+
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center bg-cream px-6 py-20 text-center">
+      <p className="text-sm text-stone">
+        Opening{' '}
+        <a href="/fern/" className="font-semibold text-sage underline underline-offset-2">
+          Fern by MAK Projects
+        </a>
+        …
+      </p>
+    </div>
+  )
 }

@@ -1,0 +1,518 @@
+.banner {
+  position: relative;
+  height: 100svh;
+  min-height: 580px;
+  max-height: 920px;
+  overflow: hidden;
+  background: #1a161c;
+
+  .banner-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #1a161c;
+  }
+
+  .banner-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+  }
+
+  .banner-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    background: #1a161c;
+    pointer-events: none;
+  }
+
+  &.is-video-playing .banner-video {
+    opacity: 1;
+  }
+
+  &.banner--video .banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .banner-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(18, 16, 20, 0.35);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'regular';
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(8px);
+    transition: background 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      background: rgba(254, 254, 254, 0.12);
+      border-color: rgba(255, 255, 255, 0.55);
+      color: var(--white);
+    }
+  }
+
+  .banner-swiper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+
+    // Show only first (LCP) slide before Swiper boots — keeps LCP stable
+    &:not(.swiper-initialized) {
+      .swiper-slide {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+
+    &.swiper-grabbing {
+      cursor: grabbing;
+    }
+  }
+
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    background: #1a161c;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.03);
+      transition: transform 6s ease;
+    }
+
+    &.swiper-slide-active img {
+      transform: scale(1);
+    }
+  }
+
+  .slide_img {
+    width: 100%;
+    height: 100%;
+    background: #1a161c;
+
+    picture {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .banner-pagination {
+    position: absolute;
+    bottom: max(28px, env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    .swiper-pagination-bullet {
+      width: 22px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(254, 254, 254, 0.35);
+      opacity: 1;
+      margin: 0 !important;
+      transition: background var(--transition), width var(--transition);
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 36px;
+      background: var(--green);
+    }
+  }
+
+  .banner-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(18, 16, 20, 0.55) 0%,
+        rgba(18, 16, 20, 0.12) 32%,
+        rgba(18, 16, 20, 0.28) 55%,
+        rgba(18, 16, 20, 0.82) 82%,
+        rgba(18, 16, 20, 0.94) 100%
+      ),
+      linear-gradient(105deg, rgba(90, 46, 123, 0.28) 0%, transparent 50%);
+  }
+
+  .banner-content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding:
+      calc(88px + env(safe-area-inset-top, 0px))
+      clamp(20px, 5vw, 48px)
+      calc(64px + env(safe-area-inset-bottom, 0px));
+    pointer-events: none;
+
+    a,
+    button {
+      pointer-events: auto;
+    }
+  }
+
+  .banner-copy {
+    width: min(640px, 100%);
+    margin: 0;
+  }
+
+  .banner-brand {
+    position: relative;
+    display: block;
+    max-width: min(100%, 22ch);
+    font-family: 'regular';
+    font-size: clamp(18px, 3.8vw, 30px);
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-transform: none;
+    color: var(--white);
+    margin: 0 0 10px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+    opacity: 1;
+    animation: fadeUp 0.8s 0.05s ease both;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--maincolor), var(--green));
+    }
+  }
+
+  .banner-eyebrow {
+    font-family: 'regular';
+    font-size: clamp(11px, 2.8vw, 13px);
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: #7dcf8e;
+    margin: 0 0 14px;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.12s ease forwards;
+  }
+
+  .banner-title {
+    font-size: clamp(28px, 7.2vw, 60px);
+    font-weight: normal;
+    line-height: 1.06;
+    color: var(--white);
+    margin: 0 0 14px;
+    max-width: 12ch;
+    text-shadow: 0 10px 32px rgba(0, 0, 0, 0.4);
+    animation: fadeUp 0.8s 0.2s ease forwards;
+    opacity: 0;
+  }
+
+  .banner-seo-line {
+    font-family: 'regular';
+    font-size: clamp(12px, 2.8vw, 15px);
+    color: rgba(254, 254, 254, 0.78);
+    max-width: 36ch;
+    margin: 0 0 22px;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    animation: fadeUp 0.8s 0.28s ease forwards;
+    opacity: 0;
+  }
+
+  .banner-subtitle {
+    font-family: 'regular';
+    font-size: clamp(14px, 1.8vw, 17px);
+    color: rgba(254, 254, 254, 0.88);
+    max-width: 420px;
+    margin: 0 0 24px;
+    line-height: 1.65;
+    animation: fadeUp 0.8s 0.32s ease forwards;
+    opacity: 0;
+  }
+
+  .banner_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 12px;
+    padding: 0 26px;
+    letter-spacing: 1.4px;
+    border-radius: 999px;
+    box-shadow: 0 12px 28px rgba(90, 46, 123, 0.35);
+  }
+
+  .banner-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    animation: fadeUp 0.8s 0.42s ease forwards;
+    opacity: 0;
+  }
+
+  .banner-scroll {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+    pointer-events: none;
+
+    span {
+      font-family: 'regular';
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to top, var(--green), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    @include lessTab {
+      display: none;
+    }
+  }
+
+  // Mobile: landscape villa images need a wide frame —
+  // full-height portrait cover crops the villa to a vertical half.
+  @include lessTab {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+
+    .banner-media {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      flex: 0 0 auto;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      min-height: 200px;
+      max-height: 52svh;
+      background: #1a161c;
+      overflow: hidden;
+    }
+
+    .banner-swiper {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+    }
+
+    .swiper-slide img {
+      object-fit: cover;
+      object-position: center center;
+      transform: none !important;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: calc(100% + 1px);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(18, 16, 20, 0.35) 0%,
+          rgba(18, 16, 20, 0.08) 40%,
+          rgba(18, 16, 20, 0.55) 72%,
+          rgba(18, 16, 20, 0.96) 100%
+        ),
+        linear-gradient(105deg, rgba(90, 46, 123, 0.22) 0%, transparent 48%);
+    }
+
+    .banner-content {
+      position: relative;
+      inset: auto;
+      flex: 1 1 auto;
+      justify-content: flex-start;
+      margin-top: -72px;
+      padding:
+        0
+        20px
+        calc(28px + env(safe-area-inset-bottom, 0px));
+      background: linear-gradient(180deg, transparent 0%, #1a161c 56px, #1a161c 100%);
+      z-index: 2;
+    }
+
+    .banner-copy {
+      width: 100%;
+      padding-top: 28px;
+    }
+
+    .banner-brand {
+      font-size: clamp(17px, 4.6vw, 22px);
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+      max-width: 100%;
+
+      &::after {
+        width: 36px;
+        margin-top: 8px;
+      }
+    }
+
+    .banner-eyebrow {
+      margin-bottom: 10px;
+      letter-spacing: 1.8px;
+    }
+
+    .banner-title {
+      font-size: clamp(26px, 7.5vw, 32px);
+      max-width: none;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .banner_btn {
+      min-height: 46px;
+    }
+
+    .banner-pagination {
+      bottom: 12px;
+      z-index: 4;
+    }
+  }
+
+  @include mobile {
+    .banner-media {
+      max-height: 46svh;
+    }
+
+    .banner-content {
+      margin-top: -64px;
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+    .banner-title {
+      font-size: 26px;
+    }
+
+    .banner-pagination {
+      .swiper-pagination-bullet {
+        width: 16px;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: 28px;
+      }
+    }
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner {
+    .banner-brand,
+    .banner-eyebrow,
+    .banner-title,
+    .banner-subtitle,
+    .banner-actions {
+      animation: none;
+      opacity: 1;
+    }
+
+    .swiper-slide img,
+    .swiper-slide-active img {
+      transform: none;
+      transition: none;
+    }
+
+    .scroll-line {
+      animation: none;
+    }
+  }
+}

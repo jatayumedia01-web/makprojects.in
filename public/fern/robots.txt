@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fernvillas.in/sitemap.xml
+
+# Crawl-delay not needed for Google; keep clean for Bing/others
+Host: https://fernvillas.in

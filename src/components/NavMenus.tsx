@@ -80,6 +80,15 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
               </motion.h3>
               <p className="mt-1 text-sm text-white/70">{current.subtitle}</p>
               <p className="mt-2 text-xs text-white/50">{current.size}</p>
+              {current.href.startsWith('/fern') ? (
+                <a
+                  href={current.href}
+                  onClick={close}
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-white uppercase backdrop-blur-md transition hover:bg-gold hover:text-ink"
+                >
+                  Discover <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              ) : (
               <Link
                 to={current.href}
                 onClick={close}
@@ -87,6 +96,7 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
               >
                 Discover <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
+              )}
             </div>
           </div>
 
@@ -109,18 +119,14 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
             </div>
 
             <div className="flex-1 space-y-1">
-              {featured.map((p, i) => (
-                <Link
-                  key={p.slug}
-                  to={p.href}
-                  onClick={close}
-                  onMouseEnter={() => setActive(i)}
-                  className={`group flex items-center gap-3 rounded-2xl px-3 py-3 transition duration-300 ${
-                    active === i
-                      ? 'bg-mist shadow-sm'
-                      : 'hover:bg-mist/70'
-                  }`}
-                >
+              {featured.map((p, i) => {
+                const itemClass = `group flex items-center gap-3 rounded-2xl px-3 py-3 transition duration-300 ${
+                  active === i
+                    ? 'bg-mist shadow-sm'
+                    : 'hover:bg-mist/70'
+                }`
+                const inner = (
+                  <>
                   <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
                     <img
                       src={p.image}
@@ -141,8 +147,30 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
                         : 'text-ink/20'
                     }`}
                   />
-                </Link>
-              ))}
+                  </>
+                )
+                return p.href.startsWith('/fern') ? (
+                  <a
+                    key={p.slug}
+                    href={p.href}
+                    onClick={close}
+                    onMouseEnter={() => setActive(i)}
+                    className={itemClass}
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <Link
+                    key={p.slug}
+                    to={p.href}
+                    onClick={close}
+                    onMouseEnter={() => setActive(i)}
+                    className={itemClass}
+                  >
+                    {inner}
+                  </Link>
+                )
+              })}
             </div>
 
             <div className="mt-2 rounded-2xl bg-gradient-to-r from-forest to-moss px-4 py-3 text-cream">

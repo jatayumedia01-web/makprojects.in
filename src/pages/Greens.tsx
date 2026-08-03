@@ -1,7 +1,6 @@
-import AdvancedProjectPage from '../components/project/AdvancedProjectPage'
-import { greensPage } from '../data/projectPages'
+import { Navigate } from 'react-router-dom'
 
-/** BTR Greens — residential plots */
+/** Legacy Greens URL → MAK — BTR Township */
 export default function Greens() {
-  return <AdvancedProjectPage data={greensPage} />
+  return <Navigate to="/btr-township" replace />
 }

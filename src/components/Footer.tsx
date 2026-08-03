@@ -10,13 +10,12 @@ const companyLinks = [
 ]
 
 const projectLinks = [
+  { label: 'MAK — BTR Township', to: '/btr-township' },
   { label: 'BTR — Serenity', to: '/btr-serenity' },
-  { label: 'Fern Villas by MAK', to: '/fern-villas' },
-  { label: 'Villa Plots', to: '/btr-villa-plots' },
+  { label: 'BTR — Gardenia', to: '/btr-villa-plots' },
   { label: 'BTR — Villas', to: '/btr-villas' },
   { label: 'Canadian Wood Villa', to: '/canadian-wood-villa' },
-  { label: 'BTR — Greens', to: '/btr-greens' },
-  { label: 'BTR — Golf Plots', to: '/btr-golf-plots' },
+  { label: 'Fern by MAK · Tukkuguda', to: '/fern/', external: true },
   { label: 'All Projects', to: '/projects' },
 ]
 
@@ -62,9 +61,20 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-cream/70">
             {projectLinks.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="transition hover:text-cream">
-                  {l.label}
-                </Link>
+                {l.external ? (
+                  <a
+                    href={l.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition hover:text-cream"
+                  >
+                    {l.label}
+                  </a>
+                ) : (
+                  <Link to={l.to} className="transition hover:text-cream">
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

@@ -1,0 +1,152 @@
+/* MAK Fern — professional lightbox / expand experience */
+.fancybox__container {
+  --fancybox-bg: rgba(18, 16, 20, 0.92);
+  --fancybox-color: #fefefe;
+  --f-spinner-color: rgba(254, 254, 254, 0.15);
+  --f-spinner-color-accent: #7b4b86;
+  --f-thumb-width: 78px;
+  --f-thumb-height: 56px;
+  --f-button-width: 44px;
+  --f-button-height: 44px;
+  --f-button-color: #fefefe;
+  --f-button-hover-color: #fefefe;
+  --f-button-bg: rgba(254, 254, 254, 0.08);
+  --f-button-hover-bg: #7b4b86;
+  --f-button-active-bg: #5a2e7b;
+  --f-button-border-radius: 999px;
+  --f-button-svg-stroke-width: 1.5;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.fancybox__backdrop {
+  background: radial-gradient(ellipse at center, rgba(43, 42, 41, 0.55) 0%, rgba(12, 10, 14, 0.94) 70%);
+}
+
+.fancybox__toolbar {
+  background: linear-gradient(to bottom, rgba(12, 10, 14, 0.85), transparent);
+  padding: 14px 18px 28px;
+}
+
+.fancybox__footer {
+  background: linear-gradient(to top, rgba(12, 10, 14, 0.92), transparent);
+  padding: 36px 20px 18px;
+}
+
+.fancybox__caption {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.fancybox__caption.is-loading {
+  opacity: 0;
+}
+
+.fbx-caption {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+
+.fbx-caption__eyebrow {
+  font-family: 'regular', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: #34ab4e;
+}
+
+.fbx-caption__title {
+  font-family: 'medium', sans-serif;
+  font-size: clamp(16px, 2.4vw, 22px);
+  letter-spacing: 0.4px;
+  color: #fefefe;
+  line-height: 1.3;
+}
+
+.fbx-caption__meta {
+  font-family: 'regular', sans-serif;
+  font-size: 13px;
+  color: rgba(254, 254, 254, 0.65);
+}
+
+.fancybox__infobar {
+  font-family: 'regular', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(254, 254, 254, 0.8);
+}
+
+.fancybox__nav .f-button {
+  background: rgba(254, 254, 254, 0.1);
+  border: 1px solid rgba(254, 254, 254, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.fancybox__nav .f-button:hover {
+  background: #7b4b86;
+  border-color: #7b4b86;
+}
+
+.fancybox__thumbs {
+  --f-thumb-opacity: 0.45;
+  --f-thumb-hover-opacity: 0.85;
+  --f-thumb-selected-opacity: 1;
+  background: rgba(12, 10, 14, 0.72);
+  border-top: 1px solid rgba(254, 254, 254, 0.08);
+  padding: 12px 10px 14px;
+}
+
+.fancybox__thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.fancybox__thumb.is-focus,
+.fancybox__thumb:hover {
+  border-color: rgba(123, 75, 134, 0.7);
+  transform: translateY(-2px);
+}
+
+.fancybox__slide {
+  padding: 56px 72px 120px;
+}
+
+.fancybox__content {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.fancybox__image {
+  border-radius: 4px;
+}
+
+/* Plan drawings: paper feel in lightbox */
+.fancybox__container.is-plan-viewer .fancybox__content {
+  background: #f4f1ea;
+  padding: 18px;
+}
+
+.fancybox__container.is-plan-viewer .fancybox__backdrop {
+  background: radial-gradient(ellipse at center, rgba(90, 46, 123, 0.35) 0%, rgba(12, 10, 14, 0.95) 72%);
+}
+
+@media (max-width: 767px) {
+  .fancybox__slide {
+    padding: 64px 12px 140px;
+  }
+
+  .fancybox__nav {
+    display: none;
+  }
+
+  .fbx-caption__title {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,26 @@
+[data-aos].aos-animate {
+  &.club-card,
+  &.project-card,
+  &.project-tile,
+  &.gallery-item,
+  &.amenity-card,
+  &.stat-card,
+  &.spec-item,
+  &.specs-studio,
+  &.specs-nav__btn,
+  &.feature-showcase,
+  &.plan-master,
+  &.location-map,
+  &.clubhouse-hero,
+  &.btn {
+    transform: none !important;
+    transition-property: opacity !important;
+  }
+}
+
+[data-aos].aos-animate.club-card,
+[data-aos].aos-animate.project-card,
+[data-aos].aos-animate.gallery-item,
+[data-aos].aos-animate.amenity-card {
+  pointer-events: auto;
+}

@@ -7,12 +7,9 @@ import { motion } from 'framer-motion'
  */
 
 const brands = [
+  { label: 'BTR Township', href: '/btr-township' },
   { label: 'BTR Serenity', href: '/btr-serenity' },
-  { label: 'BTR Gardenia', href: '/btr-villa-plots' },
-  { label: 'BTR Villas', href: '/btr-villas' },
-  { label: 'BTR Greens', href: '/btr-greens' },
-  { label: 'BTR Golf', href: '/btr-golf-plots' },
-  { label: 'Fern Villas', href: '/fern-villas' },
+  { label: 'Fern by MAK', href: '/fern/', external: true },
 ]
 
 export default function BrandTickerMarquee() {
@@ -49,21 +46,37 @@ export default function BrandTickerMarquee() {
               animate={{ x: ['0%', '-50%'] }}
               transition={{ duration: 32, ease: 'linear', repeat: Infinity }}
             >
-              {loop.map((brand, i) => (
-                <Link
-                  key={`${brand.label}-${i}`}
-                  to={brand.href}
-                  className="group inline-flex items-center gap-8 px-5 sm:gap-10 sm:px-7"
-                >
-                  <span className="text-[13px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
-                    {brand.label}
-                  </span>
-                  <span
-                    aria-hidden
-                    className="h-1 w-1 shrink-0 rounded-full bg-gold/70 shadow-[0_0_10px_rgba(201,162,39,0.65)]"
-                  />
-                </Link>
-              ))}
+              {loop.map((brand, i) =>
+                brand.external ? (
+                  <a
+                    key={`${brand.label}-${i}`}
+                    href={brand.href}
+                    className="group inline-flex items-center gap-8 px-5 sm:gap-10 sm:px-7"
+                  >
+                    <span className="text-[13px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
+                      {brand.label}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="h-1 w-1 shrink-0 rounded-full bg-gold/70 shadow-[0_0_10px_rgba(201,162,39,0.65)]"
+                    />
+                  </a>
+                ) : (
+                  <Link
+                    key={`${brand.label}-${i}`}
+                    to={brand.href}
+                    className="group inline-flex items-center gap-8 px-5 sm:gap-10 sm:px-7"
+                  >
+                    <span className="text-[13px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
+                      {brand.label}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="h-1 w-1 shrink-0 rounded-full bg-gold/70 shadow-[0_0_10px_rgba(201,162,39,0.65)]"
+                    />
+                  </Link>
+                ),
+              )}
             </motion.div>
           </div>
         </div>

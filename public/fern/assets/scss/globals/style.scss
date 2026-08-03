@@ -1,0 +1,258 @@
+@import './fonts';
+@import './mixin';
+@import './aos-fix';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'medium';
+  }
+  
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    overflow-x: clip;
+  }
+
+  :root {
+    --black: #2b2a29;
+    --white: #fefefe;
+    --maincolor: #7b4b86;
+    --maincolordark: #5a2e7b;
+    --purple: #9530b6;
+    --purple-light: #c9a3dc;
+    --green: #34ab4e;
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --cta-dock-space: 96px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    color: var(--black);
+    background: var(--white);
+    overflow-x: clip;
+    line-height: 1.6;
+    overscroll-behavior-x: none;
+  }
+
+  // Preserve scroll position while mobile drawer is open
+  body.nav-open {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  // Skip rendering work for off-screen sections until near viewport
+  .about,
+  .plans,
+  .interiors,
+  .clubhouse,
+  .amenities,
+  .gallery,
+  .location,
+  .featured-projects,
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
+  }
+
+  // Specs must always paint fully on mobile (stacked categories)
+  .specifications {
+    content-visibility: visible;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 2000;
+    padding: 10px 16px;
+    background: var(--maincolordark);
+    color: var(--white);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: top 0.2s ease;
+
+    &:focus {
+      top: 16px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    @include lessTab {
+      padding: 0 16px;
+    }
+  }
+
+  .section {
+    padding: 100px 0;
+    overflow-x: clip;
+
+    @include lessTab {
+      padding: 56px 0;
+    }
+  }
+
+  .section-dark {
+    background: var(--black);
+    color: var(--white);
+
+    .section-tag {
+      color: var(--purple-light);
+    }
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: 'regular';
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--maincolor);
+    margin-bottom: 16px;
+
+    &.light {
+      color: var(--green);
+    }
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--black);
+
+    &.light {
+      color: var(--white);
+    }
+  }
+
+  .section-dark .section-title {
+    color: var(--white);
+  }
+
+  .section-desc {
+    font-family: 'regular';
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(43, 42, 41, 0.75);
+    max-width: 920px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &.light {
+      color: rgba(254, 254, 254, 0.8);
+    }
+
+    span {
+      color: var(--maincolor);  
+    }
+  }
+
+  .section-dark .section-desc {
+    color: rgba(254, 254, 254, 0.75);
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+
+    &.center {
+      text-align: center;
+
+      .section-desc {
+        margin: 0 auto;
+      }
+    }
+
+    @include lessTab {
+      margin-bottom: 40px;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all var(--transition);
+    border: 2px solid transparent;
+
+    &.btn-primary {
+      background: var(--maincolor);
+      color: var(--white);
+      border-color: var(--maincolor);
+
+      &:hover {
+        background: var(--maincolordark);
+        border-color: var(--maincolordark);
+      }
+    }
+
+    &.btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+
+      &:hover {
+        background: var(--white);
+        color: var(--black);
+      }
+    }
+  }
+
+  @import '../sections/header';
+  @import '../sections/banner';
+  @import '../sections/about';
+  @import '../sections/animate-img';
+  @import '../sections/overview';
+  @import '../sections/plans';
+  @import '../sections/interiors';
+  @import '../sections/walkthrough';
+  @import '../sections/clubhouse';
+  @import '../sections/amenities';
+  @import '../sections/gallery';
+  @import '../sections/location';
+  @import '../sections/specifications';
+  @import '../sections/featured-projects';
+  @import '../sections/footer';
+  @import '../sections/cta-dock';
+  @import '../sections/brochure-tab';

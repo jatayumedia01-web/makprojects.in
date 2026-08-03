@@ -63,6 +63,19 @@ export type ProjectPageData = {
     title: string
     items: { size: string; unit: string; note: string; tag?: string }[]
   }
+  /** Nested offerings under a parent project (e.g. Township → Serenity / Gardenia / Villas / Canadian) */
+  offerings?: {
+    eyebrow: string
+    title: string
+    body: string
+    items: {
+      title: string
+      subtitle: string
+      status: string
+      image: string
+      href: string
+    }[]
+  }
   amenities: { name: string; icon: MetricIcon }[]
   faqs: { q: string; a: string }[]
   faqAsideTitle: string
@@ -89,11 +102,10 @@ const townshipAmenities: ProjectPageData['amenities'] = [
 
 export const gardeniaPage: ProjectPageData = {
   slug: 'gardenia',
-  badge: 'BTR Township · Premium Villa Plots',
+  badge: 'Part of MAK — BTR Township · Villa Plots',
   titleLead: 'BTR —',
   titleAccent: 'Gardenia',
-  heroImage:
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2200&q=80',
+  heroImage: '/media/gardenia/hero.jpg',
   heroBody:
     'Premium residential plots from 325 to 1000 sq.yds across 193 acres — ready to build your dream home.',
   secondaryCta: { label: 'View plot sizes', href: '#plot-sizes' },
@@ -103,10 +115,10 @@ export const gardeniaPage: ProjectPageData = {
     { value: '325–1000', label: 'Sq.yds range', icon: 'ruler' },
     { value: 'RERA', label: 'HMDA approved', icon: 'shield' },
   ],
-  overviewEyebrow: 'Overview',
+  overviewEyebrow: 'Part of MAK — BTR Township',
   overviewTitle: 'Exclusive Plots, Impeccable Planning',
   overviewBody:
-    'BTR Gardenia offers the flexibility to choose your ideal plot size and build your dream home. Wide roads, underground utilities, playgrounds and dual clubhouses elevate everyday living inside the BTR township on Srisailam Highway.',
+    'BTR Gardenia is a villa-plots offering under MAK — BTR Township. Choose your ideal plot size and build your dream home — including golf-facing residential plot options. Wide roads, underground utilities, playgrounds and dual clubhouses elevate everyday living inside the township on Srisailam Highway.',
   locationLine: '26th Milestone · Srisailam Highway · Thummalur, Hyderabad',
   details: [
     { label: 'Project Size', value: '193 Acres' },
@@ -160,27 +172,26 @@ export const gardeniaPage: ProjectPageData = {
 
 export const villasPage: ProjectPageData = {
   slug: 'villas',
-  badge: 'Luxury Golf Community · Completed',
+  badge: 'Part of MAK — BTR Township · Luxury Villas',
   titleLead: 'BTR —',
   titleAccent: 'Villas',
-  heroImage:
-    'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2200&q=80',
+  heroImage: '/media/villas/hero.jpg',
   heroBody:
-    '333 luxury villas across 260 acres — designed by SA Architects SDN BHD, Malaysia, in Hyderabad’s Knowledge City.',
+    '333 luxury villas within MAK — BTR Township’s 285+ acres of land — designed by SA Architects SDN BHD, Malaysia, in Hyderabad’s Knowledge City.',
   secondaryCta: { label: 'View configurations', href: '#plot-sizes' },
   metrics: [
     { value: '333', label: 'Luxury villas', icon: 'home' },
-    { value: '260 Ac', label: 'Township land', icon: 'trees' },
+    { value: '285+', label: 'Acres of land', icon: 'trees' },
     { value: '2900–4000', label: 'Sft homes', icon: 'ruler' },
     { value: 'SA Arch', label: 'Malaysia design', icon: 'landmark' },
   ],
-  overviewEyebrow: 'Overview',
+  overviewEyebrow: 'Part of MAK — BTR Township',
   overviewTitle: 'East Meets West Living',
   overviewBody:
-    'Elegant sit-outs, open lawns and serene vistas define BTR Villas. A 10-hole golf course, dual clubhouses, spa, mini theatre and Apollo hospital services complete a world-class lifestyle — minutes from ORR and the airport.',
+    'BTR Villas sit within MAK — BTR Township — elegant sit-outs, open lawns and serene vistas. A 10-hole golf course, dual clubhouses, spa, mini theatre and Apollo hospital services complete a world-class lifestyle — minutes from ORR and the airport.',
   locationLine: '26th Milestone · Srisailam Highway · Knowledge City, Hyderabad',
   details: [
-    { label: 'Project Size', value: '260 Acres' },
+    { label: 'Project Size', value: '285+ Acres' },
     { label: 'Project Type', value: 'Residential' },
     { label: 'Property Type', value: 'Villa' },
     { label: 'Total Villas', value: '333' },
@@ -231,37 +242,40 @@ export const villasPage: ProjectPageData = {
 
 export const fernPage: ProjectPageData = {
   slug: 'fern',
-  badge: 'New Launch · By MAK Projects',
+  badge: 'New Launch · Tukkuguda',
   titleLead: 'Fern',
-  titleAccent: 'Villas',
-  heroImage:
-    'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=2200&q=80',
+  titleAccent: 'by MAK',
+  heroImage: '/media/fern/hero.jpg',
   heroBody:
-    'A fresh chapter of premium villa living — refined homes for modern families, backed by the MAK legacy.',
-  secondaryCta: { label: 'Register interest', href: '/contact' },
+    'Fern by MAK Projects at Tukkuguda — a fresh chapter of premium villa living with greenery, modern comfort, and the trusted craftsmanship of MAK.',
+  secondaryCta: { label: 'Visit fernvillas.in', href: 'https://fernvillas.in' },
   metrics: [
     { value: 'New', label: 'Launch', icon: 'sparkles' },
     { value: 'Villa', label: 'Residences', icon: 'home' },
+    { value: 'Tukkuguda', label: 'Hyderabad', icon: 'landmark' },
     { value: 'MAK', label: 'Craftsmanship', icon: 'shield' },
-    { value: 'Green', label: 'Living focus', icon: 'trees' },
   ],
   overviewEyebrow: 'Overview',
-  overviewTitle: 'Coming Into Focus',
+  overviewTitle: 'Premium Villas at Tukkuguda',
   overviewBody:
-    'Fern Villas by MAK Projects is our newest villa offering — thoughtfully planned residences with greenery, modern comfort, and the trusted craftsmanship of MAK. Floor plans, RERA details, and gallery assets will continue to be updated as the launch unfolds.',
-  locationLine: 'Hyderabad · Exact site coordinates shared on enquiry',
+    'Fern by MAK Projects brings thoughtfully planned villa residences to Tukkuguda, Hyderabad — refined design, greenery, and modern family living, backed by the MAK legacy of quality delivery.',
+  locationLine: 'Tukkuguda · Hyderabad',
   details: [
     { label: 'Developer', value: 'MAK Projects' },
-    { label: 'Project Type', value: 'Residential' },
+    { label: 'Project', value: 'Fern by MAK' },
+    { label: 'Location', value: 'Tukkuguda' },
+    { label: 'City', value: 'Hyderabad' },
     { label: 'Property Type', value: 'Villa' },
     { label: 'Status', value: 'New Launch' },
-    { label: 'Focus', value: 'Modern families' },
-    { label: 'Design', value: 'Premium finish' },
+    { label: 'Website', value: 'fernvillas.in' },
     { label: 'Enquiry', value: 'Open' },
-    { label: 'Updates', value: 'Rolling' },
   ],
-  galleryTitle: 'Vision Gallery',
+  galleryTitle: 'Fern at Tukkuguda',
   gallery: [
+    {
+      src: '/media/fern/hero.jpg',
+      label: 'Fern',
+    },
     {
       src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80',
       label: 'Residence',
@@ -274,19 +288,15 @@ export const fernPage: ProjectPageData = {
       src: 'https://images.unsplash.com/photo-1600566753086-00fbc71ffd8d?auto=format&fit=crop&w=1400&q=80',
       label: 'Garden',
     },
-    {
-      src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80',
-      label: 'Lounge',
-    },
   ],
   sizeSection: {
     eyebrow: 'Launch',
     title: 'What to Expect',
     items: [
       { size: 'Villa', unit: 'Homes', note: 'Premium family residences', tag: 'Core' },
+      { size: 'Tukkuguda', unit: 'Site', note: 'South Hyderabad location', tag: 'Location' },
       { size: 'Green', unit: 'Spaces', note: 'Landscaped living', tag: 'Lifestyle' },
       { size: 'MAK', unit: 'Quality', note: 'Trusted delivery', tag: 'Brand' },
-      { size: 'Soon', unit: 'Plans', note: 'Floor plans upcoming', tag: 'Update' },
     ],
   },
   amenities: [
@@ -299,34 +309,34 @@ export const fernPage: ProjectPageData = {
   ],
   faqs: [
     {
-      q: 'What is Fern Villas?',
-      a: 'Fern Villas is a new villa launch by MAK Projects — premium residences with a green, modern living focus.',
+      q: 'What is Fern by MAK Projects?',
+      a: 'Fern by MAK Projects is a new villa launch at Tukkuguda, Hyderabad — premium residences with a green, modern living focus.',
     },
     {
-      q: 'Are floor plans available?',
-      a: 'Detailed floor plans and unit inventory will be published as launch assets are finalized. Register interest to receive updates first.',
+      q: 'Where is Fern located?',
+      a: 'Fern by MAK Projects is located at Tukkuguda, Hyderabad. Visit fernvillas.in or contact our sales team for directions and a site visit.',
     },
     {
-      q: 'How do I book a preview?',
-      a: 'Contact our sales team via the Contact page or call +91 99127 97979 to schedule a briefing.',
+      q: 'How do I know more?',
+      a: 'Explore fernvillas.in for the dedicated Fern experience, or call +91 99127 97979 / use our Contact page to schedule a briefing.',
     },
   ],
-  faqAsideTitle: 'Be the\nfirst to know',
+  faqAsideTitle: 'Visit\nFern',
   faqAsideBody:
-    'Register your interest and our team will share launch updates, plans, and visit slots for Fern Villas.',
-  ctaEyebrow: 'New launch',
-  ctaTitle: 'Register for Fern Villas',
+    'Register your interest and our team will share launch updates, plans, and visit slots for Fern at Tukkuguda.',
+  ctaEyebrow: 'New launch · Tukkuguda',
+  ctaTitle: 'Discover Fern by MAK',
   ctaBody:
-    'Speak with MAK sales for early interest registration and upcoming site previews.',
+    'Speak with MAK sales for early interest registration and upcoming site previews at Tukkuguda.',
 }
+
 
 export const canadianPage: ProjectPageData = {
   slug: 'canadian',
-  badge: 'Signature Residence · Exclusive',
+  badge: 'Part of MAK — BTR Township · Signature Residence',
   titleLead: 'Canadian Wood',
   titleAccent: 'Villa',
-  heroImage:
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80',
+  heroImage: '/media/canadian/hero.jpg',
   heroBody:
     'A rare signature residence of 8,750 SFT — crafted for those who seek unmatched scale, privacy, and presence inside the BTR ecosystem.',
   secondaryCta: { label: 'Request details', href: '/contact' },
@@ -336,10 +346,10 @@ export const canadianPage: ProjectPageData = {
     { value: 'Wood', label: 'Crafted finish', icon: 'sparkles' },
     { value: 'BTR', label: 'Township living', icon: 'trees' },
   ],
-  overviewEyebrow: 'Overview',
+  overviewEyebrow: 'Part of MAK — BTR Township',
   overviewTitle: 'A Residence Apart',
   overviewBody:
-    'Canadian Wood Villa is MAK’s statement home — expansive living spaces, refined materiality, and the privacy of a true signature residence. Built for discerning families who want scale without leaving the connectivity and lifestyle of BTR Township.',
+    'Canadian Wood Villa is MAK’s statement home within MAK — BTR Township — expansive living spaces, refined materiality, and the privacy of a true signature residence. Built for discerning families who want scale without leaving the connectivity and lifestyle of the township.',
   locationLine: '26th Milestone · Srisailam Highway · Thummalur, Hyderabad',
   details: [
     { label: 'Property Type', value: 'Signature Villa' },
@@ -411,89 +421,119 @@ export const canadianPage: ProjectPageData = {
     'Request a private briefing with MAK sales for this signature residence.',
 }
 
-export const greensPage: ProjectPageData = {
-  slug: 'greens',
-  badge: 'Residential Plots · Completed',
-  titleLead: 'BTR —',
-  titleAccent: 'Greens',
-  heroImage:
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2200&q=80',
+export const townshipPage: ProjectPageData = {
+  slug: 'township',
+  badge: 'MAK — BTR Township',
+  titleLead: 'MAK — BTR',
+  titleAccent: 'Township',
+  heroImage: '/media/gardenia/hero.jpg',
   heroBody:
-    'Completed residential plots from 325 to 1000 sq.yds — green, planned living within the BTR township corridor.',
-  secondaryCta: { label: 'View plot band', href: '#plot-sizes' },
+    'Telangana’s pioneer integrated luxury township — apartments, villa plots, luxury villas and a signature residence on Srisailam Highway, South Hyderabad.',
+  secondaryCta: { label: 'Explore offerings', href: '#offerings' },
   metrics: [
-    { value: '325–1000', label: 'Sq.yds plots', icon: 'ruler' },
-    { value: 'Done', label: 'Completed', icon: 'shield' },
-    { value: 'Green', label: 'Planned layout', icon: 'trees' },
-    { value: 'BTR', label: 'Township link', icon: 'building' },
+    { value: '285+', label: 'Acres of land', icon: 'trees' },
+    { value: '1,100+', label: 'Units', icon: 'building' },
+    { value: '150', label: '3 & 4 BHK ready', icon: 'home' },
+    { value: '80+', label: 'Amenities', icon: 'sparkles' },
   ],
   overviewEyebrow: 'Overview',
-  overviewTitle: 'Plotted Living, Completed',
+  overviewTitle: 'One Township. Four Signature Offerings.',
   overviewBody:
-    'BTR Greens delivers completed residential plots for families seeking a quieter, greener base with township connectivity. Wide layout planning and access to BTR amenities make it a strong long-term address on Srisailam Highway.',
+    'MAK — BTR Township is the master-planned community that brings together BTR Serenity (ready-to-move apartments), BTR Gardenia (premium villa plots including golf-facing options), BTR Villas (333 luxury villas), and Canadian Wood Villa (signature residence) — with wide roads, greenery, and world-class township amenities.',
   locationLine: '26th Milestone · Srisailam Highway · Thummalur, Hyderabad',
   details: [
-    { label: 'Property Type', value: 'Residential Plot' },
-    { label: 'Plot Range', value: '325–1000 Sq.Yds' },
-    { label: 'Status', value: 'Completed' },
-    { label: 'Project Type', value: 'Residential' },
-    { label: 'Location', value: 'BTR Corridor' },
-    { label: 'Utilities', value: 'Township linked' },
-    { label: 'Lifestyle', value: 'Green living' },
+    { label: 'Master brand', value: 'MAK — BTR Township' },
+    { label: 'Offerings', value: '4 residential' },
+    { label: 'Apartments', value: '150 · Serenity' },
+    { label: 'Villas', value: '333 units' },
+    { label: 'Villa plots', value: 'Gardenia' },
+    { label: 'Signature', value: 'Canadian Wood' },
+    { label: 'Lifestyle', value: 'Golf · Club · Greens' },
     { label: 'Enquiry', value: 'Open' },
   ],
-  galleryTitle: 'Greens Atmosphere',
+  offerings: {
+    eyebrow: 'Inside the Township',
+    title: 'Our Offerings',
+    body: 'Every residential product below is part of MAK — BTR Township.',
+    items: [
+      {
+        title: 'BTR — Serenity',
+        subtitle: 'Ready to move-in · 3 & 4 BHK · 150 units',
+        status: 'Ready to Move-In',
+        image: '/media/serenity/hero.jpg',
+        href: '/btr-serenity',
+      },
+      {
+        title: 'BTR — Gardenia',
+        subtitle: 'Premium villa plots · 325–1000 sq.yds',
+        status: 'Ready to Build',
+        image: '/media/gardenia/hero.jpg',
+        href: '/btr-villa-plots',
+      },
+      {
+        title: 'BTR — Villas',
+        subtitle: '333 luxury villas · golf community',
+        status: 'Completed',
+        image: '/media/villas/hero.jpg',
+        href: '/btr-villas',
+      },
+      {
+        title: 'Canadian Wood Villa',
+        subtitle: 'Signature residence · 8,750 SFT',
+        status: 'Exclusive',
+        image: '/media/canadian/hero.jpg',
+        href: '/canadian-wood-villa',
+      },
+    ],
+  },
+  galleryTitle: 'Life at BTR Township',
   gallery: [
-    {
-      src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80',
-      label: 'Open land',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80',
-      label: 'Greenery',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=80',
-      label: 'Homes',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80',
-      label: 'Streetscape',
-    },
+    { src: '/media/serenity/hero.jpg', label: 'Serenity' },
+    { src: '/media/gardenia/hero.jpg', label: 'Gardenia' },
+    { src: '/media/villas/hero.jpg', label: 'BTR Villas' },
+    { src: '/media/canadian/hero.jpg', label: 'Canadian Wood' },
   ],
   sizeSection: {
     eyebrow: 'Inventory',
-    title: 'Plot Band',
+    title: 'What the Township Includes',
     items: [
-      { size: '325', unit: 'Sq.Yds', note: 'Starter plots', tag: 'Entry' },
-      { size: '400', unit: 'Sq.Yds', note: 'Balanced homes', tag: 'Popular' },
-      { size: '500', unit: 'Sq.Yds', note: 'Larger footprints', tag: 'Premium' },
-      { size: '1000', unit: 'Sq.Yds', note: 'Estate plots', tag: 'Signature' },
+      { size: 'Serenity', unit: '150', note: '3 & 4 BHK ready-to-move flats', tag: 'Apartments' },
+      { size: 'Gardenia', unit: 'Plots', note: '325–1000 sq.yds villa plots', tag: 'Plots' },
+      { size: 'Villas', unit: '333', note: 'Luxury golf community homes', tag: 'Villas' },
+      { size: 'Canadian', unit: '8750', note: 'Signature wood residence (SFT)', tag: 'Exclusive' },
     ],
   },
   amenities: townshipAmenities.slice(0, 8),
   faqs: [
     {
-      q: 'What is BTR Greens?',
-      a: 'BTR Greens is a completed residential plotted development within the BTR corridor, offering plots typically from 325 to 1000 sq.yds.',
+      q: 'What is MAK — BTR Township?',
+      a: 'It is MAK’s integrated luxury township on Srisailam Highway, home to Serenity apartments, Gardenia villa plots, BTR Villas, and Canadian Wood Villa.',
     },
     {
-      q: 'Is infrastructure ready?',
-      a: 'As a completed plotted community, roads and core layout infrastructure are in place; confirm plot-specific status with our sales team.',
+      q: 'Is Serenity part of the township?',
+      a: 'Yes. BTR Serenity is the ready-to-move apartment offering within MAK — BTR Township.',
     },
     {
-      q: 'Can I still purchase a plot?',
-      a: 'Availability varies. Contact MAK for current inventory, documentation, and site visit scheduling.',
+      q: 'Are Gardenia and BTR Villas separate projects?',
+      a: 'They have dedicated detail pages, but both are offerings under MAK — BTR Township — not standalone brands outside it.',
+    },
+    {
+      q: 'Is Canadian Wood Villa part of the township?',
+      a: 'Yes. Canadian Wood Villa is the signature residence offering within MAK — BTR Township.',
     },
   ],
-  faqAsideTitle: 'Check\navailability',
+  faqAsideTitle: 'Explore\nthe Township',
   faqAsideBody:
-    'Ask about remaining plots, documentation, and a guided visit for BTR Greens.',
-  ctaEyebrow: 'Completed plots',
-  ctaTitle: 'Explore BTR Greens',
+    'Ask about Serenity, Gardenia plots, BTR Villas, or Canadian Wood Villa — and schedule a guided visit.',
+  ctaEyebrow: 'MAK — BTR Township',
+  ctaTitle: 'Discover the Township',
   ctaBody:
-    'Speak with our team about available residential plots in BTR Greens.',
+    'Speak with our team about apartments, plots, villas, and the signature residence inside MAK — BTR Township.',
 }
+
+/** @deprecated Use townshipPage — /btr-greens redirects to township */
+export const greensPage = townshipPage
+
 
 export const golfPage: ProjectPageData = {
   slug: 'golf',
