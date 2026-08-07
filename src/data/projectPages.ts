@@ -177,11 +177,11 @@ export const villasPage: ProjectPageData = {
   titleAccent: 'Villas',
   heroImage: '/media/villas/hero.jpg',
   heroBody:
-    '333 luxury villas within MAK — BTR Township’s 285+ acres of land — designed by SA Architects SDN BHD, Malaysia, in Hyderabad’s Knowledge City.',
+    '333 luxury villas within MAK — BTR Township’s 260+ acres of land — designed by SA Architects SDN BHD, Malaysia, in Hyderabad’s Knowledge City.',
   secondaryCta: { label: 'View configurations', href: '#plot-sizes' },
   metrics: [
     { value: '333', label: 'Luxury villas', icon: 'home' },
-    { value: '285+', label: 'Acres of land', icon: 'trees' },
+    { value: '260+', label: 'Acres of land', icon: 'trees' },
     { value: '2900–4000', label: 'Sft homes', icon: 'ruler' },
     { value: 'SA Arch', label: 'Malaysia design', icon: 'landmark' },
   ],
@@ -191,7 +191,7 @@ export const villasPage: ProjectPageData = {
     'BTR Villas sit within MAK — BTR Township — elegant sit-outs, open lawns and serene vistas. A 10-hole golf course, dual clubhouses, spa, mini theatre and Apollo hospital services complete a world-class lifestyle — minutes from ORR and the airport.',
   locationLine: '26th Milestone · Srisailam Highway · Knowledge City, Hyderabad',
   details: [
-    { label: 'Project Size', value: '285+ Acres' },
+    { label: 'Project Size', value: '260+ Acres' },
     { label: 'Project Type', value: 'Residential' },
     { label: 'Property Type', value: 'Villa' },
     { label: 'Total Villas', value: '333' },
@@ -431,8 +431,8 @@ export const townshipPage: ProjectPageData = {
     'Telangana’s pioneer integrated luxury township — apartments, villa plots, luxury villas and a signature residence on Srisailam Highway, South Hyderabad.',
   secondaryCta: { label: 'Explore offerings', href: '#offerings' },
   metrics: [
-    { value: '285+', label: 'Acres of land', icon: 'trees' },
-    { value: '1,100+', label: 'Units', icon: 'building' },
+    { value: '260+', label: 'Acres of land', icon: 'trees' },
+    { value: '1,450+', label: 'Units', icon: 'building' },
     { value: '150', label: '3 & 4 BHK ready', icon: 'home' },
     { value: '80+', label: 'Amenities', icon: 'sparkles' },
   ],

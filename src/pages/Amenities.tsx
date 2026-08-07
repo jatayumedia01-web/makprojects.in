@@ -25,14 +25,14 @@ import {
   SectionHead,
   SoftScene,
 } from '../components/project/ProjectChrome'
-import { nearby } from '../data/content'
+import ClubhouseShowcase from '../components/project/ClubhouseShowcase'
+import { nearby, btrClubhouse } from '../data/content'
 
 /**
  * Amenities — advanced lifestyle page (Serenity-parity card UI)
  */
 
-const HERO =
-  'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=2200&q=80'
+const HERO = btrClubhouse.poster
 
 type Category = 'all' | 'club' | 'sports' | 'security' | 'infra'
 
@@ -276,6 +276,8 @@ export default function Amenities() {
           </div>
         </div>
       </section>
+
+      <ClubhouseShowcase id="amenities-clubhouse" />
 
       {/* Highlights */}
       <section className="relative overflow-hidden pb-4 md:pb-6">

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
 import { CardShell, SoftScene } from '../components/project/ProjectChrome'
+import ClubhouseShowcase from '../components/project/ClubhouseShowcase'
 import { btrTownship } from '../data/content'
 import { townshipPage } from '../data/projectPages'
 
@@ -32,6 +33,7 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const chapters = [
   { id: 'btr-township', label: 'Township' },
   { id: 'township-amenities', label: 'Amenities' },
+  { id: 'township-clubhouse', label: 'Club' },
   { id: 'offerings', label: 'Offerings' },
   { id: 'township-map', label: 'Map' },
 ] as const
@@ -108,7 +110,7 @@ export default function Township() {
           >
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/15 px-4 py-1.5 text-[11px] font-semibold tracking-[0.2em] text-gold-soft uppercase backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              285+ Acres of Land
+              260+ Acres of Land
             </p>
             <p className="text-[11px] font-medium tracking-[0.28em] text-gold-soft/80 uppercase">
               Completed · South Hyderabad
@@ -118,7 +120,7 @@ export default function Township() {
               <span className="mt-1 block text-gold-soft">Township</span>
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
-              Telangana’s pioneer integrated luxury township across 285+ acres
+              Telangana’s pioneer integrated luxury township across 260+ acres
               of land.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -455,6 +457,8 @@ export default function Township() {
         </div>
       </section>
 
+      <ClubhouseShowcase id="township-clubhouse" />
+
       {/* Offerings */}
       <section
         id="offerings"
@@ -556,7 +560,7 @@ export default function Township() {
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-cream/65">
                     26th Milestone on Srisailam Highway — Thummalur, Maheswaram.
-                    1,100+ units with public transport connectivity.
+                    1,450+ units with public transport connectivity.
                   </p>
                   <ul className="mt-5 space-y-2.5 text-sm text-cream/70">
                     {btrTownship.connectivity

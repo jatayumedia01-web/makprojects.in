@@ -25,9 +25,9 @@ export const btrTownship = {
   location: 'South Hyderabad · 26th Milestone, Srisailam Highway',
   status: 'Completed',
   summary: [
-    'We delivered MAK — BTR Township, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 285+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
-    'Today, it stands as a vibrant community home to over 650+ families. The township features wide 30, 40, and 50-foot internal roads, offering smooth connectivity across 333 luxury villas, 150 3 & 4 BHK apartment units with a clubhouse, and exclusive villa plots.',
-    'The entire community spreads over 1,100+ units in MAK — BTR Township, with easy access to public transport facilities.',
+    'We delivered MAK — BTR Township, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 260+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
+    'Today, it stands as a vibrant community home to over 650+ families. The township features wide 40, 50, and 60-feet internal roads, offering smooth connectivity across 333 luxury villas, 150 3 & 4 BHK apartment units with a clubhouse, and exclusive villa plots.',
+    'The entire community spreads over 1,450+ units in MAK — BTR Township, with easy access to public transport facilities.',
   ],
   connectivity: [
     'ORR Exit 14',
@@ -38,9 +38,9 @@ export const btrTownship = {
     '& more',
   ],
   stats: [
-    { value: '285+', label: 'Acres of land' },
+    { value: '260+', label: 'Acres of land' },
     { value: '650+', label: 'Families living here' },
-    { value: '1,100+', label: 'Units across township' },
+    { value: '1,450+', label: 'Units across township' },
     { value: '150', label: '3 & 4 BHK · Ready to move in' },
     { value: '80+', label: 'World-class amenities' },
   ],
@@ -66,7 +66,7 @@ export const btrTownship = {
     {
       id: 'roads',
       label: 'Internal roads',
-      value: '30 / 40 / 50',
+      value: '40 / 50 / 60',
       detail: 'Wide road connectivity',
     },
   ],
@@ -76,7 +76,7 @@ export const btrTownship = {
       title: 'Community & Layout',
       items: [
         'Vibrant neighborhood of 650+ families',
-        'Wide 30 / 40 / 50 ft internal roads',
+        'Wide 40 / 50 / 60 ft internal roads',
         'Triangle Park & children’s parks',
         'Scenic tree-lined vistas',
       ],
@@ -115,12 +115,33 @@ export const btrTownship = {
   ],
 } as const
 
+/** BTR Township — MAK — BTR Club showcase */
+export const btrClubhouse = {
+  eyebrow: 'Lifestyle · MAK — BTR Township',
+  title: 'MAK — BTR Club',
+  subtitle: 'The signature clubhouse for wellness, leisure, and community living.',
+  body: 'MAK — BTR Club is the heart of leisure at MAK — BTR Township — resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
+  video: '/media/clubhouse/club-house.mp4',
+  poster: '/media/clubhouse/btr-club.jpg',
+  videoCaption: 'Walkthrough of MAK — BTR Club — pool, elevation, and lifestyle spaces.',
+  highlights: [
+    'Swimming Pool',
+    'Fully-equipped Gym',
+    'Yoga Room',
+    'Multipurpose Hall',
+    'Library',
+    'Indoor Games',
+    'Spa & Mini Theatre',
+    'Landscaped Lounges',
+  ],
+} as const
+
 export const projects = [
   {
     slug: 'township',
     title: 'MAK – BTR Township',
     subtitle: 'Serenity · Gardenia · Villas · Canadian Wood',
-    size: '285+ acres · 1,100+ units · 80+ amenities',
+    size: '260+ acres · 1,450+ units · 80+ amenities',
     status: 'Completed',
     possession: 'INTEGRATED TOWNSHIP',
     location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
@@ -379,7 +400,7 @@ export const serenityFaqs: FaqItem[] = [
   },
   {
     q: 'What is the process for obtaining club house membership?',
-    a: 'We will provide the necessary forms, details regarding membership fees, and privileges associated with BTR Serenity Club membership. Additionally, if you wish to utilize the features of the BTR Club & Pavilion, a one-time subscription grants lifetime access.',
+    a: 'We will provide the necessary forms, details regarding membership fees, and privileges associated with MAK — BTR Club membership. A one-time subscription grants lifetime access to club amenities.',
   },
   {
     q: 'What is the “corpus fund”, and how is it calculated in BTR Serenity?',
@@ -413,7 +434,7 @@ export const plotFaqs = [
 export const villaFaqs = [
   {
     q: 'How many villas and what area?',
-    a: '333 luxury villas within MAK — BTR Township’s 285+ acres of land in Hyderabad’s Knowledge City.',
+    a: '333 luxury villas within MAK — BTR Township’s 260+ acres of land in Hyderabad’s Knowledge City.',
   },
   {
     q: 'Who designed the project?',
