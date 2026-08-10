@@ -136,6 +136,112 @@ export const btrClubhouse = {
   ],
 } as const
 
+/** BTR Township — amenities image gallery (drop images in public/media/township-amenities/) */
+export const btrAmenitiesGallery = {
+  eyebrow: 'Visual Tour · MAK — BTR Township',
+  title: 'Amenities & Lifestyle Gallery',
+  subtitle:
+    'Cricket, golf, club, wide roads, parks, and everyday leisure — explore life across the township.',
+  categories: [
+    { id: 'all', label: 'All' },
+    { id: 'golf', label: 'Golf' },
+    { id: 'sports', label: 'Sports' },
+    { id: 'club', label: 'Club & Pool' },
+    { id: 'roads', label: 'Roads' },
+    { id: 'parks', label: 'Parks & Greens' },
+    { id: 'lifestyle', label: 'Lifestyle' },
+  ],
+  items: [
+    {
+      id: 'golf-course',
+      category: 'golf',
+      title: '10-Hole Golf Course',
+      caption: '14+ acres of golf within the township',
+      image: '/media/township-amenities/golf-course.jpg',
+      featured: true,
+    },
+    {
+      id: 'cricket-ground',
+      category: 'sports',
+      title: 'Cricket Ground',
+      caption: 'Community sports on open greens',
+      image: '/media/township-amenities/cricket-ground.jpg',
+      featured: true,
+    },
+    {
+      id: 'basketball-court',
+      category: 'sports',
+      title: 'Basketball Court',
+      caption: 'Outdoor courts with cricket nets nearby',
+      image: '/media/township-amenities/basketball-court.jpg',
+    },
+    {
+      id: 'club-exterior',
+      category: 'club',
+      title: 'MAK — BTR Club',
+      caption: 'Grand clubhouse elevation',
+      image: '/media/clubhouse/btr-club.jpg',
+      featured: true,
+    },
+    {
+      id: 'clubhouse-pool',
+      category: 'club',
+      title: 'Clubhouse & Pool Deck',
+      caption: 'Resort-style pool with landscaped deck',
+      image: '/media/township-amenities/clubhouse-pool-deck.jpg',
+    },
+    {
+      id: 'internal-roads',
+      category: 'roads',
+      title: 'Internal Roads',
+      caption: 'Wide 40 / 50 / 60 ft connectivity',
+      image: '/media/township-amenities/internal-roads.jpg',
+    },
+    {
+      id: 'parks-playground',
+      category: 'parks',
+      title: 'Parks & Playground',
+      caption: 'Children’s play areas, gazebo & open lawns',
+      image: '/media/township-amenities/parks-playground.jpg',
+    },
+    {
+      id: 'indoor-badminton',
+      category: 'lifestyle',
+      title: 'Indoor Badminton Courts',
+      caption: 'Air-conditioned indoor sports hall',
+      image: '/media/township-amenities/indoor-badminton-courts.jpg',
+    },
+    {
+      id: 'morning-walk',
+      category: 'lifestyle',
+      title: 'Tree-Lined Morning Walk',
+      caption: 'Misty dawn along internal roads & greens',
+      image: '/media/township-amenities/tree-lined-morning-walk.jpg',
+    },
+    {
+      id: 'landscaped-roads',
+      category: 'parks',
+      title: 'Landscaped Internal Roads',
+      caption: 'Palm trees, hedges & flowering greens',
+      image: '/media/township-amenities/landscaped-internal-roads.jpg',
+    },
+    {
+      id: 'btr-greens-entrance',
+      category: 'roads',
+      title: 'BTR Greens Entrance',
+      caption: 'MAK Projects — master-planned township gateway',
+      image: '/media/township-amenities/btr-greens-entrance.jpg',
+      featured: true,
+    },
+  ],
+} as const
+
+export type BtrAmenityGalleryCategory =
+  (typeof btrAmenitiesGallery.categories)[number]['id']
+
+export type BtrAmenityGalleryItem =
+  (typeof btrAmenitiesGallery.items)[number]
+
 export const projects = [
   {
     slug: 'township',

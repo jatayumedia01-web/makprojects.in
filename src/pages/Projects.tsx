@@ -18,6 +18,7 @@ import { FadeIn } from '../components/Motion'
 import ProjectBrandSlider from '../components/ProjectBrandSlider'
 import { CardShell, SoftScene } from '../components/project/ProjectChrome'
 import ClubhouseShowcase from '../components/project/ClubhouseShowcase'
+import TownshipAmenitiesGallery from '../components/project/TownshipAmenitiesGallery'
 import { btrTownship, projects } from '../data/content'
 
 /**
@@ -49,6 +50,7 @@ const chapters = [
   { id: 'township-amenities', label: 'Amenities' },
   { id: 'township-clubhouse', label: 'Club' },
   { id: 'explore-projects', label: 'Projects' },
+  { id: 'township-gallery', label: 'Gallery' },
   { id: 'projects-map', label: 'Map' },
 ] as const
 
@@ -669,6 +671,8 @@ export default function Projects() {
           )}
         </div>
       </section>
+
+      <TownshipAmenitiesGallery id="township-gallery" />
 
       {/* Map — township location */}
       <section
