@@ -1,12 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import {
   ArrowDown,
   ArrowUpRight,
@@ -22,7 +16,6 @@ import {
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
 import { ScrollSection } from '../components/ScrollSection'
-import { ScrollSpyRail } from '../components/ScrollSpyRail'
 import ProjectBrandSlider from '../components/ProjectBrandSlider'
 import { CardShell, SoftScene } from '../components/project/ProjectChrome'
 import BtrClubShowcase from '../components/project/BtrClubShowcase'
@@ -84,13 +77,6 @@ export default function Projects() {
     'btr-township',
   )
   const reduce = useReducedMotion()
-  const heroRef = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  })
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '32%'])
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.25])
 
   const list = useMemo(() => {
     if (filter === 'all') return projects
@@ -124,26 +110,19 @@ export default function Projects() {
   return (
     <>
       {/* Hero — clean, no heavy stats strip */}
-      <section
-        ref={heroRef}
-        className="relative h-[78vh] min-h-[520px] overflow-hidden bg-ink md:h-[85vh]"
-      >
+      <section className="relative h-[78vh] min-h-[520px] overflow-hidden bg-ink md:h-[85vh]">
         <motion.img
-          initial={reduce ? false : { scale: 1.12 }}
-          animate={{ scale: 1.08 }}
-          style={reduce ? undefined : { y: heroY }}
+          initial={reduce ? false : { scale: 1.1 }}
+          animate={{ scale: 1 }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO_IMAGE}
           alt="MAK — BTR Township"
-          className="absolute inset-0 h-[115%] w-full object-cover will-change-transform"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/25 to-transparent" />
 
-        <motion.div
-          style={reduce ? undefined : { opacity: heroOpacity }}
-          className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20"
-        >
+        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -180,7 +159,7 @@ export default function Projects() {
               </a>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         <a
           href="#btr-township"
@@ -219,8 +198,6 @@ export default function Projects() {
           })}
         </div>
       </nav>
-
-      <ScrollSpyRail items={chapters} activeId={active} />
 
       {/* Township — professional editorial */}
       <ScrollSection

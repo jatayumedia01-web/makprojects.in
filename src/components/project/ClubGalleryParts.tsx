@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, X } from 'lucide-react'
-import { usePhotoTilt } from '../../hooks/usePhotoTilt'
 import { REVEAL_EASE, staggerItem } from '../Motion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -27,7 +26,6 @@ export function ClubPhotoTile({
   onOpen: (item: ClubGalleryItem, index: number) => void
 }) {
   const [loaded, setLoaded] = useState(false)
-  const tilt = usePhotoTilt(6)
   const border =
     theme === 'dark' ? 'border-white/10' : 'border-ink/10'
 
@@ -37,37 +35,30 @@ export function ClubPhotoTile({
       variants={staggerItem}
       onClick={() => onOpen(item, index)}
       className={`group relative block h-full w-full overflow-hidden rounded-2xl border ${border} bg-ink text-left shadow-lg transition-shadow hover:shadow-xl ${className}`}
+      whileHover={{ scale: 1.015 }}
       whileTap={{ scale: 0.99 }}
       transition={{ duration: 0.35, ease: REVEAL_EASE }}
     >
-      <div
-        ref={tilt.ref}
-        style={tilt.style}
-        onMouseMove={tilt.onMove}
-        onMouseLeave={tilt.onLeave}
-        className="absolute inset-0"
-      >
-        <img
-          src={item.image}
-          alt={item.title}
-          loading="lazy"
-          onLoad={() => setLoaded(true)}
-          className={`absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.04] ${
-            loaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-        {!loaded ? (
-          <div className="absolute inset-0 animate-pulse bg-mist" />
-        ) : null}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-ink/5" />
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-          <p className="text-sm font-bold tracking-tight text-white sm:text-base">
-            {item.title}
-          </p>
-          <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-white/80">
-            {item.caption}
-          </p>
-        </div>
+      <img
+        src={item.image}
+        alt={item.title}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      {!loaded ? (
+        <div className="absolute inset-0 animate-pulse bg-mist" />
+      ) : null}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-ink/5" />
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+        <p className="text-sm font-bold tracking-tight text-white sm:text-base">
+          {item.title}
+        </p>
+        <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-white/80">
+          {item.caption}
+        </p>
       </div>
     </motion.button>
   )

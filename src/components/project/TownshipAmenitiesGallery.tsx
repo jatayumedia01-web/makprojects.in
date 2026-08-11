@@ -11,7 +11,6 @@ import {
   X,
   type LucideIcon,
 } from 'lucide-react'
-import { usePhotoTilt } from '../../hooks/usePhotoTilt'
 import { FadeIn, ScrollLine, StaggerReveal, staggerItem } from '../Motion'
 import { CardShell, SoftScene } from './ProjectChrome'
 import {
@@ -45,7 +44,6 @@ function GalleryTile({
 }) {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
-  const tilt = usePhotoTilt(5)
   const Icon = categoryIcons[item.category]
 
   const showPlaceholder = failed || !item.image
@@ -58,17 +56,12 @@ function GalleryTile({
       className={`group relative w-full overflow-hidden text-left ${
         large ? 'aspect-[16/10] sm:aspect-[2/1]' : 'aspect-[4/3]'
       } ${showPlaceholder ? 'cursor-default' : 'cursor-zoom-in'}`}
+      whileHover={showPlaceholder ? undefined : { scale: 1.02, y: -4 }}
       whileTap={showPlaceholder ? undefined : { scale: 0.99 }}
       transition={{ duration: 0.35, ease: EASE }}
     >
       <CardShell className="h-full">
-        <div
-          ref={showPlaceholder ? undefined : tilt.ref}
-          style={showPlaceholder ? undefined : tilt.style}
-          onMouseMove={showPlaceholder ? undefined : tilt.onMove}
-          onMouseLeave={showPlaceholder ? undefined : tilt.onLeave}
-          className="relative h-full w-full overflow-hidden"
-        >
+        <div className="relative h-full w-full overflow-hidden">
           {showPlaceholder ? (
             <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-[#eef4f0] via-cream to-[#e8ddd4] px-6 text-center">
               <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
