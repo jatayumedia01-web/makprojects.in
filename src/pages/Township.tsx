@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import {
   ArrowDown,
   ArrowUpRight,
@@ -15,8 +15,11 @@ import {
   Waves,
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
+import { ScrollSection } from '../components/ScrollSection'
+import { ScrollSpyRail } from '../components/ScrollSpyRail'
 import { CardShell, SoftScene } from '../components/project/ProjectChrome'
-import ClubhouseShowcase from '../components/project/ClubhouseShowcase'
+import BtrClubShowcase from '../components/project/BtrClubShowcase'
+import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
 import TownshipAmenitiesGallery from '../components/project/TownshipAmenitiesGallery'
 import { btrTownship } from '../data/content'
 import { townshipPage } from '../data/projectPages'
@@ -35,6 +38,7 @@ const chapters = [
   { id: 'btr-township', label: 'Township' },
   { id: 'township-amenities', label: 'Amenities' },
   { id: 'township-clubhouse', label: 'Club' },
+  { id: 'township-pavilion', label: 'Club Pavilion' },
   { id: 'offerings', label: 'Offerings' },
   { id: 'township-gallery', label: 'Gallery' },
   { id: 'township-map', label: 'Map' },
@@ -65,6 +69,13 @@ export default function Township() {
     'btr-township',
   )
   const reduce = useReducedMotion()
+  const heroRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '32%'])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.25])
 
   useEffect(() => {
     const nodes = chapters
@@ -91,19 +102,26 @@ export default function Township() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[78vh] min-h-[520px] overflow-hidden bg-ink md:h-[85vh]">
+      <section
+        ref={heroRef}
+        className="relative h-[78vh] min-h-[520px] overflow-hidden bg-ink md:h-[85vh]"
+      >
         <motion.img
-          initial={reduce ? false : { scale: 1.1 }}
-          animate={{ scale: 1 }}
+          initial={reduce ? false : { scale: 1.12 }}
+          animate={{ scale: 1.08 }}
+          style={reduce ? undefined : { y: heroY }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO_IMAGE}
           alt="MAK — BTR Township"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-[115%] w-full object-cover will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/25 to-transparent" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20">
+        <motion.div
+          style={reduce ? undefined : { opacity: heroOpacity }}
+          className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20"
+        >
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +158,7 @@ export default function Township() {
               </a>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
         <a
           href="#btr-township"
@@ -180,9 +198,13 @@ export default function Township() {
         </div>
       </nav>
 
+      <ScrollSpyRail items={chapters} activeId={active} />
+
       {/* Master development */}
-      <section
+      <ScrollSection
         id="btr-township"
+        index={0}
+        bridge={false}
         className="relative scroll-mt-36 overflow-hidden py-16 md:py-24"
       >
         <SoftScene />
@@ -386,11 +408,12 @@ export default function Township() {
             </div>
           </FadeIn>
         </div>
-      </section>
+      </ScrollSection>
 
       {/* Amenities */}
-      <section
+      <ScrollSection
         id="township-amenities"
+        index={1}
         className="relative scroll-mt-36 overflow-hidden bg-white py-16 md:py-24"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-cream to-transparent" />
@@ -457,13 +480,20 @@ export default function Township() {
             })}
           </div>
         </div>
-      </section>
+      </ScrollSection>
 
-      <ClubhouseShowcase id="township-clubhouse" />
+      <ScrollSection index={2} as="div" bridgeDark>
+        <BtrClubShowcase id="township-clubhouse" />
+      </ScrollSection>
+
+      <ScrollSection index={3} as="div">
+        <ClubPavilionShowcase id="township-pavilion" />
+      </ScrollSection>
 
       {/* Offerings */}
-      <section
+      <ScrollSection
         id="offerings"
+        index={4}
         className="relative scroll-mt-36 overflow-hidden py-16 md:py-24"
       >
         <SoftScene />
@@ -521,13 +551,17 @@ export default function Township() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollSection>
 
-      <TownshipAmenitiesGallery id="township-gallery" />
+      <ScrollSection index={5} as="div">
+        <TownshipAmenitiesGallery id="township-gallery" />
+      </ScrollSection>
 
       {/* Map */}
-      <section
+      <ScrollSection
         id="township-map"
+        index={6}
+        bridgeDark
         className="relative scroll-mt-36 overflow-hidden bg-ink py-14 md:py-16"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.12),_transparent_60%)]" />
@@ -587,7 +621,7 @@ export default function Township() {
             </FadeIn>
           </div>
         </div>
-      </section>
+      </ScrollSection>
     </>
   )
 }

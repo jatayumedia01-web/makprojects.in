@@ -122,7 +122,7 @@ export const btrClubhouse = {
   subtitle: 'The signature clubhouse for wellness, leisure, and community living.',
   body: 'MAK — BTR Club is the heart of leisure at MAK — BTR Township — resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
   video: '/media/clubhouse/club-house.mp4',
-  poster: '/media/clubhouse/btr-club.jpg',
+  poster: '/media/clubhouse/btr-club-exterior-pool.jpg',
   videoCaption: 'Walkthrough of MAK — BTR Club — pool, elevation, and lifestyle spaces.',
   highlights: [
     'Swimming Pool',
@@ -134,7 +134,84 @@ export const btrClubhouse = {
     'Spa & Mini Theatre',
     'Landscaped Lounges',
   ],
+  images: [
+    {
+      id: 'exterior-pool',
+      title: 'Club Exterior & Pool',
+      caption: 'Resort-style pool with grand clubhouse elevation',
+      image: '/media/clubhouse/btr-club-exterior-pool.jpg',
+      featured: true,
+    },
+    {
+      id: 'pool-deck',
+      title: 'Pool Deck & Cabanas',
+      caption: 'Landscaped pool with shaded lounge pavilions',
+      image: '/media/clubhouse/btr-club-pool-deck.jpg',
+    },
+    {
+      id: 'entrance-dusk',
+      title: 'Club Entrance',
+      caption: 'Illuminated porte-cochère at dusk',
+      image: '/media/clubhouse/btr-club-entrance-dusk.jpg',
+    },
+    {
+      id: 'gym',
+      title: 'Fitness Centre',
+      caption: 'Fully-equipped gym with cardio & strength zones',
+      image: '/media/clubhouse/btr-club-gym.jpg',
+    },
+    {
+      id: 'lounge',
+      title: 'Landscaped Lounge',
+      caption: 'Open-air lounge with garden views',
+      image: '/media/clubhouse/btr-club-lounge.jpg',
+    },
+  ],
 } as const
+
+export type BtrClubhouseImage = (typeof btrClubhouse.images)[number]
+
+/** BTR Township — Club Pavilion (second clubhouse) */
+export const btrClubPavilion = {
+  eyebrow: 'Second Clubhouse · MAK — BTR Township',
+  title: 'Club Pavilion',
+  subtitle:
+    'A refined community pavilion with grand reception, glass atrium entrance, and landscaped forecourt.',
+  body:
+    'Club Pavilion complements the signature MAK — BTR Club — offering an elegant venue for community gatherings, wellness programmes, and everyday leisure. The pavilion features a welcoming reception lounge, a marble-lined grand entrance, and a contemporary elevation framed by manicured greens.',
+  highlights: [
+    'Grand Reception Lounge',
+    'Glass Atrium Entrance',
+    'Multipurpose Community Halls',
+    'Landscaped Forecourt',
+    'Premium Interior Finishes',
+    'Event-Ready Spaces',
+  ],
+  images: [
+    {
+      id: 'exterior',
+      title: 'Pavilion Exterior',
+      caption: 'Contemporary elevation with landscaped forecourt',
+      image: '/media/club-pavilion/club-pavilion-exterior.jpg',
+      featured: true,
+    },
+    {
+      id: 'grand-entrance',
+      title: 'Grand Entrance',
+      caption: 'Marble-lined atrium with floor-to-ceiling glass',
+      image: '/media/club-pavilion/club-pavilion-grand-entrance.jpg',
+    },
+    {
+      id: 'reception-lobby',
+      title: 'Reception & Lounge',
+      caption: 'Wood-slatted lobby with reception and lounge seating',
+      image: '/media/club-pavilion/club-pavilion-reception-lobby.jpg',
+    },
+  ],
+} as const
+
+export type BtrClubPavilionImage =
+  (typeof btrClubPavilion.images)[number]
 
 /** BTR Township — amenities image gallery (drop images in public/media/township-amenities/) */
 export const btrAmenitiesGallery = {

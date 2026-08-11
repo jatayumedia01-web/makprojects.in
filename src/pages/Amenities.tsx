@@ -25,8 +25,9 @@ import {
   SectionHead,
   SoftScene,
 } from '../components/project/ProjectChrome'
-import ClubhouseShowcase from '../components/project/ClubhouseShowcase'
-import { nearby, btrClubhouse } from '../data/content'
+import BtrClubShowcase from '../components/project/BtrClubShowcase'
+import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
+import { nearby, btrClubhouse, btrClubPavilion } from '../data/content'
 
 /**
  * Amenities — advanced lifestyle page (Serenity-parity card UI)
@@ -154,8 +155,7 @@ const highlights = [
   {
     title: 'Club & Leisure',
     body: 'Dual clubhouses, pool, yoga and social spaces designed for everyday joy.',
-    image:
-      'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80',
+    image: btrClubPavilion.images[0].image,
     icon: Building2,
   },
   {
@@ -277,7 +277,9 @@ export default function Amenities() {
         </div>
       </section>
 
-      <ClubhouseShowcase id="amenities-clubhouse" />
+      <BtrClubShowcase id="amenities-clubhouse" />
+
+      <ClubPavilionShowcase id="amenities-pavilion" />
 
       {/* Highlights */}
       <section className="relative overflow-hidden pb-4 md:pb-6">

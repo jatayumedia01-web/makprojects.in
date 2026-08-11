@@ -11,7 +11,8 @@ import {
   X,
   type LucideIcon,
 } from 'lucide-react'
-import { FadeIn } from '../Motion'
+import { usePhotoTilt } from '../../hooks/usePhotoTilt'
+import { FadeIn, ScrollLine, StaggerReveal, staggerItem } from '../Motion'
 import { CardShell, SoftScene } from './ProjectChrome'
 import {
   btrAmenitiesGallery,
@@ -44,20 +45,30 @@ function GalleryTile({
 }) {
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+  const tilt = usePhotoTilt(5)
   const Icon = categoryIcons[item.category]
 
   const showPlaceholder = failed || !item.image
 
   return (
-    <button
+    <motion.button
       type="button"
+      variants={staggerItem}
       onClick={() => !showPlaceholder && onOpen(item)}
       className={`group relative w-full overflow-hidden text-left ${
         large ? 'aspect-[16/10] sm:aspect-[2/1]' : 'aspect-[4/3]'
       } ${showPlaceholder ? 'cursor-default' : 'cursor-zoom-in'}`}
+      whileTap={showPlaceholder ? undefined : { scale: 0.99 }}
+      transition={{ duration: 0.35, ease: EASE }}
     >
       <CardShell className="h-full">
-        <div className="relative h-full w-full overflow-hidden">
+        <div
+          ref={showPlaceholder ? undefined : tilt.ref}
+          style={showPlaceholder ? undefined : tilt.style}
+          onMouseMove={showPlaceholder ? undefined : tilt.onMove}
+          onMouseLeave={showPlaceholder ? undefined : tilt.onLeave}
+          className="relative h-full w-full overflow-hidden"
+        >
           {showPlaceholder ? (
             <div className="flex h-full flex-col items-center justify-center bg-gradient-to-br from-[#eef4f0] via-cream to-[#e8ddd4] px-6 text-center">
               <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
@@ -104,7 +115,7 @@ function GalleryTile({
           )}
         </div>
       </CardShell>
-    </button>
+    </motion.button>
   )
 }
 
@@ -135,16 +146,22 @@ export default function TownshipAmenitiesGallery({
         <div className="relative mx-auto max-w-7xl px-6">
           <FadeIn>
             <div className="mb-8 text-center md:mb-10">
-              <p className="text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
-                {btrAmenitiesGallery.eyebrow}
-              </p>
-              <h2 className="mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)] font-bold tracking-[0.06em] text-ink uppercase">
-                {btrAmenitiesGallery.title}
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4a5560]">
-                {btrAmenitiesGallery.subtitle}
-              </p>
-              <div className="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+              <FadeIn delay={0.05}>
+                <p className="text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
+                  {btrAmenitiesGallery.eyebrow}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.12} distance={32}>
+                <h2 className="mt-3 text-[clamp(1.55rem,3.2vw,2.45rem)] font-bold tracking-[0.06em] text-ink uppercase">
+                  {btrAmenitiesGallery.title}
+                </h2>
+              </FadeIn>
+              <FadeIn delay={0.18}>
+                <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4a5560]">
+                  {btrAmenitiesGallery.subtitle}
+                </p>
+              </FadeIn>
+              <ScrollLine className="mt-5" />
             </div>
           </FadeIn>
 
@@ -180,27 +197,27 @@ export default function TownshipAmenitiesGallery({
               className="space-y-4"
             >
               {featured.length > 0 ? (
-                <div className="grid gap-4 md:grid-cols-2">
-                  {featured.map((item, i) => (
-                    <FadeIn key={item.id} delay={i * 0.05}>
-                      <GalleryTile
-                        item={item}
-                        large
-                        onOpen={setLightbox}
-                      />
-                    </FadeIn>
+                <StaggerReveal className="grid gap-4 md:grid-cols-2" stagger={0.1}>
+                  {featured.map((item) => (
+                    <GalleryTile
+                      key={item.id}
+                      item={item}
+                      large
+                      onOpen={setLightbox}
+                    />
                   ))}
-                </div>
+                </StaggerReveal>
               ) : null}
 
               {rest.length > 0 ? (
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {rest.map((item, i) => (
-                    <FadeIn key={item.id} delay={0.08 + i * 0.04}>
-                      <GalleryTile item={item} onOpen={setLightbox} />
-                    </FadeIn>
+                <StaggerReveal
+                  className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                  stagger={0.08}
+                >
+                  {rest.map((item) => (
+                    <GalleryTile key={item.id} item={item} onOpen={setLightbox} />
                   ))}
-                </div>
+                </StaggerReveal>
               ) : null}
             </motion.div>
           </AnimatePresence>

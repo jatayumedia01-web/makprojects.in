@@ -3,6 +3,7 @@ import { Phone } from 'lucide-react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import FloatingCTAs from './FloatingCTAs'
+import { ScrollProgress } from './Motion'
 import { contact } from '../data/content'
 
 const PROJECT_PATHS = [
@@ -26,6 +27,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-cream">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Outlet />
