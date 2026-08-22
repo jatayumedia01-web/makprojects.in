@@ -21,7 +21,7 @@ export default function WelcomeSection() {
       <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-40 w-[70%] -translate-x-1/2 rounded-full bg-sage/5 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-0 pt-8 md:pt-10">
+      <div className="relative site-container px-5 pb-0 pt-8 md:pt-10">
         <FadeIn>
           <h2 className="text-center text-[clamp(1.35rem,3vw,2.25rem)] font-bold tracking-[0.06em] text-ink uppercase">
             Welcome to MAK Projects

@@ -52,10 +52,11 @@ export default function BtrClubShowcase({
         id={id}
         className="relative scroll-mt-36 overflow-hidden bg-ink py-16 md:py-24"
       >
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#f0e9df]/20 to-transparent" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,_rgba(212,175,55,0.14),_transparent_55%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_100%,_rgba(12,36,28,0.8),_transparent_50%)]" />
 
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <div className="mb-8 text-center md:mb-10">
               <FadeIn delay={0.05}>

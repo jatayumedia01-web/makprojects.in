@@ -50,7 +50,7 @@ export default function OngoingProjectsSection() {
       data-section="OngoingProjectsSection"
       className="relative overflow-hidden bg-white"
     >
-      <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-10 md:pb-16 md:pt-12">
+      <div className="relative site-container px-5 pb-12 pt-10 md:pb-16 md:pt-12">
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
             <p className="mb-2 text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
@@ -81,13 +81,13 @@ export default function OngoingProjectsSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/15 to-transparent" />
 
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-ink uppercase shadow-sm backdrop-blur">
+                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold tracking-[0.14em] text-ink uppercase shadow-sm backdrop-blur">
                       {card.category}
                     </span>
                     <span className="absolute right-4 top-4 text-2xl font-bold text-white/25">
                       {card.n}
                     </span>
-                    <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
+                    <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
                       {card.status}
                     </span>
                   </div>
@@ -102,7 +102,7 @@ export default function OngoingProjectsSection() {
 
                     <div className="my-3 h-px w-14 bg-gradient-to-r from-gold to-transparent" />
 
-                    <p className="flex-1 text-justify text-[13px] leading-[1.7] text-[#4a5560] sm:text-[14px]">
+                    <p className="flex-1 text-justify text-[15px] leading-[1.7] text-[#4a5560] sm:text-[14px]">
                       {card.body}
                     </p>
 

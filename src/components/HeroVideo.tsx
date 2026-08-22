@@ -61,7 +61,7 @@ export default function HeroVideo() {
       <div className="hero-cinematic pointer-events-none absolute inset-0" />
       <div className="gold-shimmer pointer-events-none absolute inset-0 opacity-40 mix-blend-soft-light" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20">
+      <div className="relative z-10 site-container-hero flex h-full flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20">
         <div className="grid items-end gap-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <motion.div
@@ -139,7 +139,7 @@ export default function HeroVideo() {
             className="hidden lg:col-span-4 lg:block"
           >
             <div className="ml-auto max-w-xs rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
-              <p className="text-[10px] tracking-[0.25em] text-gold-soft uppercase">
+              <p className="text-[11px] tracking-[0.25em] text-gold-soft uppercase">
                 Featured
               </p>
               <p className="mt-2 text-lg font-semibold text-white">
@@ -186,7 +186,7 @@ export default function HeroVideo() {
         className="scroll-cue absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-1 text-white/50 sm:flex"
         aria-label="Scroll down"
       >
-        <span className="text-[9px] tracking-[0.3em] uppercase">Scroll</span>
+        <span className="text-[11px] tracking-[0.3em] uppercase">Scroll</span>
         <ChevronDown className="h-4 w-4" />
       </a>
     </section>

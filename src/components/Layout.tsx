@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import FloatingCTAs from './FloatingCTAs'
 import { ScrollProgress } from './Motion'
+import ScrollToHash from './ScrollToHash'
 import { contact } from '../data/content'
 
 const PROJECT_PATHS = [
@@ -18,6 +19,7 @@ const PROJECT_PATHS = [
   '/amenities',
   '/management',
   '/about',
+  '/contact',
 ]
 
 export default function Layout() {
@@ -28,6 +30,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-cream">
       <ScrollProgress />
+      <ScrollToHash />
       <Navbar />
       <main>
         <Outlet />

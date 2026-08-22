@@ -38,7 +38,7 @@ export default function ClubhouseShowcase({ id = 'township-clubhouse' }: { id?: 
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,_rgba(212,175,55,0.14),_transparent_55%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_100%,_rgba(12,36,28,0.8),_transparent_50%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative site-container px-5">
         <FadeIn>
           <div className="mb-8 text-center md:mb-10">
             <p className="text-[11px] font-semibold tracking-[0.32em] text-gold uppercase">
@@ -84,7 +84,7 @@ export default function ClubhouseShowcase({ id = 'township-clubhouse' }: { id?: 
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/5" />
               <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-7 md:p-8">
                 <div className="pointer-events-none text-left">
-                  <span className="inline-flex rounded-full bg-gold px-4 py-1.5 text-[10px] font-bold tracking-[0.14em] text-ink uppercase">
+                  <span className="inline-flex rounded-full bg-gold px-4 py-1.5 text-[11px] font-bold tracking-[0.14em] text-ink uppercase">
                     MAK — BTR Club
                   </span>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-[15px]">

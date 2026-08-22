@@ -65,7 +65,7 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
                 key={`badge-${current.slug}`}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex rounded-full bg-gold px-2.5 py-1 text-[9px] font-bold tracking-[0.14em] text-ink uppercase"
+                className="inline-flex rounded-full bg-gold px-2.5 py-1 text-[11px] font-bold tracking-[0.14em] text-ink uppercase"
               >
                 {current.status}
               </motion.span>
@@ -104,7 +104,7 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
           <div className="flex flex-col bg-white/97 p-3 backdrop-blur-xl">
             <div className="mb-2 flex items-center justify-between px-3 pt-2">
               <div>
-                <p className="text-[10px] font-semibold tracking-[0.28em] text-sage uppercase">
+                <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
                   Portfolio
                 </p>
                 <p className="text-sm font-semibold text-ink">Choose a project</p>
@@ -174,7 +174,7 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
             </div>
 
             <div className="mt-2 rounded-2xl bg-gradient-to-r from-forest to-moss px-4 py-3 text-cream">
-              <p className="text-[10px] tracking-[0.2em] text-gold-soft uppercase">
+              <p className="text-[11px] tracking-[0.2em] text-gold-soft uppercase">
                 Need help choosing?
               </p>
               <a
@@ -203,7 +203,7 @@ export function ContactDropdown({ floating }: { floating: boolean }) {
       {(close) => (
         <div className="bg-white/97 p-3 backdrop-blur-xl">
           <div className="mb-2 px-3 pt-2">
-            <p className="text-[10px] font-semibold tracking-[0.28em] text-sage uppercase">
+            <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
               Company
             </p>
             <p className="text-sm font-semibold text-ink">Connect with MAK</p>

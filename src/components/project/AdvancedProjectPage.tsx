@@ -47,7 +47,7 @@ export default function AdvancedProjectPage({
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-transparent to-transparent" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20">
+        <div className="relative z-10 site-container-hero flex h-full flex-col justify-end px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ export default function AdvancedProjectPage({
       {/* Metrics */}
       <section className="relative overflow-hidden">
         <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-12">
+        <div className="relative site-container px-5 py-10 md:py-12">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             {data.metrics.map((m, i) => {
               const Icon = metricIcons[m.icon]
@@ -133,7 +133,7 @@ export default function AdvancedProjectPage({
       {/* Overview */}
       <section className="relative overflow-hidden pb-12 md:pb-16">
         <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <SectionHead
               eyebrow={data.overviewEyebrow}
@@ -177,7 +177,7 @@ export default function AdvancedProjectPage({
                         key={d.label}
                         className="border-t border-cream/12 pt-3"
                       >
-                        <p className="text-[10px] tracking-[0.14em] text-gold/70 uppercase">
+                        <p className="text-[11px] tracking-[0.14em] text-gold/70 uppercase">
                           {d.label}
                         </p>
                         <p className="mt-1 text-[15px] font-semibold tracking-tight text-cream">
@@ -197,7 +197,7 @@ export default function AdvancedProjectPage({
       {data.offerings ? (
         <section id="offerings" className="relative overflow-hidden pb-12 md:pb-16">
           <SoftScene />
-          <div className="relative mx-auto max-w-7xl px-6">
+          <div className="relative site-container px-5">
             <FadeIn>
               <SectionHead
                 eyebrow={data.offerings.eyebrow}
@@ -222,7 +222,7 @@ export default function AdvancedProjectPage({
                             className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
-                          <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[10px] font-bold tracking-[0.12em] text-ink uppercase">
+                          <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase">
                             {item.status}
                           </span>
                         </div>
@@ -249,7 +249,7 @@ export default function AdvancedProjectPage({
 
       {/* Gallery */}
       <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Gallery" title={data.galleryTitle} />
           </FadeIn>
@@ -283,7 +283,7 @@ export default function AdvancedProjectPage({
           className="relative scroll-mt-28 overflow-hidden py-12 md:py-16"
         >
           <SoftScene />
-          <div className="relative mx-auto max-w-7xl px-6">
+          <div className="relative site-container px-5">
             <FadeIn>
               <SectionHead
                 eyebrow={data.sizeSection.eyebrow}
@@ -296,7 +296,7 @@ export default function AdvancedProjectPage({
                   <CardShell>
                     <div className="relative flex h-full flex-col px-5 py-6">
                       {item.tag ? (
-                        <span className="mb-4 inline-flex w-fit rounded-full bg-mist px-3 py-1 text-[10px] font-bold tracking-[0.16em] text-sage uppercase">
+                        <span className="mb-4 inline-flex w-fit rounded-full bg-mist px-3 py-1 text-[11px] font-bold tracking-[0.16em] text-sage uppercase">
                           {item.tag}
                         </span>
                       ) : null}
@@ -320,7 +320,7 @@ export default function AdvancedProjectPage({
 
       {/* Amenities */}
       <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Lifestyle" title="Amenities" />
           </FadeIn>
@@ -334,7 +334,7 @@ export default function AdvancedProjectPage({
                       <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sage to-[#0c241c] text-white shadow-md transition duration-500 group-hover:scale-105">
                         <Icon className="h-5 w-5" strokeWidth={1.6} />
                       </span>
-                      <p className="mt-4 text-[13px] font-bold tracking-tight text-ink sm:text-sm">
+                      <p className="mt-4 text-[11px] font-bold tracking-tight text-ink sm:text-sm">
                         {a.name}
                       </p>
                       <span className="mt-3 inline-block h-1 w-8 rounded-full bg-ink/10 transition duration-500 group-hover:w-12 group-hover:bg-gold" />
@@ -350,7 +350,7 @@ export default function AdvancedProjectPage({
       {/* Connectivity */}
       <section className="relative overflow-hidden bg-ink py-14 md:py-16">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.12),_transparent_60%)]" />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Location" title="Connectivity" light />
             <p className="-mt-6 mb-10 text-center text-sm text-cream/55 md:-mt-8 md:mb-12">
@@ -375,7 +375,7 @@ export default function AdvancedProjectPage({
                     href={MAP_LINK}
                     target="_blank"
                     rel="noreferrer"
-                    className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2 rounded-full bg-ink/85 px-4 py-2 text-[10px] font-semibold tracking-[0.14em] text-cream uppercase backdrop-blur-md transition hover:bg-gold hover:text-ink"
+                    className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2 rounded-full bg-ink/85 px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-cream uppercase backdrop-blur-md transition hover:bg-gold hover:text-ink"
                   >
                     <MapPin className="h-3.5 w-3.5" />
                     Open in Maps
@@ -393,7 +393,7 @@ export default function AdvancedProjectPage({
                       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
                         <GraduationCap className="h-5 w-5" />
                       </span>
-                      <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
+                      <h3 className="text-[11px] font-bold tracking-[0.18em] text-cream uppercase">
                         Schools nearby
                       </h3>
                     </div>
@@ -420,7 +420,7 @@ export default function AdvancedProjectPage({
                       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
                         <MapPin className="h-5 w-5" />
                       </span>
-                      <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
+                      <h3 className="text-[11px] font-bold tracking-[0.18em] text-cream uppercase">
                         Key locations
                       </h3>
                     </div>
@@ -446,7 +446,7 @@ export default function AdvancedProjectPage({
       {/* FAQ */}
       <section className="relative overflow-hidden py-14 md:py-20">
         <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Support" title="FAQs" />
           </FadeIn>
@@ -463,7 +463,7 @@ export default function AdvancedProjectPage({
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="site-container max-w-3xl px-5">
           <FadeIn>
             <CardShell dark>
               <div className="relative px-8 py-12 text-center md:px-12 md:py-14">

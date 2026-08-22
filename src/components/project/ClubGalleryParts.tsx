@@ -56,7 +56,7 @@ export function ClubPhotoTile({
         <p className="text-sm font-bold tracking-tight text-white sm:text-base">
           {item.title}
         </p>
-        <p className="mt-1 line-clamp-2 text-[12px] leading-snug text-white/80">
+        <p className="mt-1 line-clamp-2 text-[11px] leading-snug text-white/80">
           {item.caption}
         </p>
       </div>

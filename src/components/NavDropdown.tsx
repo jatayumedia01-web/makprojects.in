@@ -145,13 +145,13 @@ export default function NavDropdown({
 
 function triggerClass(active: boolean, floating: boolean) {
   const base =
-    'relative flex items-center gap-1 rounded-full px-3.5 py-2.5 text-[12px] font-medium tracking-wide transition duration-300'
+    'relative flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition duration-300'
   if (floating) {
-    return `${base} text-white/90 hover:bg-white/15 hover:text-white ${
-      active ? 'bg-white/15 text-white' : ''
+    return `${base} text-white/92 hover:bg-white/15 hover:text-white ${
+      active ? 'bg-white/18 text-white' : ''
     }`
   }
-  return `${base} text-[#1a1a1a] hover:bg-mist hover:text-sage ${
-    active ? 'bg-mist text-sage' : ''
+  return `${base} text-ink/85 hover:bg-mist/80 hover:text-sage ${
+    active ? 'bg-mist text-sage font-semibold' : ''
   }`
 }

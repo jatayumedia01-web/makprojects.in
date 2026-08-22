@@ -4,15 +4,15 @@ import {
   Activity,
   Flag,
   ImageIcon,
+  Landmark,
   Route,
-  Sparkles,
   Trees,
   Waves,
   X,
   type LucideIcon,
 } from 'lucide-react'
 import { FadeIn, ScrollLine, StaggerReveal, staggerItem } from '../Motion'
-import { CardShell, SoftScene } from './ProjectChrome'
+import { CardShell, SectionAccent, SectionBackdrop } from './ProjectChrome'
 import {
   btrAmenitiesGallery,
   type BtrAmenityGalleryCategory,
@@ -27,7 +27,7 @@ const categoryIcons: Record<
 > = {
   golf: Flag,
   sports: Activity,
-  club: Sparkles,
+  club: Landmark,
   roads: Route,
   parks: Trees,
   lifestyle: Waves,
@@ -70,10 +70,10 @@ function GalleryTile({
               <p className="text-[11px] font-bold tracking-[0.18em] text-ink uppercase">
                 {item.title}
               </p>
-              <p className="mt-2 max-w-[220px] text-[12px] leading-relaxed text-stone">
+              <p className="mt-2 max-w-[220px] text-[11px] leading-relaxed text-stone">
                 {item.caption}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-sage/25 bg-white/70 px-3 py-1 text-[10px] font-semibold tracking-[0.12em] text-sage uppercase">
+              <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-sage/25 bg-white/70 px-3 py-1 text-[11px] font-semibold tracking-[0.12em] text-sage uppercase">
                 <ImageIcon className="h-3 w-3" />
                 Image slot
               </span>
@@ -95,14 +95,14 @@ function GalleryTile({
               ) : null}
               <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/15 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                <span className="inline-flex rounded-full bg-gold/90 px-2.5 py-1 text-[9px] font-bold tracking-[0.14em] text-ink uppercase">
+                <span className="inline-flex rounded-full bg-gold/90 px-2.5 py-1 text-[11px] font-bold tracking-[0.14em] text-ink uppercase">
                   {btrAmenitiesGallery.categories.find((c) => c.id === item.category)
                     ?.label ?? item.category}
                 </span>
                 <p className="mt-2 text-sm font-bold tracking-tight text-white sm:text-base">
                   {item.title}
                 </p>
-                <p className="mt-1 text-[12px] text-white/75">{item.caption}</p>
+                <p className="mt-1 text-[11px] text-white/75">{item.caption}</p>
               </div>
             </>
           )}
@@ -135,8 +135,9 @@ export default function TownshipAmenitiesGallery({
         id={id}
         className="relative scroll-mt-36 overflow-hidden py-16 md:py-24"
       >
-        <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
+      <SectionBackdrop theme="sage" fadeBottom="mist" />
+      <SectionAccent variant="gold" />
+        <div className="relative site-container px-5">
           <FadeIn>
             <div className="mb-8 text-center md:mb-10">
               <FadeIn delay={0.05}>
@@ -167,7 +168,7 @@ export default function TownshipAmenitiesGallery({
                     key={cat.id}
                     type="button"
                     onClick={() => setFilter(cat.id)}
-                    className={`rounded-full px-4 py-2 text-[10px] font-semibold tracking-[0.14em] uppercase transition ${
+                    className={`rounded-full px-4 py-2 text-[11px] font-semibold tracking-[0.14em] uppercase transition ${
                       on
                         ? 'bg-ink text-cream shadow-md'
                         : 'border border-ink/10 bg-white/80 text-stone hover:border-sage/30 hover:text-ink'

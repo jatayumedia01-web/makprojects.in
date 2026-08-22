@@ -3,6 +3,7 @@ import {
   ScrollLine,
   StaggerReveal,
 } from '../Motion'
+import { SectionAccent, SectionBackdrop } from './ProjectChrome'
 import { btrClubPavilion } from '../../data/content'
 import {
   ClubGalleryLightbox,
@@ -25,11 +26,12 @@ export default function ClubPavilionShowcase({
     <>
       <section
         id={id}
-        className="relative scroll-mt-36 overflow-hidden bg-gradient-to-b from-cream via-[#f4f0ea] to-cream py-16 md:py-24"
+        className="relative scroll-mt-36 overflow-hidden py-16 md:py-24"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_0%_0%,_rgba(212,175,55,0.1),_transparent_50%)]" />
+        <SectionBackdrop theme="sand" fadeBottom="pearl" />
+        <SectionAccent variant="gold" />
 
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <div className="mb-10 text-center md:mb-12">
               <FadeIn delay={0.05}>

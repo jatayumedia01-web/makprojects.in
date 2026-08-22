@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 overflow-visible transition-all duration-500 ${
         floating
           ? 'bg-transparent'
           : scrolled || !isHome
@@ -54,66 +54,73 @@ export default function Navbar() {
             : 'glass-nav'
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 py-3 lg:px-8">
-        <Link to="/" className="shrink-0" aria-label="MAK Projects Home">
-          <div
-            className={`rounded-2xl px-2 py-1.5 transition duration-300 ${
-              floating ? 'bg-white/95 shadow-lg shadow-black/10' : ''
-            }`}
-          >
-            <MakLogo className="h-12 max-h-14 w-auto md:h-14" />
-          </div>
-        </Link>
-
-        <nav
-          className={`hidden items-center gap-0.5 rounded-full px-1.5 py-1 xl:flex ${
-            floating
-              ? 'border border-white/25 bg-white/10 shadow-lg shadow-black/10 backdrop-blur-2xl'
-              : 'border border-ink/5 bg-mist/50'
-          }`}
-        >
-          {mainLinks.map((l) => {
-            if (l.dropdown === 'projects') {
-              return <ProjectsDropdown key={l.to} floating={floating} />
-            }
-            if (l.dropdown === 'contact') {
-              return <ContactDropdown key={l.to} floating={floating} />
-            }
-            return (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                className={({ isActive }) => linkClass(isActive, floating)}
-              >
-                {l.label}
-              </NavLink>
-            )
-          })}
-        </nav>
-
-        <div className="flex items-center gap-2 sm:gap-3">
+      <div className="site-container-hero px-4 lg:px-8">
+        <div className="grid grid-cols-[1fr_auto] items-center gap-3 py-2.5 sm:py-3 xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] xl:gap-6">
+          {/* MAK logo */}
           <Link
-            to="/projects"
-            className={`hidden overflow-hidden rounded-xl transition duration-300 md:block ${
-              floating ? 'shadow-md ring-1 ring-white/30' : 'hover:opacity-90'
-            }`}
-            aria-label="BTR — Life is Beautiful"
+            to="/"
+            className="flex shrink-0 items-center justify-self-start"
+            aria-label="MAK Projects Home"
           >
-            <BtrLogo className="h-11 w-auto" />
+            <MakLogo
+              className={`h-9 w-auto max-w-[112px] sm:h-10 sm:max-w-[124px] md:max-w-[132px] ${
+                floating ? 'drop-shadow-md' : ''
+              }`}
+            />
           </Link>
 
-          <button
-            type="button"
-            className={`flex h-10 w-10 items-center justify-center rounded-full xl:hidden ${
+          {/* Desktop nav — true center column */}
+          <nav
+            className={`hidden items-center gap-0.5 rounded-full px-1.5 py-1 xl:flex xl:justify-self-center ${
               floating
-                ? 'bg-white/15 text-white backdrop-blur-md'
-                : 'bg-mist text-[#222]'
+                ? 'border border-white/30 bg-white/12 shadow-lg shadow-black/10 backdrop-blur-2xl'
+                : 'border border-ink/8 bg-white shadow-[0_4px_24px_rgba(7,17,14,0.06)]'
             }`}
-            aria-label="Menu"
-            onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            {mainLinks.map((l) => {
+              if (l.dropdown === 'projects') {
+                return <ProjectsDropdown key={l.to} floating={floating} />
+              }
+              if (l.dropdown === 'contact') {
+                return <ContactDropdown key={l.to} floating={floating} />
+              }
+              return (
+                <NavLink
+                  key={l.to}
+                  to={l.to}
+                  className={({ isActive }) => linkClass(isActive, floating)}
+                >
+                  {l.label}
+                </NavLink>
+              )
+            })}
+          </nav>
+
+          {/* BTR logo + mobile menu */}
+          <div className="flex items-center justify-end justify-self-end gap-2 sm:gap-3">
+            <Link
+              to="/btr-township"
+              className={`hidden shrink-0 transition duration-300 md:block ${
+                floating ? 'drop-shadow-md' : 'opacity-95 hover:opacity-100'
+              }`}
+              aria-label="BTR — Life is Beautiful"
+            >
+              <BtrLogo className="h-8 w-auto max-w-[88px] sm:h-9 sm:max-w-[96px]" />
+            </Link>
+
+            <button
+              type="button"
+              className={`flex h-9 w-9 items-center justify-center rounded-full xl:hidden ${
+                floating
+                  ? 'border border-white/25 bg-white/15 text-white backdrop-blur-md'
+                  : 'border border-ink/10 bg-mist text-ink'
+              }`}
+              aria-label="Menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -124,7 +131,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 top-[68px] z-40 bg-ink/40 backdrop-blur-sm xl:hidden"
+            className="fixed inset-0 top-[60px] z-40 bg-ink/40 backdrop-blur-sm xl:hidden"
             onClick={() => setOpen(false)}
           >
             <motion.div
@@ -132,7 +139,7 @@ export default function Navbar() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -12, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-              className="max-h-[calc(100vh-68px)] overflow-y-auto border-t border-black/5 bg-white shadow-2xl"
+              className="max-h-[calc(100vh-60px)] overflow-y-auto border-t border-black/5 bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col px-4 py-2">
@@ -281,13 +288,13 @@ export default function Navbar() {
 
 function linkClass(isActive: boolean, floating: boolean) {
   const base =
-    'relative rounded-full px-3.5 py-2.5 text-[12px] font-medium tracking-wide transition duration-300'
+    'relative rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition duration-300'
   if (floating) {
-    return `${base} text-white/90 hover:bg-white/15 hover:text-white ${
-      isActive ? 'bg-white/15 text-white' : ''
+    return `${base} text-white/92 hover:bg-white/15 hover:text-white ${
+      isActive ? 'bg-white/18 text-white' : ''
     }`
   }
-  return `${base} text-[#1a1a1a] hover:bg-white hover:text-sage ${
-    isActive ? 'bg-white text-sage shadow-sm' : ''
+  return `${base} text-ink/85 hover:bg-mist/80 hover:text-sage ${
+    isActive ? 'bg-mist text-sage font-semibold' : ''
   }`
 }

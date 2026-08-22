@@ -30,7 +30,7 @@ export default function BrandTickerMarquee() {
       <div className="relative py-5 md:py-6">
         <div className="mb-3 flex items-center justify-center gap-3">
           <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
-          <p className="text-[10px] font-semibold tracking-[0.42em] text-gold/90 uppercase">
+          <p className="text-[11px] font-semibold tracking-[0.42em] text-gold/90 uppercase">
             Our Brands
           </p>
           <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
@@ -53,7 +53,7 @@ export default function BrandTickerMarquee() {
                     href={brand.href}
                     className="group inline-flex items-center gap-8 px-5 sm:gap-10 sm:px-7"
                   >
-                    <span className="text-[13px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
+                    <span className="text-[11px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
                       {brand.label}
                     </span>
                     <span
@@ -67,7 +67,7 @@ export default function BrandTickerMarquee() {
                     to={brand.href}
                     className="group inline-flex items-center gap-8 px-5 sm:gap-10 sm:px-7"
                   >
-                    <span className="text-[13px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
+                    <span className="text-[11px] font-semibold tracking-[0.28em] text-white/75 uppercase transition duration-300 group-hover:text-gold sm:text-[14px]">
                       {brand.label}
                     </span>
                     <span

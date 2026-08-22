@@ -273,7 +273,7 @@ export function PageHero({
         className="absolute inset-0 h-full w-full scale-105 object-cover"
       />
       <div className="hero-overlay absolute inset-0" />
-      <div className="relative z-10 mx-auto flex min-h-[58vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-32">
+      <div className="relative z-10 site-container flex min-h-[58vh] flex-col justify-end px-6 pb-16 pt-32">
         {eyebrow && (
           <p className="mb-3 text-xs font-medium tracking-[0.28em] text-gold-soft uppercase">
             {eyebrow}

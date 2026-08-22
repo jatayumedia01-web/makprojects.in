@@ -43,7 +43,7 @@ export default function LocationSection() {
             {tags.map((t) => (
               <span
                 key={t}
-                className="inline-flex items-center gap-2 rounded-full border border-gold/45 bg-white/5 px-4 py-2 text-[10px] font-semibold tracking-[0.16em] text-gold-soft uppercase backdrop-blur-md transition hover:border-gold hover:bg-gold/10"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/45 bg-white/5 px-4 py-2 text-[11px] font-semibold tracking-[0.16em] text-gold-soft uppercase backdrop-blur-md transition hover:border-gold hover:bg-gold/10"
               >
                 <ShieldCheck className="h-3.5 w-3.5 text-gold" />
                 {t}

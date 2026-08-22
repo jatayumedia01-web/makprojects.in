@@ -44,7 +44,7 @@ export default function WhyChooseUsSection() {
       <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-40 w-[70%] -translate-x-1/2 rounded-full bg-sage/5 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
+      <div className="relative site-container px-5 py-12 md:py-16">
         <FadeIn>
           <div className="mb-10 text-center md:mb-12">
             <p className="mb-2 text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
@@ -81,13 +81,13 @@ export default function WhyChooseUsSection() {
                       </span>
                     </div>
 
-                    <h3 className="relative mt-6 text-left text-[13px] font-bold tracking-[0.14em] text-ink uppercase sm:text-sm">
+                    <h3 className="relative mt-6 text-left text-[11px] font-bold tracking-[0.14em] text-ink uppercase sm:text-sm">
                       {item.title}
                     </h3>
 
                     <div className="relative my-3 h-px w-14 bg-gradient-to-r from-gold to-transparent" />
 
-                    <p className="relative text-justify text-[13px] leading-[1.75] text-[#4a5560] sm:text-[14px]">
+                    <p className="relative text-justify text-[15px] leading-[1.75] text-[#4a5560] sm:text-[14px]">
                       {item.body}
                     </p>
 

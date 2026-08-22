@@ -33,7 +33,7 @@ const VISIBLE = 3
 
 function labelClass(style: (typeof brands)[number]['style']) {
   if (style === 'soft') {
-    return 'mt-3 text-[10px] font-medium tracking-[0.28em] text-[#8a9199] uppercase'
+    return 'mt-3 text-[11px] font-medium tracking-[0.28em] text-[#8a9199] uppercase'
   }
   return 'mt-3 text-[11px] font-bold tracking-[0.36em] text-[#1a7a8a] uppercase'
 }
@@ -113,7 +113,7 @@ export default function ProjectBrandSlider() {
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#e8c9b0]/30 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-gold/12 blur-3xl" />
 
-      <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="relative site-container max-w-5xl px-4 sm:px-7">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}

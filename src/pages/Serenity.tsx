@@ -1,474 +1,463 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import {
+  ArrowDown,
   ArrowUpRight,
-  Bath,
-  BedDouble,
-  Building2,
-  Dumbbell,
-  Fence,
-  GraduationCap,
+  Download,
+  Heart,
+  Leaf,
   MapPin,
-  Phone,
-  ShieldCheck,
+  Shield,
   Sparkles,
-  Trees,
-  Wifi,
-  Zap,
+  Volume2,
+  VolumeX,
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
+import { ScrollSection } from '../components/ScrollSection'
 import FAQ from '../components/FAQ'
+import ProjectBrandSlider from '../components/ProjectBrandSlider'
+import SerenityGallery from '../components/SerenityGallery'
+import SerenityFloorPlans from '../components/SerenityFloorPlans'
+import SerenitySpecifications from '../components/SerenitySpecifications'
 import SerenityVideoFeatures from '../components/SerenityVideoFeatures'
 import {
-  floorPlans,
-  nearby,
-  serenityFaqs,
-} from '../data/content'
+  CardShell,
+  SectionAccent,
+  SectionBackdrop,
+  SectionHead,
+} from '../components/project/ProjectChrome'
+import { serenityFaqs } from '../data/content'
+import {
+  serenityAmenityGroups,
+  serenityBrochure,
+  serenityChapters,
+  serenityConnectivity,
+  serenityDetails,
+  serenityExperience,
+  serenityHero,
+  serenityMap,
+  serenityMedia,
+  serenityOverview,
+  type SerenityChapterId,
+} from '../data/serenityPage'
 
-/**
- * BTR Serenity — advanced card UI system
- * Decision: match MAK site card language (gold shell · lift · shine)
- * proven on Home Ongoing / Why Choose Us / Projects grid.
- */
+const EASE = [0.22, 1, 0.36, 1] as const
 
-const HERO = '/media/serenity/hero.jpg'
-
-const gallery = [
-  {
-    src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80',
-    label: 'Living',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80',
-    label: 'Interiors',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1560185127-6a569e77ea9b?auto=format&fit=crop&w=1400&q=80',
-    label: 'Bedroom',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80',
-    label: 'Lounge',
-  },
-]
-
-const metrics = [
-  { value: '150', label: 'Apartments', icon: Building2 },
-  { value: '3 Ac', label: 'Prime land', icon: Trees },
-  { value: '3 & 4', label: 'BHK homes', icon: BedDouble },
-  { value: 'RERA', label: 'OC obtained', icon: ShieldCheck },
-]
-
-const details = [
-  { label: 'Project Size', value: '3 Acres' },
-  { label: 'Project Type', value: 'Residential' },
-  { label: 'Total Towers', value: '1' },
-  { label: 'Total Units', value: '150' },
-  { label: 'Status', value: 'Ready To Move-In' },
-  { label: 'Property Type', value: 'Flat' },
-  { label: 'OC Obtained', value: 'Yes' },
-  { label: 'RERA ID', value: 'P02400002599' },
-]
-
-const amenityCards = [
-  { name: 'Club House', icon: Sparkles },
-  { name: 'EV Charging (Adani)', icon: Zap },
-  { name: 'Gym', icon: Dumbbell },
-  { name: 'Elevators', icon: Building2 },
-  { name: 'Play Area', icon: Trees },
-  { name: 'Jogging Track', icon: Trees },
-  { name: 'Internet Provision', icon: Wifi },
-  { name: 'Intercom Provision', icon: Phone },
-  { name: 'Sewerage Treatment Plant', icon: Sparkles },
-  { name: 'Solar Fencing', icon: Fence },
-  { name: 'Yoga Room', icon: Sparkles },
-  { name: 'Water Softening Plant', icon: Sparkles },
-  { name: '24/7 Security', icon: ShieldCheck },
-  { name: '24/7 Power Backup', icon: Zap },
-]
-
-/** MAK advanced card shell — gold gradient frame + lift */
-function CardShell({
-  children,
-  className = '',
-  dark = false,
-}: {
-  children: ReactNode
-  className?: string
-  dark?: boolean
-}) {
-  return (
-    <div className={`group relative h-full ${className}`}>
-      <div
-        className={`absolute -inset-[1px] rounded-[26px] opacity-70 transition duration-500 group-hover:opacity-100 ${
-          dark
-            ? 'bg-gradient-to-br from-gold/50 via-[#1a2e28] to-sage/40'
-            : 'bg-gradient-to-br from-gold/50 via-white to-sage/30'
-        }`}
-      />
-      <div
-        className={`relative h-full overflow-hidden rounded-[25px] shadow-[0_20px_55px_rgba(7,17,14,0.08)] transition duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_32px_70px_rgba(7,17,14,0.14)] ${
-          dark ? 'bg-[#0c1612] text-cream' : 'bg-white/95 backdrop-blur-sm'
-        }`}
-      >
-        <div className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/25 to-transparent transition duration-700 group-hover:translate-x-[120%]" />
-        {children}
-      </div>
-    </div>
-  )
-}
-
-function SectionHead({
-  eyebrow,
-  title,
-  light = false,
-}: {
-  eyebrow: string
-  title: string
-  light?: boolean
-}) {
-  return (
-    <div className="mb-10 text-center md:mb-12">
-      <p
-        className={`mb-2 text-[11px] font-semibold tracking-[0.32em] uppercase ${
-          light ? 'text-gold' : 'text-sage'
-        }`}
-      >
-        {eyebrow}
-      </p>
-      <h2
-        className={`text-[clamp(1.5rem,3.2vw,2.5rem)] font-bold tracking-[0.06em] uppercase ${
-          light ? 'text-cream' : 'text-ink'
-        }`}
-      >
-        {title}
-      </h2>
-      <div className="mx-auto mt-4 h-px w-28 bg-gradient-to-r from-transparent via-gold to-transparent" />
-    </div>
-  )
-}
-
-function SoftScene() {
-  return (
-    <>
-      <div className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-[#f3e8e2] via-[#f6efe9] to-transparent" />
-      <div className="absolute inset-0 bg-cream" />
-      <div className="pointer-events-none absolute -left-28 top-24 h-80 w-80 rounded-full bg-[#e8c9b0]/25 blur-3xl" />
-      <div className="pointer-events-none absolute -right-24 top-40 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-    </>
-  )
-}
+const experienceIcons = [Sparkles, Heart, Shield, Leaf] as const
 
 export default function Serenity() {
-  const [tab, setTab] = useState<'3' | '4'>('3')
-  const plans = tab === '3' ? floorPlans.bhk3 : floorPlans.bhk4
+  const [active, setActive] = useState<SerenityChapterId>('serenity-overview')
+  const reduce = useReducedMotion()
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+  const [heroVideoReady, setHeroVideoReady] = useState(false)
+  const [heroMuted, setHeroMuted] = useState(true)
+
+  useEffect(() => {
+    if (reduce) return
+    const el = heroVideoRef.current
+    if (!el) return
+    el.muted = heroMuted
+    el.playsInline = true
+    const play = () => {
+      el.play().catch(() => {})
+    }
+    play()
+    el.addEventListener('loadeddata', play)
+    return () => el.removeEventListener('loadeddata', play)
+  }, [heroMuted, reduce])
+
+  function toggleHeroMute() {
+    const el = heroVideoRef.current
+    if (!el) return
+    el.muted = !el.muted
+    setHeroMuted(el.muted)
+    el.play().catch(() => {})
+  }
+
+  useEffect(() => {
+    const nodes = serenityChapters
+      .map((c) => document.getElementById(c.id))
+      .filter(Boolean) as HTMLElement[]
+    if (!nodes.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+        if (visible?.target?.id) {
+          setActive(visible.target.id as SerenityChapterId)
+        }
+      },
+      { rootMargin: '-32% 0px -48% 0px', threshold: [0.1, 0.28, 0.5] },
+    )
+
+    nodes.forEach((n) => observer.observe(n))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[72vh] min-h-[480px] overflow-hidden bg-ink md:h-[78vh]">
-        <motion.img
-          initial={{ scale: 1.12 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: 'easeOut' }}
-          src={HERO}
-          alt="BTR Serenity"
-          className="absolute inset-0 h-full w-full object-cover"
+      {/* Hero — video + focused CTAs */}
+      <section className="relative h-[82vh] min-h-[560px] max-h-[900px] w-full overflow-hidden bg-ink md:h-[88vh]">
+        <img
+          src={serenityMedia.featuredVideo.poster}
+          alt=""
+          aria-hidden
+          className={`serenity-hero-media absolute inset-0 h-full w-full transition-opacity duration-700 ${
+            heroVideoReady && !reduce ? 'opacity-0' : 'opacity-100'
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-transparent to-transparent" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
+        {!reduce ? (
+          <video
+            ref={heroVideoRef}
+            className={`serenity-hero-media absolute inset-0 h-full w-full transition-opacity duration-1000 ${
+              heroVideoReady ? 'opacity-100' : 'opacity-0'
+            }`}
+            autoPlay
+            muted={heroMuted}
+            loop
+            playsInline
+            preload="auto"
+            poster={serenityMedia.featuredVideo.poster}
+            onCanPlay={() => setHeroVideoReady(true)}
           >
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md">
+            <source src={serenityMedia.featuredVideo.src} type="video/mp4" />
+          </video>
+        ) : (
+          <motion.img
+            initial={false}
+            animate={{ scale: 1 }}
+            src={serenityMedia.hero}
+            alt="BTR Serenity"
+            fetchPriority="high"
+            className="serenity-hero-media absolute inset-0 h-full w-full"
+          />
+        )}
+
+        <div className="serenity-hero-overlay pointer-events-none absolute inset-0" />
+
+        <div className="relative z-10 site-container-hero flex h-full flex-col justify-end px-6 pb-20 pt-28 sm:px-10 lg:px-14 lg:pb-24">
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: EASE }}
+            className="max-w-xl lg:max-w-2xl"
+          >
+            <Link
+              to="/btr-township"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/25 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-sm transition hover:border-gold/40 hover:bg-black/40"
+            >
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
-              Part of MAK — BTR Township · Ready to Move-In
+              {serenityHero.badge}
+              <ArrowUpRight className="h-3 w-3 opacity-70" />
+            </Link>
+
+            <p className="serenity-hero-copy text-[11px] font-semibold tracking-[0.28em] text-gold-soft uppercase">
+              {serenityHero.status} · Srisailam Highway
             </p>
-            <h1 className="text-[clamp(2rem,5.5vw,4.25rem)] font-semibold leading-[1.05] tracking-tight text-white uppercase">
-              BTR —{' '}
-              <span className="bg-gradient-to-r from-gold-soft via-white to-gold bg-clip-text text-transparent">
-                Serenity
+
+            <h1 className="serenity-hero-copy mt-3 text-[clamp(2.25rem,5.5vw,4.25rem)] font-semibold leading-[1.02] tracking-tight text-white uppercase">
+              {serenityHero.titleLead}{' '}
+              <span className="serenity-hero-title-accent">
+                {serenityHero.titleAccent}
               </span>
             </h1>
-            <div className="mt-5 h-px w-36 bg-gradient-to-r from-gold to-transparent" />
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80">
-              150 luxury apartments across 3 acres — peaceful 3 &amp; 4 BHK
-              living on Srisailam Highway.
+
+            <div className="mt-4 h-px w-36 bg-gradient-to-r from-gold to-transparent" />
+            <p className="serenity-hero-copy mt-4 max-w-lg text-base leading-relaxed text-white/90">
+              {serenityHero.body}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft"
-              >
-                Schedule a visit <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-              <a
-                href="#floor-plans"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition hover:bg-white hover:text-ink"
-              >
-                Explore plans
-              </a>
+            <p className="serenity-hero-copy mt-3 text-[11px] tracking-[0.12em] text-white/65 uppercase">
+              RERA {serenityHero.rera}
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4">
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-xs font-semibold tracking-[0.14em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft"
+                >
+                  Schedule a visit <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <a
+                  href="#serenity-plans"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/20 px-7 py-3.5 text-xs font-semibold tracking-[0.14em] text-white uppercase backdrop-blur-sm transition hover:bg-white hover:text-ink"
+                >
+                  Explore plans
+                </a>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] font-semibold tracking-[0.14em] uppercase">
+                <a
+                  href={serenityBrochure.pdf}
+                  download
+                  className="inline-flex items-center gap-1.5 text-white/75 transition hover:text-gold-soft"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  {serenityBrochure.label}
+                </a>
+                <span className="hidden h-3 w-px bg-white/25 sm:block" aria-hidden />
+                <Link
+                  to="/btr-township"
+                  className="text-white/75 transition hover:text-gold-soft"
+                >
+                  BTR Township →
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
+
+        <a
+          href="#serenity-overview"
+          className="scroll-cue absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 text-white/50 md:block"
+          aria-label="Scroll to overview"
+        >
+          <ArrowDown className="h-4 w-4" />
+        </a>
+
+        {!reduce ? (
+          <button
+            type="button"
+            onClick={toggleHeroMute}
+            aria-label={heroMuted ? 'Unmute hero video' : 'Mute hero video'}
+            className="absolute right-6 top-28 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/35 text-white backdrop-blur-md transition hover:bg-gold hover:text-ink sm:right-10 lg:top-32"
+          >
+            {heroMuted ? (
+              <VolumeX className="h-4 w-4" />
+            ) : (
+              <Volume2 className="h-4 w-4" />
+            )}
+          </button>
+        ) : null}
       </section>
 
-      {/* Metric cards */}
-      <section className="relative overflow-hidden">
-        <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-12">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-            {metrics.map((m, i) => {
-              const Icon = m.icon
-              return (
-                <FadeIn key={m.label} delay={i * 0.06}>
-                  <CardShell>
-                    <div className="flex items-center gap-4 px-5 py-6">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sage to-[#0c241c] text-white shadow-md">
-                        <Icon className="h-5 w-5" strokeWidth={1.7} />
-                      </span>
-                      <div>
-                        <p className="text-2xl font-bold tracking-tight text-ink">
-                          {m.value}
-                        </p>
-                        <p className="mt-0.5 text-[11px] font-semibold tracking-[0.16em] text-stone uppercase">
-                          {m.label}
-                        </p>
-                      </div>
-                    </div>
-                  </CardShell>
-                </FadeIn>
-              )
-            })}
-          </div>
+      {/* Sticky chapter nav */}
+      <nav
+        aria-label="On this page"
+        className="sticky top-[4.25rem] z-30 border-b border-ink/6 bg-cream/90 backdrop-blur-xl"
+      >
+        <div className="site-container flex snap-x snap-mandatory gap-1 overflow-x-auto px-5 py-2.5 scrollbar-none sm:snap-none sm:justify-center sm:px-8">
+          {serenityChapters.map((item) => {
+            const on = active === item.id
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`relative shrink-0 snap-center px-3 py-2.5 text-[11px] font-semibold tracking-[0.14em] uppercase transition sm:px-4 ${
+                  on ? 'text-ink' : 'text-stone hover:text-ink'
+                }`}
+              >
+                {item.label}
+                {on ? (
+                  <motion.span
+                    layoutId="serenityNavLine"
+                    className="absolute inset-x-2 bottom-1 h-0.5 rounded-full bg-gold sm:inset-x-3"
+                    transition={{ type: 'spring', stiffness: 400, damping: 34 }}
+                  />
+                ) : null}
+              </a>
+            )
+          })}
         </div>
-      </section>
+      </nav>
 
-      {/* Overview cards */}
-      <section className="relative overflow-hidden pb-12 md:pb-16">
-        <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
+      {/* Overview — image + details row, then about, then pillars */}
+      <ScrollSection
+        id="serenity-overview"
+        index={0}
+        bridge={false}
+        className="relative scroll-mt-36 overflow-hidden py-12 md:py-20"
+      >
+        <SectionBackdrop theme="warm" fadeBottom="white" />
+        <SectionAccent variant="fade" />
+        <div className="relative site-container px-5">
           <FadeIn>
-            <SectionHead eyebrow="Part of MAK — BTR Township" title="Quiet Splendor, Redefined" />
+            <SectionHead
+              eyebrow={serenityOverview.eyebrow}
+              title={serenityOverview.title}
+            />
           </FadeIn>
 
-          <div className="grid gap-6 lg:grid-cols-12 lg:gap-7">
+          {/* Row 1 — render + project details (equal height) */}
+          <div className="grid gap-5 lg:grid-cols-12 lg:items-stretch lg:gap-6">
             <FadeIn className="lg:col-span-7">
-              <CardShell>
-                <div className="relative px-6 py-7 sm:px-8 sm:py-8">
-                  <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
-                    About the project
-                  </p>
-                  <p className="mt-4 text-justify text-[15px] leading-[1.8] text-[#4a5560]">
-                    BTR Serenity is a tranquil oasis within the urban landscape —
-                    150 residential apartments on 3 acres of prime land.
-                    Luxurious 3 &amp; 4 BHK flats with landscaped spaces offer a
-                    peaceful retreat without compromising modern conveniences.
-                  </p>
-                  <p className="mt-5 flex items-start gap-2 text-sm text-stone">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
-                    26th Milestone · Srisailam Highway · Thummalur, Hyderabad
-                  </p>
-                  <Link
-                    to="/contact"
-                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-sage"
-                  >
-                    Enquire now <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+              <div className="flex h-full min-h-[260px] flex-col overflow-hidden rounded-[24px] border border-ink/8 bg-white shadow-[0_12px_40px_rgba(15,35,28,0.07)] sm:min-h-[320px] lg:min-h-[380px]">
+                <div className="relative flex flex-1 items-center justify-center bg-[#f6f3ec] p-4 sm:p-6">
+                  <img
+                    src="/media/serenity/render-day.png"
+                    alt="BTR Serenity elevation"
+                    loading="lazy"
+                    className="max-h-[340px] w-full object-contain lg:max-h-[400px]"
+                  />
                 </div>
-              </CardShell>
+              </div>
             </FadeIn>
 
-            <FadeIn delay={0.08} className="lg:col-span-5">
-              <CardShell dark>
-                <div className="relative px-6 py-7 md:px-7">
-                  <p className="mb-5 text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
+            <FadeIn delay={0.06} className="flex lg:col-span-5">
+              <div className="group relative flex w-full flex-1">
+                <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-[#1a2e28] to-sage/35 opacity-80" />
+                <div className="relative flex w-full flex-col rounded-[25px] bg-[#0c1612] px-6 py-6 text-cream shadow-[0_20px_55px_rgba(7,17,14,0.18)] sm:px-7 sm:py-7">
+                  <p className="text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
                     Project details
                   </p>
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-4">
-                    {details.map((d) => (
-                      <div key={d.label} className="border-t border-cream/12 pt-3">
-                        <p className="text-[10px] tracking-[0.14em] text-gold/70 uppercase">
+                  <div className="mt-5 grid flex-1 grid-cols-2 content-start gap-x-5 gap-y-5">
+                    {serenityDetails.map((d) => (
+                      <div
+                        key={d.label}
+                        className={
+                          d.label === 'RERA ID'
+                            ? 'col-span-2 border-t border-cream/10 pt-4'
+                            : ''
+                        }
+                      >
+                        <p className="text-[10px] tracking-[0.16em] text-gold/75 uppercase">
                           {d.label}
                         </p>
-                        <p className="mt-1 text-[15px] font-semibold tracking-tight text-cream">
+                        <p
+                          className={`mt-1.5 font-semibold leading-snug text-cream ${
+                            d.label === 'RERA ID'
+                              ? 'text-[11px] leading-relaxed text-cream/85'
+                              : 'text-[14px] sm:text-[15px]'
+                          }`}
+                        >
                           {d.value}
                         </p>
                       </div>
                     ))}
                   </div>
                 </div>
-              </CardShell>
+              </div>
             </FadeIn>
           </div>
-        </div>
-      </section>
 
-      {/* Gallery cards */}
-      <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeIn>
-            <SectionHead eyebrow="Gallery" title="Inside Serenity" />
-          </FadeIn>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {gallery.map((g, i) => (
-              <FadeIn key={g.src} delay={i * 0.05}>
-                <CardShell>
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img
-                      src={g.src}
-                      alt={g.label}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                    <span className="absolute bottom-4 left-4 text-[11px] font-bold tracking-[0.22em] text-white uppercase">
-                      {g.label}
-                    </span>
-                  </div>
-                </CardShell>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Video Features — lifestyle films */}
-      <SerenityVideoFeatures />
-
-      {/* Floor plan cards */}
-      <section id="floor-plans" className="relative overflow-hidden py-12 md:py-16">
-        <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <FadeIn>
-            <SectionHead eyebrow="Configurations" title="Floor Plans" />
-            <div className="mb-8 flex justify-center md:mb-10">
-              <div className="inline-flex rounded-full border border-ink/8 bg-white p-1 shadow-sm">
-                {(['3', '4'] as const).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setTab(t)}
-                    className={`rounded-full px-6 py-2.5 text-[11px] font-semibold tracking-[0.16em] uppercase transition ${
-                      tab === t
-                        ? 'bg-ink text-cream shadow-sm'
-                        : 'text-stone hover:text-ink'
-                    }`}
-                  >
-                    {t} BHK
-                  </button>
-                ))}
+          {/* Row 2 — about (full width) */}
+          <FadeIn delay={0.08} className="mt-5 lg:mt-6">
+            <div className="rounded-[24px] border border-ink/8 bg-white px-6 py-7 shadow-[0_8px_32px_rgba(15,35,28,0.06)] sm:px-8 sm:py-8">
+              <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
+                {serenityOverview.aboutTitle}
+              </p>
+              <p className="mt-4 max-w-4xl text-[15px] leading-[1.85] text-[#4a5560]">
+                {serenityOverview.body}
+              </p>
+              <p className="mt-5 flex items-start gap-2 text-sm text-stone">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
+                {serenityHero.location}
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-sage"
+                >
+                  Enquire now <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+                <a
+                  href={serenityBrochure.pdf}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-white px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase transition hover:border-sage/30 hover:text-sage"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Brochure
+                </a>
               </div>
             </div>
           </FadeIn>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={tab}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35 }}
-              className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
-            >
-              {plans.map((f, i) => (
-                <FadeIn key={f.size} delay={i * 0.04}>
-                  <CardShell>
-                    <div className="relative flex h-full flex-col">
-                      <div className="relative aspect-[5/4] overflow-hidden bg-[#f6f3ec]">
-                        <img
-                          src={f.image}
-                          alt={`${tab} BHK ${f.size} sft floor plan`}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                        />
-                        <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold tracking-[0.16em] text-sage uppercase shadow-sm">
-                          {tab} BHK
-                        </span>
-                        <span className="absolute right-3 top-3 text-xl font-bold text-ink/15">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-
-                      <div className="relative flex flex-1 flex-col px-5 py-5">
-                        <p className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                          {f.size}
-                          <span className="ml-1.5 text-sm font-semibold text-stone">
-                            SFT
-                          </span>
-                        </p>
-                        <div className="my-3 h-px w-12 bg-gradient-to-r from-gold to-transparent" />
-                        <div className="mt-auto flex flex-wrap gap-2 text-sm text-stone">
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1.5">
-                            <BedDouble className="h-3.5 w-3.5 text-sage" />
-                            {f.beds} Bed
-                          </span>
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1.5">
-                            <Bath className="h-3.5 w-3.5 text-sage" />
-                            {f.baths} Bath
-                          </span>
-                        </div>
-                        <p className="mt-3 text-[11px] font-semibold tracking-[0.14em] text-[#5a6670] uppercase">
-                          UDS {f.uds}
-                        </p>
-                      </div>
-                    </div>
-                  </CardShell>
-                </FadeIn>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
-
-      {/* Amenity cards */}
-      <section className="bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <FadeIn>
-            <SectionHead eyebrow="Lifestyle" title="Amenities" />
-          </FadeIn>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-5">
-            {amenityCards.map((a, i) => {
-              const Icon = a.icon
+          {/* Row 3 — experience pillars */}
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-4">
+            {serenityExperience.map((line, i) => {
+              const Icon = experienceIcons[i] ?? Sparkles
               return (
-                <FadeIn key={a.name} delay={i * 0.03}>
-                  <CardShell>
-                    <div className="relative flex flex-col px-4 py-5 sm:px-5 sm:py-6">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sage to-[#0c241c] text-white shadow-md transition duration-500 group-hover:scale-105">
-                        <Icon className="h-5 w-5" strokeWidth={1.6} />
-                      </span>
-                      <p className="mt-4 text-[13px] font-bold tracking-tight text-ink sm:text-sm">
-                        {a.name}
-                      </p>
-                      <span className="mt-3 inline-block h-1 w-8 rounded-full bg-ink/10 transition duration-500 group-hover:w-12 group-hover:bg-gold" />
-                    </div>
-                  </CardShell>
+                <FadeIn key={line} delay={0.12 + i * 0.04}>
+                  <div className="flex h-full min-h-[108px] items-start gap-3.5 rounded-[20px] border border-ink/8 bg-white px-5 py-5 shadow-[0_4px_20px_rgba(15,35,28,0.05)]">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/12 text-gold">
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
+                    </span>
+                    <p className="pt-1.5 text-[13px] font-medium leading-snug text-ink">
+                      {line}
+                    </p>
+                  </div>
                 </FadeIn>
               )
             })}
           </div>
         </div>
-      </section>
+      </ScrollSection>
+      <SerenityVideoFeatures />
+      <SerenityGallery />
+      <SerenityFloorPlans />
 
-      {/* Location / Connectivity */}
-      <section className="relative overflow-hidden bg-ink py-14 md:py-16">
+      {/* Amenities — featured spread + compact tags */}
+      <ScrollSection
+        id="serenity-amenities"
+        index={4}
+        className="relative scroll-mt-36 overflow-hidden py-14 md:py-20"
+      >
+        <SectionBackdrop theme="sage" fadeBottom="white" />
+        <SectionAccent variant="sage" />
+        <div className="relative site-container px-5">
+          <FadeIn>
+            <SectionHead eyebrow="Lifestyle" title="Amenities & Facilities" />
+            <p className="-mt-6 mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-[#4a5560] md:mb-12">
+              Dedicated to BTR Serenity residents — per the official brochure.
+            </p>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="mx-auto mb-10 max-w-4xl overflow-hidden rounded-[24px] border border-ink/8 bg-[#f6f3ec] shadow-[0_12px_40px_rgba(15,35,28,0.08)] md:mb-14">
+              <img
+                src="/media/serenity/amenities-spread.png"
+                alt="BTR Serenity amenities overview"
+                loading="lazy"
+                className="w-full object-contain p-3 sm:p-5"
+              />
+            </div>
+          </FadeIn>
+
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
+            {serenityAmenityGroups.map((group, gi) => (
+              <FadeIn key={group.title} delay={gi * 0.06}>
+                <div>
+                  <p className="mb-4 text-[11px] font-bold tracking-[0.22em] text-sage uppercase">
+                    {group.title}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((a) => (
+                      <span
+                        key={a.name}
+                        className="inline-flex items-center rounded-full border border-ink/10 bg-white/90 px-3.5 py-2 text-[11px] font-semibold tracking-wide text-ink shadow-sm transition hover:border-sage/30 hover:bg-white"
+                      >
+                        {a.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </ScrollSection>
+      <SerenitySpecifications />
+
+      {/* Map */}
+      <ScrollSection
+        id="serenity-map"
+        index={5}
+        className="relative scroll-mt-36 overflow-hidden bg-ink py-14 md:py-16"
+      >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.12),_transparent_60%)]" />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Location" title="Connectivity" light />
             <p className="-mt-6 mb-10 text-center text-sm text-cream/55 md:-mt-8 md:mb-12">
-              26th Milestone on Srisailam Highway, Thummalur — BTR Township
+              {serenityMap.line}
             </p>
           </FadeIn>
 
           <div className="grid items-stretch gap-5 lg:grid-cols-12 lg:gap-6">
-            <FadeIn className="h-full lg:col-span-7">
+            <FadeIn className="h-full lg:col-span-8">
               <div className="relative h-full min-h-[340px]">
                 <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-[#1a2e28] to-sage/35 opacity-80" />
                 <div className="absolute inset-0 overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612] shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
@@ -477,14 +466,14 @@ export default function Serenity() {
                     className="absolute inset-0 h-full w-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    src="https://maps.google.com/maps?q=Thummalur%20Maheswaram%20Srisailam%20Highway%20Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src={serenityMap.embed}
                   />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink/55 to-transparent" />
                   <a
-                    href="https://maps.google.com/?q=Thummalur+Maheswaram+Srisailam+Highway+Hyderabad"
+                    href={serenityMap.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2 rounded-full bg-ink/85 px-4 py-2 text-[10px] font-semibold tracking-[0.14em] text-cream uppercase backdrop-blur-md transition hover:bg-gold hover:text-ink"
+                    className="absolute bottom-4 left-4 z-10 inline-flex items-center gap-2 rounded-full bg-ink/85 px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-cream uppercase backdrop-blur-md transition hover:bg-gold hover:text-ink"
                   >
                     <MapPin className="h-3.5 w-3.5" />
                     Open in Maps
@@ -493,69 +482,44 @@ export default function Serenity() {
               </div>
             </FadeIn>
 
-            <div className="flex h-full flex-col gap-5 lg:col-span-5">
-              <FadeIn delay={0.06} className="min-h-0 flex-1">
-                <div className="group relative h-full">
-                  <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/40 via-[#1a2e28] to-sage/30 opacity-75 transition group-hover:opacity-100" />
-                  <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612]/95 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
-                        <GraduationCap className="h-5 w-5" />
-                      </span>
-                      <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
-                        Schools nearby
-                      </h3>
-                    </div>
-                    <ul className="flex flex-1 flex-col justify-center">
-                      {nearby.schools.map((s) => (
-                        <li
-                          key={s}
-                          className="flex items-center gap-3 border-t border-white/8 py-3 text-[14px] text-cream/75 first:border-0 first:pt-0 last:pb-0"
-                        >
-                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
+            <FadeIn delay={0.06} className="lg:col-span-4">
+              <div className="group relative h-full min-h-[280px]">
+                <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/40 via-[#1a2e28] to-sage/30 opacity-75" />
+                <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612]/95 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
+                      <MapPin className="h-5 w-5" />
+                    </span>
+                    <h3 className="text-[11px] font-bold tracking-[0.18em] text-cream uppercase">
+                      Quick reach
+                    </h3>
                   </div>
+                  <ul className="space-y-3">
+                    {serenityConnectivity.map((line) => (
+                      <li
+                        key={line}
+                        className="flex items-center gap-3 text-[14px] text-cream/75"
+                      >
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
+                        {line}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </FadeIn>
-
-              <FadeIn delay={0.1} className="min-h-0 flex-1">
-                <div className="group relative h-full">
-                  <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/40 via-[#1a2e28] to-sage/30 opacity-75 transition group-hover:opacity-100" />
-                  <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612]/95 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
-                        <MapPin className="h-5 w-5" />
-                      </span>
-                      <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
-                        Key locations
-                      </h3>
-                    </div>
-                    <ul className="flex flex-1 flex-col justify-center">
-                      {nearby.locations.map((s) => (
-                        <li
-                          key={s}
-                          className="flex items-center gap-3 border-t border-white/8 py-3 text-[14px] text-cream/75 first:border-0 first:pt-0 last:pb-0"
-                        >
-                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </FadeIn>
-            </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
-      </section>
+      </ScrollSection>
 
       {/* FAQ */}
-      <section className="relative overflow-hidden bg-white py-16 md:py-24">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-cream to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6">
+      <ScrollSection
+        id="serenity-faq"
+        index={6}
+        className="relative scroll-mt-36 overflow-hidden bg-white py-16 md:py-24"
+      >
+        <SectionBackdrop theme="white" />
+        <div className="relative site-container px-5">
           <FadeIn>
             <div className="mb-10 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
               <div>
@@ -567,7 +531,7 @@ export default function Serenity() {
                 </h2>
                 <div className="mt-4 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
               </div>
-              <p className="max-w-sm text-[13px] leading-relaxed text-stone md:text-right">
+              <p className="max-w-sm text-[11px] leading-relaxed text-stone md:text-right">
                 Specs, UDS, amenities, maintenance and more — from BTR Serenity.
               </p>
             </div>
@@ -581,11 +545,11 @@ export default function Serenity() {
             />
           </FadeIn>
         </div>
-      </section>
+      </ScrollSection>
 
-      {/* CTA card */}
+      {/* CTA */}
       <section className="relative overflow-hidden bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="site-container max-w-3xl px-5">
           <FadeIn>
             <CardShell dark>
               <div className="relative px-8 py-12 text-center md:px-12 md:py-14">
@@ -601,17 +565,35 @@ export default function Serenity() {
                   Schedule a site visit or speak with our team about available 3
                   &amp; 4 BHK homes.
                 </p>
-                <Link
-                  to="/contact"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft"
-                >
-                  Contact us <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft"
+                  >
+                    Contact us <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <a
+                    href={serenityBrochure.pdf}
+                    download
+                    className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-cream uppercase transition hover:border-gold/40 hover:text-gold-soft"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {serenityBrochure.label}
+                  </a>
+                  <a
+                    href="#serenity-plans"
+                    className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-cream uppercase transition hover:border-gold/40 hover:text-gold-soft"
+                  >
+                    View floor plans
+                  </a>
+                </div>
               </div>
             </CardShell>
           </FadeIn>
         </div>
       </section>
+
+      <ProjectBrandSlider />
     </>
   )
 }

@@ -9,11 +9,9 @@ import {
   CreditCard,
   Dumbbell,
   Fence,
-  GraduationCap,
   Landmark,
-  MapPin,
+  LayoutGrid,
   ShieldCheck,
-  Sparkles,
   Trees,
   Waves,
   Zap,
@@ -27,7 +25,10 @@ import {
 } from '../components/project/ProjectChrome'
 import BtrClubShowcase from '../components/project/BtrClubShowcase'
 import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
-import { nearby, btrClubhouse, btrClubPavilion } from '../data/content'
+import LifestylePillars from '../components/project/LifestylePillars'
+import ProjectHighlights from '../components/project/ProjectHighlights'
+import TownshipAmenitiesGallery from '../components/project/TownshipAmenitiesGallery'
+import { btrClubhouse } from '../data/content'
 
 /**
  * Amenities — advanced lifestyle page (Serenity-parity card UI)
@@ -49,7 +50,7 @@ const amenityItems: AmenityItem[] = [
     name: 'Club House',
     blurb: 'Dual clubhouses for community gatherings and leisure.',
     category: 'club',
-    icon: Sparkles,
+    icon: Landmark,
   },
   {
     name: 'Swimming Pool',
@@ -151,31 +152,8 @@ const filters: { id: Category; label: string }[] = [
   { id: 'infra', label: 'Infra' },
 ]
 
-const highlights = [
-  {
-    title: 'Club & Leisure',
-    body: 'Dual clubhouses, pool, yoga and social spaces designed for everyday joy.',
-    image: btrClubPavilion.images[0].image,
-    icon: Building2,
-  },
-  {
-    title: 'Sports & Golf',
-    body: '10-hole golf, cricket, basketball, gym and jogging tracks for active living.',
-    image:
-      'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1400&q=80',
-    icon: Landmark,
-  },
-  {
-    title: 'Secure Living',
-    body: '24/7 security, solar fencing and emergency support across the township.',
-    image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80',
-    icon: ShieldCheck,
-  },
-]
-
 const metrics = [
-  { value: '80+', label: 'World-class amenities', icon: Sparkles },
+  { value: '80+', label: 'World-class amenities', icon: LayoutGrid },
   { value: '10', label: 'Hole golf course', icon: Trees },
   { value: '2', label: 'Clubhouses', icon: Building2 },
   { value: '24/7', label: 'Secured living', icon: ShieldCheck },
@@ -205,7 +183,7 @@ export default function Amenities() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/50 via-transparent to-transparent" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20">
+        <div className="relative z-10 site-container-hero flex h-full flex-col justify-end px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -249,7 +227,7 @@ export default function Amenities() {
       {/* Metrics */}
       <section className="relative overflow-hidden">
         <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-12">
+        <div className="relative site-container px-5 py-10 md:py-12">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
             {metrics.map((m, i) => {
               const Icon = m.icon
@@ -281,48 +259,7 @@ export default function Amenities() {
 
       <ClubPavilionShowcase id="amenities-pavilion" />
 
-      {/* Highlights */}
-      <section className="relative overflow-hidden pb-4 md:pb-6">
-        <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 md:pb-12">
-          <FadeIn>
-            <SectionHead eyebrow="Experience" title="Lifestyle Pillars" />
-          </FadeIn>
-          <div className="grid gap-5 md:grid-cols-3">
-            {highlights.map((h, i) => {
-              const Icon = h.icon
-              return (
-                <FadeIn key={h.title} delay={i * 0.06}>
-                  <CardShell>
-                    <div className="relative flex h-full flex-col">
-                      <div className="relative aspect-[16/10] overflow-hidden">
-                        <img
-                          src={h.image}
-                          alt={h.title}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                        <span className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-gold text-ink shadow-md">
-                          <Icon className="h-5 w-5" strokeWidth={1.7} />
-                        </span>
-                      </div>
-                      <div className="relative flex flex-1 flex-col px-5 py-5">
-                        <h3 className="text-lg font-bold tracking-tight text-ink">
-                          {h.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-stone">
-                          {h.body}
-                        </p>
-                      </div>
-                    </div>
-                  </CardShell>
-                </FadeIn>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <LifestylePillars id="lifestyle-pillars" />
 
       {/* Amenity grid + filters */}
       <section
@@ -330,7 +267,7 @@ export default function Amenities() {
         className="relative scroll-mt-28 overflow-hidden py-12 md:py-16"
       >
         <SoftScene />
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative site-container px-5">
           <FadeIn>
             <SectionHead eyebrow="Directory" title="Club & Community" />
           </FadeIn>
@@ -393,14 +330,14 @@ export default function Amenities() {
                           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sage to-[#0c241c] text-white shadow-md transition duration-500 group-hover:scale-105">
                             <Icon className="h-5 w-5" strokeWidth={1.6} />
                           </span>
-                          <span className="text-[10px] font-bold tracking-[0.16em] text-ink/15 uppercase">
+                          <span className="text-[11px] font-bold tracking-[0.16em] text-ink/15 uppercase">
                             {String(i + 1).padStart(2, '0')}
                           </span>
                         </div>
-                        <p className="mt-4 text-[13px] font-bold tracking-tight text-ink sm:text-sm">
+                        <p className="mt-4 text-[11px] font-bold tracking-tight text-ink sm:text-sm">
                           {a.name}
                         </p>
-                        <p className="mt-2 flex-1 text-[12px] leading-relaxed text-stone sm:text-[13px]">
+                        <p className="mt-2 flex-1 text-[11px] leading-relaxed text-stone sm:text-[11px]">
                           {a.blurb}
                         </p>
                         <span className="mt-4 inline-block h-1 w-8 rounded-full bg-ink/10 transition duration-500 group-hover:w-12 group-hover:bg-gold" />
@@ -414,78 +351,13 @@ export default function Amenities() {
         </div>
       </section>
 
-      {/* Connectivity */}
-      <section className="relative overflow-hidden bg-ink py-14 md:py-16">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.12),_transparent_60%)]" />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <FadeIn>
-            <SectionHead eyebrow="Around you" title="Connectivity" light />
-            <p className="-mt-6 mb-10 text-center text-sm text-cream/55 md:-mt-8 md:mb-12">
-              Schools, workplaces and transit — minutes from BTR Township
-            </p>
-          </FadeIn>
+      <TownshipAmenitiesGallery id="amenities-visual-tour" />
 
-          <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
-            <FadeIn>
-              <div className="group relative h-full">
-                <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/40 via-[#1a2e28] to-sage/30 opacity-75 transition group-hover:opacity-100" />
-                <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612]/95 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:px-7 md:py-7">
-                  <div className="mb-5 flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
-                      <GraduationCap className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
-                      Schools nearby
-                    </h3>
-                  </div>
-                  <ul className="flex flex-1 flex-col justify-center">
-                    {nearby.schools.map((s) => (
-                      <li
-                        key={s}
-                        className="flex items-center gap-3 border-t border-white/8 py-3 text-[14px] text-cream/75 first:border-0 first:pt-0 last:pb-0"
-                      >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.08}>
-              <div className="group relative h-full">
-                <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/40 via-[#1a2e28] to-sage/30 opacity-75 transition group-hover:opacity-100" />
-                <div className="relative flex h-full flex-col overflow-hidden rounded-[25px] border border-white/10 bg-[#0c1612]/95 px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] md:px-7 md:py-7">
-                  <div className="mb-5 flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold">
-                      <MapPin className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-[12px] font-bold tracking-[0.18em] text-cream uppercase">
-                      Key locations
-                    </h3>
-                  </div>
-                  <ul className="flex flex-1 flex-col justify-center">
-                    {nearby.locations.map((s) => (
-                      <li
-                        key={s}
-                        className="flex items-center gap-3 border-t border-white/8 py-3 text-[14px] text-cream/75 first:border-0 first:pt-0 last:pb-0"
-                      >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/80" />
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <ProjectHighlights />
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="site-container max-w-3xl px-5">
           <FadeIn>
             <CardShell dark>
               <div className="relative px-8 py-12 text-center md:px-12 md:py-14">

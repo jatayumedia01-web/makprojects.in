@@ -22,7 +22,7 @@ const projectLinks = [
 export default function Footer() {
   return (
     <footer className="bg-ink text-cream">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-12 lg:py-16">
+      <div className="site-container grid gap-9 px-5 py-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:py-14">
         <div>
           <Link to="/" className="inline-block rounded-xl bg-white px-2.5 py-2 shadow-sm">
             <MakLogo className="h-14 w-auto" />
@@ -95,7 +95,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-cream/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-6 py-5 text-xs text-cream/40 sm:flex-row sm:items-center">
+        <div className="site-container flex flex-col items-start justify-between gap-2 px-5 py-4 text-xs text-cream/40 sm:flex-row sm:items-center">
           <span>
             © {new Date().getFullYear()} MAK Projects Private Limited. All
             rights reserved.

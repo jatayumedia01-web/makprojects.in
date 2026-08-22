@@ -7,7 +7,44 @@ export const contact = {
   project:
     'BTR Township – 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) – 501359',
   hours: 'Mon–Sat 09:00–18:00 · Sunday Holiday',
+  whatsapp: '919912797979',
+  responseNote: 'Our team typically responds within one business day.',
 }
+
+export const contactProjectOptions = [
+  { value: 'general', label: 'General enquiry' },
+  { value: 'serenity', label: 'BTR Serenity — 3 & 4 BHK Apartments' },
+  { value: 'gardenia', label: 'BTR Gardenia — Villa Plots' },
+  { value: 'villas', label: 'BTR Villas' },
+  { value: 'township', label: 'MAK — BTR Township' },
+  { value: 'canadian-wood', label: 'Canadian Wood Villa' },
+  { value: 'fern', label: 'Fern by MAK — Tukkuguda Villas' },
+  { value: 'site-visit', label: 'Schedule a site visit' },
+] as const
+
+export const contactLocations = {
+  corporate: {
+    id: 'corporate',
+    label: 'Corporate Office',
+    subtitle: 'Banjarah Hills · Hyderabad',
+    address: 'MAK Projects Private Limited\nPark Citi Plaza, 4th Floor\nRoad No.1, Banjara Hills\nHyderabad – 500034',
+    mapEmbed:
+      'https://maps.google.com/maps?q=Park%20Citi%20Plaza%20Banjara%20Hills%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed',
+    mapLink:
+      'https://www.google.com/maps/search/?api=1&query=Park+Citi+Plaza+Banjara+Hills+Hyderabad',
+  },
+  project: {
+    id: 'project',
+    label: 'Project Site',
+    subtitle: 'BTR Township · Srisailam Highway',
+    address:
+      'BTR Township\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
+    mapEmbed:
+      'https://maps.google.com/maps?q=MAK+BTR+Township+Srisailam+Highway+Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    mapLink:
+      'https://www.google.com/maps/search/?api=1&query=MAK+BTR+Township+Srisailam+Highway+Hyderabad',
+  },
+} as const
 
 export const navLinks = [
   { label: 'Home', to: '/' },
@@ -115,6 +152,84 @@ export const btrTownship = {
   ],
 } as const
 
+/** BTR Township — nearby project highlights (connectivity, healthcare, schools & more) */
+export const btrProjectHighlights = {
+  title: 'Project Highlights',
+  subtitle:
+    'Schools, healthcare, workplaces and transit — minutes from MAK — BTR Township',
+  categories: [
+    {
+      id: 'connectivity',
+      title: 'Connectivity',
+      items: [
+        'Just 12 mins from ORR (Exit 14)',
+        'Just 20 mins drive to RGIA',
+        'Just 40 mins drive to Gachibowli & Financial District',
+      ],
+    },
+    {
+      id: 'healthcare',
+      title: 'Healthcare',
+      items: [
+        'Kondeti Super Speciality Hospital',
+        'Madhavanji Super Speciality Hospital',
+        'Prime Care Hospital',
+      ],
+    },
+    {
+      id: 'education',
+      title: 'Educational Institutions',
+      items: [
+        'Delhi Public School, Aero City',
+        'The Aga Khan Academy',
+        'Manchester Global School',
+        'Amity University Hyderabad',
+        'GMR Chinmaya Vidyalaya',
+        'Rockwell International School',
+        'Sanctus World School',
+        'Sloka International School',
+        'Bhashyam Blooms',
+        'Sri Sri Academy',
+      ],
+    },
+    {
+      id: 'business',
+      title: 'Business & IT Corridors',
+      items: [
+        'GMR Business Park',
+        'Adibatla Aerospace & SEZ cluster — ~10 mins',
+        'TCS · Wipro · Amazon warehouses',
+        'Fab City · Electronic City corridor',
+        'GMR Aero Technic · Adani Aerospace',
+        'Foxconn · DRDO RCI · Malabar Gold campus',
+      ],
+    },
+    {
+      id: 'leisure',
+      title: 'Leisure & Landmarks',
+      items: [
+        'Wonderla Amusement Park',
+        'World Trade Center',
+        'Tata Sikorsky · GMR Health Port',
+        'Knowledge City & Adibatla growth corridor',
+      ],
+    },
+  ],
+} as const
+
+/** @deprecated Use btrProjectHighlights — kept for legacy imports */
+export const nearby = {
+  schools: btrProjectHighlights.categories.find((c) => c.id === 'education')!
+    .items,
+  locations: [
+    ...btrProjectHighlights.categories.find((c) => c.id === 'connectivity')!
+      .items,
+    ...btrProjectHighlights.categories
+      .find((c) => c.id === 'business')!
+      .items.slice(0, 3),
+  ],
+}
+
 /** BTR Township — MAK — BTR Club showcase */
 export const btrClubhouse = {
   eyebrow: 'Lifestyle · MAK — BTR Township',
@@ -212,6 +327,35 @@ export const btrClubPavilion = {
 
 export type BtrClubPavilionImage =
   (typeof btrClubPavilion.images)[number]
+
+/** Lifestyle pillars — club, sports, security highlights */
+export const lifestylePillars = {
+  eyebrow: 'Experience',
+  title: 'Lifestyle Pillars',
+  pillars: [
+    {
+      id: 'club',
+      title: 'Club & Leisure',
+      body: 'Dual clubhouses, pool, yoga and social spaces designed for everyday joy.',
+      image: '/media/club-pavilion/club-pavilion-exterior.jpg',
+      alt: 'Club Pavilion at MAK — BTR Township',
+    },
+    {
+      id: 'sports',
+      title: 'Sports & Golf',
+      body: '10-hole golf, cricket, basketball, gym and jogging tracks for active living.',
+      image: '/media/township-amenities/golf-course.jpg',
+      alt: '10-hole golf course at BTR Township',
+    },
+    {
+      id: 'security',
+      title: 'Secure Living',
+      body: '24/7 security, solar fencing and emergency support across the township.',
+      image: '/media/township-amenities/btr-greens-entrance.jpg',
+      alt: 'Gated entrance at BTR Greens',
+    },
+  ],
+} as const
 
 /** BTR Township — amenities image gallery (drop images in public/media/township-amenities/) */
 export const btrAmenitiesGallery = {
@@ -321,18 +465,6 @@ export type BtrAmenityGalleryItem =
 
 export const projects = [
   {
-    slug: 'township',
-    title: 'MAK – BTR Township',
-    subtitle: 'Serenity · Gardenia · Villas · Canadian Wood',
-    size: '260+ acres · 1,450+ units · 80+ amenities',
-    status: 'Completed',
-    possession: 'INTEGRATED TOWNSHIP',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image: '/media/gardenia/hero.jpg',
-    href: '/btr-township',
-    rera: 'P02400002599 / P02400001288 / P02400001289',
-  },
-  {
     slug: 'fern',
     title: 'Fern by MAK Projects',
     subtitle: '4BHK + Home Theatre Villas · Tukkuguda',
@@ -343,6 +475,30 @@ export const projects = [
     image: '/media/fern/hero.jpg',
     href: '/fern/',
     rera: 'P02400010645',
+  },
+  {
+    slug: 'serenity',
+    title: 'BTR – Serenity',
+    subtitle: '3 & 4 BHK ready-to-move apartments',
+    size: '3 acres · 150 apartments',
+    status: 'Ready to Move-In',
+    possession: 'PART OF BTR TOWNSHIP',
+    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
+    image: '/media/serenity/hero.jpg',
+    href: '/btr-serenity',
+    rera: 'P02400002599',
+  },
+  {
+    slug: 'township',
+    title: 'MAK – BTR Township',
+    subtitle: 'Serenity · Gardenia · Villas · Canadian Wood',
+    size: '260+ acres · 1,450+ units · 80+ amenities',
+    status: 'Completed',
+    possession: 'INTEGRATED TOWNSHIP',
+    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
+    image: '/media/gardenia/hero.jpg',
+    href: '/btr-township',
+    rera: 'P02400002599 / P02400001288 / P02400001289',
   },
 ]
 
@@ -633,20 +789,3 @@ export const villaFaqs = [
   },
 ]
 
-export const nearby = {
-  schools: [
-    'Manchester Global School',
-    'Delhi Public School – Aero City',
-    'The Aga Khan Academy',
-    'Bhashyam Blooms',
-    'Devendra Vidyalaya',
-    'Narayana IIT Academy',
-  ],
-  locations: [
-    '5 min from ORR Exit 14',
-    '15 min from RGIA',
-    '10 min from Adibatla Aerospace',
-    'TCS · Wipro · Amazon',
-    'Adani Aerospace · DRDO RCI',
-  ],
-}

@@ -91,7 +91,7 @@ export default function FAQ({
 
                   <span className="min-w-0 flex-1 pt-0.5">
                     <span
-                      className={`block text-[14.5px] font-semibold leading-snug sm:text-[15.5px] ${
+                      className={`block text-[15px] font-semibold leading-snug sm:text-[15px] ${
                         isOpen ? 'text-ink' : 'text-ink/80'
                       }`}
                     >
@@ -122,19 +122,19 @@ export default function FAQ({
                     >
                       <div className="px-5 pb-5 sm:px-6 sm:pb-6">
                         <div className="ml-0 border-l-2 border-gold/50 bg-[#faf8f4] py-4 pr-4 pl-4 sm:ml-12 sm:pl-5">
-                          <p className="whitespace-pre-line text-[13.5px] leading-[1.85] text-[#4a555c] text-justify [text-align-last:left] sm:text-[14.5px]">
+                          <p className="whitespace-pre-line text-[15px] leading-[1.85] text-[#4a555c] text-justify [text-align-last:left]">
                             {item.a}
                           </p>
 
                           {item.table ? (
                             <div className="mt-4 overflow-hidden rounded-xl border border-ink/8 bg-white">
-                              <table className="w-full text-left text-[13px] sm:text-[14px]">
+                              <table className="w-full text-left text-[11px] sm:text-[14px]">
                                 <thead>
                                   <tr className="border-b border-ink/8 bg-ink text-cream">
-                                    <th className="px-4 py-3 text-[10px] font-semibold tracking-[0.16em] uppercase">
+                                    <th className="px-4 py-3 text-[11px] font-semibold tracking-[0.16em] uppercase">
                                       {item.table.headers[0]}
                                     </th>
-                                    <th className="px-4 py-3 text-[10px] font-semibold tracking-[0.16em] uppercase">
+                                    <th className="px-4 py-3 text-[11px] font-semibold tracking-[0.16em] uppercase">
                                       {item.table.headers[1]}
                                     </th>
                                   </tr>
@@ -182,7 +182,7 @@ export default function FAQ({
         <div className="relative overflow-hidden rounded-[26px] bg-ink px-6 py-8 text-cream sm:px-7">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,_rgba(212,175,55,0.18),_transparent_55%)]" />
           <div className="relative">
-            <p className="text-[10px] font-semibold tracking-[0.24em] text-gold uppercase">
+            <p className="text-[11px] font-semibold tracking-[0.24em] text-gold uppercase">
               Help centre
             </p>
             <h3 className="mt-4 text-[1.55rem] font-semibold leading-tight tracking-tight text-cream sm:text-[1.75rem]">
@@ -205,7 +205,7 @@ export default function FAQ({
                 <span className="text-[11px] tracking-[0.14em] text-cream/45 uppercase">
                   Topics
                 </span>
-                <span className="text-[13px] font-semibold text-gold">
+                <span className="text-[11px] font-semibold text-gold">
                   {items.length}
                 </span>
               </div>

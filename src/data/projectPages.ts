@@ -1,14 +1,19 @@
 import type { LucideIcon } from 'lucide-react'
 import {
+  Activity,
   Building2,
   Dumbbell,
   Fence,
+  Flower2,
+  Gem,
   Home,
   Landmark,
+  LayoutGrid,
+  Rocket,
   Ruler,
   ShieldCheck,
-  Sparkles,
   Trees,
+  Volleyball,
   Waves,
   Zap,
 } from 'lucide-react'
@@ -21,11 +26,16 @@ export type MetricIcon =
   | 'shield'
   | 'ruler'
   | 'landmark'
-  | 'sparkles'
   | 'waves'
   | 'dumbbell'
   | 'zap'
   | 'fence'
+  | 'flower'
+  | 'activity'
+  | 'layout'
+  | 'rocket'
+  | 'gem'
+  | 'volleyball'
 
 export const metricIcons: Record<MetricIcon, LucideIcon> = {
   building: Building2,
@@ -34,11 +44,16 @@ export const metricIcons: Record<MetricIcon, LucideIcon> = {
   shield: ShieldCheck,
   ruler: Ruler,
   landmark: Landmark,
-  sparkles: Sparkles,
   waves: Waves,
   dumbbell: Dumbbell,
   zap: Zap,
   fence: Fence,
+  flower: Flower2,
+  activity: Activity,
+  layout: LayoutGrid,
+  rocket: Rocket,
+  gem: Gem,
+  volleyball: Volleyball,
 }
 
 export type ProjectPageData = {
@@ -86,14 +101,14 @@ export type ProjectPageData = {
 }
 
 const townshipAmenities: ProjectPageData['amenities'] = [
-  { name: 'Club House', icon: 'sparkles' },
+  { name: 'Club House', icon: 'landmark' },
   { name: 'Swimming Pool', icon: 'waves' },
   { name: '10-Hole Golf', icon: 'trees' },
   { name: 'Gym', icon: 'dumbbell' },
-  { name: 'Yoga Room', icon: 'sparkles' },
+  { name: 'Yoga Room', icon: 'flower' },
   { name: 'Jogging Track', icon: 'trees' },
   { name: 'Cricket Ground', icon: 'trees' },
-  { name: 'Basketball Court', icon: 'sparkles' },
+  { name: 'Basketball Court', icon: 'volleyball' },
   { name: 'EV Charging', icon: 'zap' },
   { name: '24/7 Security', icon: 'shield' },
   { name: 'Solar Fencing', icon: 'fence' },
@@ -250,7 +265,7 @@ export const fernPage: ProjectPageData = {
     'Fern by MAK Projects at Tukkuguda — a fresh chapter of premium villa living with greenery, modern comfort, and the trusted craftsmanship of MAK.',
   secondaryCta: { label: 'Visit fernvillas.in', href: 'https://fernvillas.in' },
   metrics: [
-    { value: 'New', label: 'Launch', icon: 'sparkles' },
+    { value: 'New', label: 'Launch', icon: 'rocket' },
     { value: 'Villa', label: 'Residences', icon: 'home' },
     { value: 'Tukkuguda', label: 'Hyderabad', icon: 'landmark' },
     { value: 'MAK', label: 'Craftsmanship', icon: 'shield' },
@@ -301,7 +316,7 @@ export const fernPage: ProjectPageData = {
   },
   amenities: [
     { name: 'Landscaped Greens', icon: 'trees' },
-    { name: 'Club Amenities', icon: 'sparkles' },
+    { name: 'Club Amenities', icon: 'landmark' },
     { name: 'Secure Living', icon: 'shield' },
     { name: 'Power Backup', icon: 'zap' },
     { name: 'Modern Interiors', icon: 'home' },
@@ -343,7 +358,7 @@ export const canadianPage: ProjectPageData = {
   metrics: [
     { value: '8,750', label: 'SFT residence', icon: 'ruler' },
     { value: '1', label: 'Signature villa', icon: 'home' },
-    { value: 'Wood', label: 'Crafted finish', icon: 'sparkles' },
+    { value: 'Wood', label: 'Crafted finish', icon: 'gem' },
     { value: 'BTR', label: 'Township living', icon: 'trees' },
   ],
   overviewEyebrow: 'Part of MAK — BTR Township',
@@ -392,7 +407,7 @@ export const canadianPage: ProjectPageData = {
   },
   amenities: [
     { name: 'Private Lawns', icon: 'trees' },
-    { name: 'Premium Interiors', icon: 'sparkles' },
+    { name: 'Premium Interiors', icon: 'home' },
     { name: 'Township Club', icon: 'waves' },
     { name: 'Golf Access', icon: 'trees' },
     { name: '24/7 Security', icon: 'shield' },
@@ -434,7 +449,7 @@ export const townshipPage: ProjectPageData = {
     { value: '260+', label: 'Acres of land', icon: 'trees' },
     { value: '1,450+', label: 'Units', icon: 'building' },
     { value: '150', label: '3 & 4 BHK ready', icon: 'home' },
-    { value: '80+', label: 'Amenities', icon: 'sparkles' },
+    { value: '80+', label: 'Amenities', icon: 'layout' },
   ],
   overviewEyebrow: 'Overview',
   overviewTitle: 'One Township. Four Signature Offerings.',
