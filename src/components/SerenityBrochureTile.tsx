@@ -8,9 +8,10 @@ export type BrochureTileItem = {
   title: string
   caption: string
   image: string
+  fit?: 'contain' | 'cover'
 }
 
-/** Brochure PNG tile — object-contain on cream (not cropped like photo tiles) */
+/** Brochure PNG tile — object-contain on cream; photo renders use cover */
 export default function SerenityBrochureTile({
   item,
   className = '',
@@ -21,12 +22,16 @@ export default function SerenityBrochureTile({
   onOpen: () => void
 }) {
   const [loaded, setLoaded] = useState(false)
+  const fit = item.fit ?? 'contain'
+  const isPhoto = fit === 'cover'
 
   return (
     <motion.button
       type="button"
       onClick={onOpen}
-      className={`group relative block h-full w-full overflow-hidden rounded-[22px] border border-ink/8 bg-[#f6f3ec] text-left shadow-[0_8px_32px_rgba(15,35,28,0.08)] transition-shadow hover:shadow-[0_16px_48px_rgba(15,35,28,0.12)] ${className}`}
+      className={`group relative block h-full w-full overflow-hidden rounded-[22px] border border-ink/8 text-left shadow-[0_8px_32px_rgba(15,35,28,0.08)] transition-shadow hover:shadow-[0_16px_48px_rgba(15,35,28,0.12)] ${
+        isPhoto ? 'bg-ink/5' : 'bg-[#f6f3ec]'
+      } ${className}`}
       whileHover={{ y: -3 }}
       whileTap={{ scale: 0.995 }}
       transition={{ duration: 0.35, ease: REVEAL_EASE }}
@@ -36,9 +41,11 @@ export default function SerenityBrochureTile({
         alt={item.title}
         loading="lazy"
         onLoad={() => setLoaded(true)}
-        className={`absolute inset-0 h-full w-full object-contain p-3 transition duration-700 sm:p-4 ${
-          loaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`absolute inset-0 h-full w-full transition duration-700 ${
+          isPhoto
+            ? 'object-cover object-center'
+            : 'object-contain p-3 sm:p-4'
+        } ${loaded ? 'opacity-100' : 'opacity-0'}`}
       />
       {!loaded ? (
         <div className="absolute inset-0 animate-pulse bg-[#ebe6dc]" />

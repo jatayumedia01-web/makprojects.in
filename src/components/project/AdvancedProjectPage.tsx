@@ -5,6 +5,7 @@ import {
   GraduationCap,
   MapPin,
 } from 'lucide-react'
+import EnquireButton from '../mak-crm/EnquireButton'
 import { FadeIn } from '../Motion'
 import FAQ from '../FAQ'
 import {
@@ -69,20 +70,23 @@ export default function AdvancedProjectPage({
               {data.heroBody}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft"
-              >
+              <EnquireButton className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft">
                 Schedule a visit <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
+              </EnquireButton>
               {data.secondaryCta ? (
                 data.secondaryCta.href.startsWith('/') ? (
-                  <Link
-                    to={data.secondaryCta.href}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition hover:bg-white hover:text-ink"
-                  >
-                    {data.secondaryCta.label}
-                  </Link>
+                  data.secondaryCta.href === '/contact' ? (
+                    <EnquireButton className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition hover:bg-white hover:text-ink">
+                      {data.secondaryCta.label}
+                    </EnquireButton>
+                  ) : (
+                    <Link
+                      to={data.secondaryCta.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition hover:bg-white hover:text-ink"
+                    >
+                      {data.secondaryCta.label}
+                    </Link>
+                  )
                 ) : (
                   <a
                     href={data.secondaryCta.href}
@@ -155,12 +159,9 @@ export default function AdvancedProjectPage({
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
                     {data.locationLine}
                   </p>
-                  <Link
-                    to="/contact"
-                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-sage"
-                  >
+                  <EnquireButton className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-sage">
                     Enquire now <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </EnquireButton>
                 </div>
               </CardShell>
             </FadeIn>
@@ -478,12 +479,9 @@ export default function AdvancedProjectPage({
                 <p className="mx-auto mt-3 max-w-md text-sm text-cream/55">
                   {data.ctaBody}
                 </p>
-                <Link
-                  to="/contact"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft"
-                >
+                <EnquireButton className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft">
                   Contact us <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                </EnquireButton>
               </div>
             </CardShell>
           </FadeIn>

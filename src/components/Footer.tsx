@@ -87,9 +87,6 @@ export default function Footer() {
           <p className="text-sm leading-relaxed text-cream/70">
             {contact.corporate}
           </p>
-          <p className="mt-4 text-sm text-cream/70">
-            {contact.phones.join(' · ')}
-          </p>
           <p className="mt-1 text-sm text-cream/70">{contact.email}</p>
         </div>
       </div>

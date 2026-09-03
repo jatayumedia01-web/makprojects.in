@@ -11,7 +11,7 @@ const contactItems = [
   {
     to: '/contact',
     title: 'Contact Us',
-    desc: 'Office, phone & site directions',
+    desc: 'Office & site directions',
     icon: Phone,
     tone: 'from-[#1f6b55] to-[#0c241c]',
   },
@@ -177,12 +177,13 @@ export function ProjectsDropdown({ floating }: { floating: boolean }) {
               <p className="text-[11px] tracking-[0.2em] text-gold-soft uppercase">
                 Need help choosing?
               </p>
-              <a
-                href="tel:+919912797979"
+              <Link
+                to="/contact"
+                onClick={close}
                 className="mt-1 inline-flex items-center gap-2 text-sm font-semibold hover:text-gold-soft"
               >
-                <Phone className="h-3.5 w-3.5" /> +91 99127 97979
-              </a>
+                <ArrowUpRight className="h-3.5 w-3.5" /> Send an enquiry
+              </Link>
             </div>
           </div>
         </div>

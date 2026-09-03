@@ -1,4 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
+import { serenityCardImage } from './serenityPage'
 import {
   Activity,
   Building2,
@@ -333,7 +334,7 @@ export const fernPage: ProjectPageData = {
     },
     {
       q: 'How do I know more?',
-      a: 'Explore fernvillas.in for the dedicated Fern experience, or call +91 99127 97979 / use our Contact page to schedule a briefing.',
+      a: 'Explore fernvillas.in for the dedicated Fern experience, or use our Contact page to schedule a briefing.',
     },
   ],
   faqAsideTitle: 'Visit\nFern',
@@ -475,7 +476,7 @@ export const townshipPage: ProjectPageData = {
         title: 'BTR — Serenity',
         subtitle: 'Ready to move-in · 3 & 4 BHK · 150 units',
         status: 'Ready to Move-In',
-        image: '/media/serenity/hero.jpg',
+        image: serenityCardImage,
         href: '/btr-serenity',
       },
       {
@@ -503,7 +504,7 @@ export const townshipPage: ProjectPageData = {
   },
   galleryTitle: 'Life at BTR Township',
   gallery: [
-    { src: '/media/serenity/hero.jpg', label: 'Serenity' },
+    { src: serenityCardImage, label: 'Serenity' },
     { src: '/media/gardenia/hero.jpg', label: 'Gardenia' },
     { src: '/media/villas/hero.jpg', label: 'BTR Villas' },
     { src: '/media/canadian/hero.jpg', label: 'Canadian Wood' },

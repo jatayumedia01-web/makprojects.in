@@ -23,6 +23,7 @@ import {
   SectionHead,
   SoftScene,
 } from '../components/project/ProjectChrome'
+import EnquireButton from '../components/mak-crm/EnquireButton'
 import BtrClubShowcase from '../components/project/BtrClubShowcase'
 import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
 import LifestylePillars from '../components/project/LifestylePillars'
@@ -374,12 +375,9 @@ export default function Amenities() {
                   community spaces in person.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft"
-                  >
+                  <EnquireButton className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft">
                     Contact us <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </EnquireButton>
                   <Link
                     to="/btr-serenity"
                     className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-7 py-3 text-xs font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-cream hover:text-ink"

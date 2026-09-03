@@ -36,3 +36,24 @@ export function BtrLogo({
     />
   )
 }
+
+/** Per-brand logo image for carousels & showcases */
+export function BrandLogoImage({
+  src,
+  alt,
+  className = 'h-16 w-auto object-contain',
+}: {
+  src: string
+  alt: string
+  className?: string
+}) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      draggable={false}
+      loading="lazy"
+    />
+  )
+}

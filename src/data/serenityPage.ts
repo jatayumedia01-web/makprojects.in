@@ -1,18 +1,24 @@
 import type { LucideIcon } from 'lucide-react'
 import {
+  ArrowUpDown,
+  Baby,
   BedDouble,
   BookOpen,
   Building2,
   Camera,
   Car,
+  CircleDot,
   Dumbbell,
   Droplets,
   Fence,
   Flame,
   Flower2,
+  Footprints,
   Gamepad2,
   Landmark,
+  Mic2,
   Phone,
+  Recycle,
   ShieldCheck,
   Trees,
   Users,
@@ -28,32 +34,91 @@ export const serenityBrochure = {
   label: 'Download Brochure',
 }
 
-/** Media from official BTR Serenity brochure + project video */
+/** Primary Serenity elevation — user-provided official render */
+export const serenityBrandImage = '/media/serenity/elevation.jpg'
+export const serenityAerialImage = '/media/serenity/render-aerial.jpg'
+export const serenityCardImage = serenityBrandImage
+
+/** Gallery item — brochure PNGs use contain; photo renders use cover */
+export type SerenityGalleryItem = {
+  id: string
+  title: string
+  caption: string
+  image: string
+  fit?: 'contain' | 'cover'
+}
+
+/** Media from official BTR Serenity brochure + project renders */
 export const serenityMedia = {
-  hero: '/media/serenity/hero.jpg',
+  hero: serenityBrandImage,
   gallery: [
     {
       id: 'render-day',
       title: 'Elevation',
       caption: 'BTR Serenity — day view with landscaped greens',
-      image: '/media/serenity/render-day.png',
+      image: serenityBrandImage,
+      fit: 'contain',
     },
     {
       id: 'render-aerial',
       title: 'Aerial View',
       caption: 'Central courtyard, clubhouse & amenity spaces',
-      image: '/media/serenity/render-aerial.png',
+      image: '/media/serenity/render-aerial.jpg',
+      fit: 'contain',
     },
     {
       id: 'site-plan',
       title: 'Master Layout',
       caption: '150 apartments · clubhouse · play areas · basketball court',
-      image: '/media/serenity/site-plan.png',
+      image: '/media/serenity/site-plan.jpg',
+      fit: 'contain',
     },
-  ] as const,
+    {
+      id: 'render-clubhouse',
+      title: 'Clubhouse',
+      caption: 'Glass pyramid skylight · landscaped arrival court',
+      image: '/media/serenity/gallery/render-1.jpg',
+      fit: 'cover',
+    },
+    {
+      id: 'render-playground',
+      title: 'Children Play Area',
+      caption: 'Sand pit · slides · seesaw & merry-go-round',
+      image: '/media/serenity/gallery/render-2.jpg',
+      fit: 'cover',
+    },
+    {
+      id: 'render-pergola',
+      title: 'Outdoor Seating',
+      caption: 'Shaded pergola with lounge seating by the lawn',
+      image: '/media/serenity/gallery/render-3.jpg',
+      fit: 'cover',
+    },
+    {
+      id: 'render-playground-aerial',
+      title: 'Play Area Overview',
+      caption: 'Community playground surrounded by greenery',
+      image: '/media/serenity/gallery/render-4.jpg',
+      fit: 'cover',
+    },
+    {
+      id: 'render-basketball',
+      title: 'Basketball Court',
+      caption: 'Half-court with professional markings & hoop',
+      image: '/media/serenity/gallery/render-5.jpg',
+      fit: 'cover',
+    },
+    {
+      id: 'render-courtyard',
+      title: 'Central Lawn',
+      caption: 'Landscaped courtyard with pergola seating & bougainvillea',
+      image: '/media/serenity/gallery/render-6.jpg',
+      fit: 'cover',
+    },
+  ] satisfies readonly SerenityGalleryItem[],
   featuredVideo: {
     src: '/media/serenity/videos/serenity-tour.mp4',
-    poster: '/media/serenity/hero.jpg',
+    poster: serenityBrandImage,
     title: 'BTR Serenity — Project Walkthrough',
     blurb:
       'Experience serene living — 3 & 4 BHK luxury flats from 1334 to 3068 sft.',
@@ -88,7 +153,7 @@ export const serenityHero = {
   titleAccent: 'Serenity',
   body: 'Experience serene at BTR — 3 & 4 BHK luxury flats from 1334 to 3068 sft on 3 acres of prime land.',
   location: 'Srisailam Highway (NH-765) · Thummalur · Hyderabad',
-  rera: 'P02400002599 / P02400001288 / P02400001289',
+  rera: 'P02400002599',
 }
 
 export const serenityMetrics = [
@@ -136,18 +201,18 @@ export const serenityAmenityGroups = [
       { name: 'Library', icon: BookOpen },
       { name: 'Multipurpose Hall', icon: Users },
       { name: 'Air-Conditioned Gym', icon: Dumbbell },
-      { name: 'Children Play Area', icon: Trees },
-      { name: 'Jogging Track', icon: Trees },
-      { name: 'Amphitheater', icon: Users },
+      { name: 'Children Play Area', icon: Baby },
+      { name: 'Jogging Track', icon: Footprints },
+      { name: 'Amphitheater', icon: Mic2 },
       { name: 'Barbeque Zone', icon: Flame },
       { name: 'Car Wash', icon: Car },
-      { name: 'Basketball Court', icon: Dumbbell },
+      { name: 'Basketball Court', icon: CircleDot },
     ] satisfies SerenityAmenity[],
   },
   {
     title: 'Facilities',
     items: [
-      { name: 'Elevators', icon: Building2 },
+      { name: 'Elevators', icon: ArrowUpDown },
       { name: 'Intercom', icon: Phone },
       { name: 'Solar Fencing', icon: Fence },
       { name: 'Tree-Lined Vistas', icon: Trees },
@@ -155,7 +220,7 @@ export const serenityAmenityGroups = [
       { name: 'Water Softening Plant', icon: Droplets },
       { name: 'Broadband Connectivity', icon: Wifi },
       { name: 'Power Backup (Common)', icon: Zap },
-      { name: 'Sewerage Treatment Plant', icon: Droplets },
+      { name: 'Sewerage Treatment Plant', icon: Recycle },
       { name: '24/7 Security', icon: ShieldCheck },
     ] satisfies SerenityAmenity[],
   },

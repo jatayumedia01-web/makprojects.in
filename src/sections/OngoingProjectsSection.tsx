@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
+import { serenityCardImage } from '../data/serenityPage'
 import { FadeIn } from '../components/Motion'
 
 /**
@@ -16,7 +17,7 @@ const cards = [
     status: 'Part of MAK — BTR Township',
     href: '/btr-serenity',
     external: false,
-    image: '/media/home/btr-serenity.jpg',
+    image: serenityCardImage,
     body: 'BTR – SERENITY like a tranquil oasis nestled within the bustling urban landscape. With 150 residential apartments spread across 3 acres of prime land, it offers a spacious and serene environment for its residents.',
   },
   {

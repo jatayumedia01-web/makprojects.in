@@ -1,10 +1,6 @@
 window.FERN_SITE={
   "site_name":"MAK Fern",
-  "phone_display":"9912 797979",
-  "phone_tel":"9912797979",
   "email":"sales@makprojects.com",
-  "whatsapp":"919912797979",
-  "whatsapp_message":"Hi, I want details about Fern By MAK Projects villas.",
   "rera":"P02400010645",
   "corporate_address":"4th Floor, Road No. 1, Opposite Jalagam Vengal Rao Park, Banjara Hills, Hyderabad, Telangana 500034",
   "project_address":"Sy 438, 439, Fern Villas, Srisailam Hwy, Malikdanguda, Telangana 501359",
@@ -17,7 +13,7 @@ window.FERN_SITE={
   "walkthrough_youtube":"",
   "walkthrough_video":"/fern/assets/videos/fern-walkthrough.mp4",
   "walkthrough_poster":"/fern/assets/images/aerial_view.jpg",
-  "whatsapp_fab_enabled":true,
+  "whatsapp_fab_enabled":false,
   "crm_form_url":"https://makprojects.org/mak-crm/form-widget.php?form_id=1&display=popup",
   "crm_bot_url":"https://makprojects.org/mak-crm/chatbot-widget.php?bot_id=1&embed=js",
   "updated_at":""

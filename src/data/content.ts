@@ -1,5 +1,33 @@
+import type { LucideIcon } from 'lucide-react'
+import {
+  Award,
+  BookMarked,
+  BookOpen,
+  Building,
+  Building2,
+  Cpu,
+  Factory,
+  FerrisWheel,
+  Globe,
+  GraduationCap,
+  HeartPulse,
+  Hospital,
+  Landmark,
+  Languages,
+  Library,
+  Plane,
+  Route,
+  School,
+  Sprout,
+  Stethoscope,
+  TrendingUp,
+  Warehouse,
+} from 'lucide-react'
+import { serenityCardImage } from './serenityPage'
+
+export type HighlightItem = { label: string; icon: LucideIcon }
+
 export const contact = {
-  phones: ['+91 99127 97979'],
   email: 'info@makprojects.com',
   web: 'www.makprojects.com',
   corporate:
@@ -7,7 +35,6 @@ export const contact = {
   project:
     'BTR Township – 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) – 501359',
   hours: 'Mon–Sat 09:00–18:00 · Sunday Holiday',
-  whatsapp: '919912797979',
   responseNote: 'Our team typically responds within one business day.',
 }
 
@@ -26,6 +53,7 @@ export const contactLocations = {
   corporate: {
     id: 'corporate',
     label: 'Corporate Office',
+    tabShort: 'Corporate',
     subtitle: 'Banjarah Hills · Hyderabad',
     address: 'MAK Projects Private Limited\nPark Citi Plaza, 4th Floor\nRoad No.1, Banjara Hills\nHyderabad – 500034',
     mapEmbed:
@@ -33,16 +61,29 @@ export const contactLocations = {
     mapLink:
       'https://www.google.com/maps/search/?api=1&query=Park+Citi+Plaza+Banjara+Hills+Hyderabad',
   },
-  project: {
-    id: 'project',
-    label: 'Project Site',
+  township: {
+    id: 'township',
+    label: 'MAK — BTR Township',
+    tabShort: 'BTR Township',
     subtitle: 'BTR Township · Srisailam Highway',
     address:
-      'BTR Township\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
+      'MAK — BTR Township\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
     mapEmbed:
       'https://maps.google.com/maps?q=MAK+BTR+Township+Srisailam+Highway+Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed',
     mapLink:
       'https://www.google.com/maps/search/?api=1&query=MAK+BTR+Township+Srisailam+Highway+Hyderabad',
+  },
+  fern: {
+    id: 'fern',
+    label: 'Fern by MAK Projects',
+    tabShort: 'Fern',
+    subtitle: 'Tukkuguda · Srisailam Highway',
+    address:
+      'Fern by MAK Projects\nSurvey Nos. 438 & 439, Srisailam Highway\nMalikdanguda, Maheswaram (M)\nRanga Reddy (D) – 501359',
+    mapEmbed:
+      'https://maps.google.com/maps?q=MAK+Fern+Malikdanguda+Tukkuguda+Hyderabad&t=&z=14&ie=UTF8&iwloc=&output=embed',
+    mapLink:
+      'https://www.google.com/maps/search/?api=1&query=MAK+Fern+Malikdanguda+Tukkuguda+Hyderabad',
   },
 } as const
 
@@ -162,56 +203,65 @@ export const btrProjectHighlights = {
       id: 'connectivity',
       title: 'Connectivity',
       items: [
-        'Just 12 mins from ORR (Exit 14)',
-        'Just 20 mins drive to RGIA',
-        'Just 40 mins drive to Gachibowli & Financial District',
+        { label: 'Just 12 mins from ORR (Exit 14)', icon: Route },
+        { label: 'Just 20 mins drive to RGIA', icon: Plane },
+        {
+          label: 'Just 40 mins drive to Gachibowli & Financial District',
+          icon: Landmark,
+        },
       ],
     },
     {
       id: 'healthcare',
       title: 'Healthcare',
       items: [
-        'Kondeti Super Speciality Hospital',
-        'Madhavanji Super Speciality Hospital',
-        'Prime Care Hospital',
+        { label: 'Kondeti Super Speciality Hospital', icon: Hospital },
+        { label: 'Madhavanji Super Speciality Hospital', icon: Stethoscope },
+        { label: 'Prime Care Hospital', icon: HeartPulse },
       ],
     },
     {
       id: 'education',
       title: 'Educational Institutions',
       items: [
-        'Delhi Public School, Aero City',
-        'The Aga Khan Academy',
-        'Manchester Global School',
-        'Amity University Hyderabad',
-        'GMR Chinmaya Vidyalaya',
-        'Rockwell International School',
-        'Sanctus World School',
-        'Sloka International School',
-        'Bhashyam Blooms',
-        'Sri Sri Academy',
+        { label: 'Delhi Public School, Aero City', icon: School },
+        { label: 'The Aga Khan Academy', icon: GraduationCap },
+        { label: 'Manchester Global School', icon: Globe },
+        { label: 'Amity University Hyderabad', icon: Building2 },
+        { label: 'GMR Chinmaya Vidyalaya', icon: BookOpen },
+        { label: 'Rockwell International School', icon: Library },
+        { label: 'Sanctus World School', icon: BookMarked },
+        { label: 'Sloka International School', icon: Languages },
+        { label: 'Bhashyam Blooms', icon: Sprout },
+        { label: 'Sri Sri Academy', icon: Award },
       ],
     },
     {
       id: 'business',
       title: 'Business & IT Corridors',
       items: [
-        'GMR Business Park',
-        'Adibatla Aerospace & SEZ cluster — ~10 mins',
-        'TCS · Wipro · Amazon warehouses',
-        'Fab City · Electronic City corridor',
-        'GMR Aero Technic · Adani Aerospace',
-        'Foxconn · DRDO RCI · Malabar Gold campus',
+        { label: 'GMR Business Park', icon: Building },
+        {
+          label: 'Adibatla Aerospace & SEZ cluster — ~10 mins',
+          icon: Plane,
+        },
+        { label: 'TCS · Wipro · Amazon warehouses', icon: Warehouse },
+        { label: 'Fab City · Electronic City corridor', icon: Cpu },
+        { label: 'GMR Aero Technic · Adani Aerospace', icon: Plane },
+        { label: 'Foxconn · DRDO RCI · Malabar Gold campus', icon: Factory },
       ],
     },
     {
       id: 'leisure',
       title: 'Leisure & Landmarks',
       items: [
-        'Wonderla Amusement Park',
-        'World Trade Center',
-        'Tata Sikorsky · GMR Health Port',
-        'Knowledge City & Adibatla growth corridor',
+        { label: 'Wonderla Amusement Park', icon: FerrisWheel },
+        { label: 'World Trade Center', icon: Landmark },
+        { label: 'Tata Sikorsky · GMR Health Port', icon: Plane },
+        {
+          label: 'Knowledge City & Adibatla growth corridor',
+          icon: TrendingUp,
+        },
       ],
     },
   ],
@@ -219,14 +269,17 @@ export const btrProjectHighlights = {
 
 /** @deprecated Use btrProjectHighlights — kept for legacy imports */
 export const nearby = {
-  schools: btrProjectHighlights.categories.find((c) => c.id === 'education')!
-    .items,
+  schools: btrProjectHighlights.categories
+    .find((c) => c.id === 'education')!
+    .items.map((item) => item.label),
   locations: [
-    ...btrProjectHighlights.categories.find((c) => c.id === 'connectivity')!
-      .items,
+    ...btrProjectHighlights.categories
+      .find((c) => c.id === 'connectivity')!
+      .items.map((item) => item.label),
     ...btrProjectHighlights.categories
       .find((c) => c.id === 'business')!
-      .items.slice(0, 3),
+      .items.slice(0, 3)
+      .map((item) => item.label),
   ],
 }
 
@@ -484,7 +537,7 @@ export const projects = [
     status: 'Ready to Move-In',
     possession: 'PART OF BTR TOWNSHIP',
     location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
-    image: '/media/serenity/hero.jpg',
+    image: serenityCardImage,
     href: '/btr-serenity',
     rera: 'P02400002599',
   },

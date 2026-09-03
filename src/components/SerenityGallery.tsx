@@ -12,18 +12,19 @@ import {
 import SerenityBrochureTile from './SerenityBrochureTile'
 import { serenityMedia } from '../data/serenityPage'
 
-/** Bento gallery — brochure renders with proper contain fit */
+/** Bento hero + amenity render grid */
 export default function SerenityGallery() {
   const items: ClubGalleryItem[] = serenityMedia.gallery.map((g) => ({
     id: g.id,
     title: g.title,
     caption: g.caption,
     image: g.image,
+    fit: g.fit,
   }))
 
   const { lightbox, open, close, step } = useClubLightbox(items)
 
-  const [hero, aerial, sitePlan] = items
+  const [hero, aerial, sitePlan, ...renders] = items
 
   return (
     <>
@@ -37,8 +38,8 @@ export default function SerenityGallery() {
           <FadeIn>
             <SectionHead eyebrow="Visuals" title="Project Gallery" />
             <p className="-mt-6 mx-auto mb-10 max-w-xl text-center text-sm leading-relaxed text-stone md:mb-12">
-              Elevations, aerial views and master layout from the official BTR
-              Serenity brochure.
+              Elevations, master layout and official 3D renders — clubhouse,
+              amenities and landscaped spaces at BTR Serenity.
             </p>
           </FadeIn>
 
@@ -75,6 +76,20 @@ export default function SerenityGallery() {
               ) : null}
             </div>
           </div>
+
+          {renders.length > 0 ? (
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+              {renders.map((item, i) => (
+                <FadeIn key={item.id} delay={0.1 + i * 0.04}>
+                  <SerenityBrochureTile
+                    item={item}
+                    className="min-h-[240px] sm:min-h-[260px]"
+                    onOpen={() => open(item, i + 3)}
+                  />
+                </FadeIn>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 

@@ -12,7 +12,6 @@
   setText('[data-cms="hero_brand"]', cfg.hero_brand);
   setText('[data-cms="hero_eyebrow"]', cfg.hero_eyebrow);
   setText('[data-cms="hero_seo_line"]', cfg.hero_seo_line);
-  setText('[data-cms="phone_display"]', cfg.phone_display);
   setText('[data-cms="rera"]', cfg.rera);
   setText('[data-cms="email"]', cfg.email);
 
@@ -26,11 +25,6 @@
     }
   }
 
-  if (cfg.phone_tel) {
-    document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
-      a.setAttribute('href', 'tel:' + cfg.phone_tel);
-    });
-  }
   if (cfg.email) {
     document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
       a.setAttribute('href', 'mailto:' + cfg.email);

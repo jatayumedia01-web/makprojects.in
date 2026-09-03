@@ -11,7 +11,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion'
 import { FadeIn, StaggerReveal, staggerItem } from '../Motion'
 import { CardShell, SectionAccent, SectionBackdrop } from './ProjectChrome'
-import { btrProjectHighlights } from '../../data/content'
+import { btrProjectHighlights, type HighlightItem } from '../../data/content'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -112,7 +112,7 @@ function HighlightCard({
 }: {
   catId: string
   title: string
-  items: readonly string[]
+  items: readonly HighlightItem[]
   icon: LucideIcon
   featured?: boolean
   stagger?: boolean
@@ -121,12 +121,17 @@ function HighlightCard({
 }) {
   const accent = categoryAccent[catId] ?? categoryAccent.connectivity
 
-  function ItemChip({ item }: { item: string }) {
+  function ItemChip({ item }: { item: HighlightItem }) {
+    const ItemIcon = item.icon
     return (
       <li className="max-w-full">
-        <span className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-ink/[0.08] bg-white px-3 py-2 text-[11px] leading-snug text-[#3f4a52] shadow-[0_1px_4px_rgba(7,17,14,0.04)] transition duration-200 hover:border-gold/35 hover:shadow-[0_4px_12px_rgba(7,17,14,0.07)] sm:text-[11px]">
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_4px_rgba(212,175,55,0.45)]" />
-          <span className="whitespace-normal">{item}</span>
+        <span className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-ink/[0.08] bg-white px-2.5 py-2 text-[11px] leading-snug text-[#3f4a52] shadow-[0_1px_4px_rgba(7,17,14,0.04)] transition duration-200 hover:border-gold/35 hover:shadow-[0_4px_12px_rgba(7,17,14,0.07)] sm:px-3 sm:text-[11px]">
+          <span
+            className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ring-1 ring-black/[0.04] ${accent.iconBg} ${accent.iconColor}`}
+          >
+            <ItemIcon className="h-3 w-3" strokeWidth={2} aria-hidden />
+          </span>
+          <span className="whitespace-normal">{item.label}</span>
         </span>
       </li>
     )
@@ -192,7 +197,7 @@ function HighlightCard({
             className={`flex flex-1 flex-wrap content-start gap-2 px-3 py-3 sm:gap-2.5 sm:px-4 sm:py-3.5 ${accent.bodyBg}`}
           >
             {items.map((item) => (
-              <ItemChip key={item} item={item} />
+              <ItemChip key={item.label} item={item} />
             ))}
           </ul>
         </div>

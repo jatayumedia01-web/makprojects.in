@@ -63,7 +63,7 @@ export default function Navbar() {
             aria-label="MAK Projects Home"
           >
             <MakLogo
-              className={`h-9 w-auto max-w-[112px] sm:h-10 sm:max-w-[124px] md:max-w-[132px] ${
+              className={`h-[60px] w-auto max-w-[144px] sm:h-16 sm:max-w-[158px] md:max-w-[166px] ${
                 floating ? 'drop-shadow-md' : ''
               }`}
             />
@@ -105,7 +105,7 @@ export default function Navbar() {
               }`}
               aria-label="BTR — Life is Beautiful"
             >
-              <BtrLogo className="h-8 w-auto max-w-[88px] sm:h-9 sm:max-w-[96px]" />
+              <BtrLogo className="h-14 w-auto max-w-[120px] sm:h-[60px] sm:max-w-[128px]" />
             </Link>
 
             <button

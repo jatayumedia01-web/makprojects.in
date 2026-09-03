@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import {
@@ -7,12 +7,11 @@ import {
   Clock,
   Mail,
   MapPin,
-  MessageCircle,
   Navigation,
-  Phone,
-  Send,
   ShieldCheck,
 } from 'lucide-react'
+import MakFormIframe from '../components/mak-crm/MakFormIframe'
+import EnquireButton from '../components/mak-crm/EnquireButton'
 import { FadeIn, StaggerReveal, staggerItem } from '../components/Motion'
 import {
   CardShell,
@@ -23,27 +22,11 @@ import {
 import {
   contact,
   contactLocations,
-  contactProjectOptions,
 } from '../data/content'
 
 const HERO = '/media/gardenia/hero.jpg'
 
 const quickActions = [
-  {
-    label: 'Call us',
-    value: contact.phones[0],
-    href: `tel:${contact.phones[0].replace(/\s/g, '')}`,
-    icon: Phone,
-    tone: 'from-[#1f6b55] to-[#0c241c]',
-  },
-  {
-    label: 'WhatsApp',
-    value: 'Chat with sales',
-    href: `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent('Hello MAK Projects, I would like to enquire about your projects.')}`,
-    icon: MessageCircle,
-    tone: 'from-[#2d5a4a] to-[#0f2a22]',
-    external: true,
-  },
   {
     label: 'Email',
     value: contact.email,
@@ -62,42 +45,10 @@ const visitLinks = [
 
 type LocationId = keyof typeof contactLocations
 
-const inputClass =
-  'w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-stone/70 focus:border-sage/50 focus:ring-2 focus:ring-sage/15'
-
 export default function Contact() {
   const reduce = useReducedMotion()
   const [location, setLocation] = useState<LocationId>('corporate')
-  const [submitted, setSubmitted] = useState(false)
   const activeLocation = contactLocations[location]
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    const fd = new FormData(e.currentTarget)
-    const name = String(fd.get('name') ?? '').trim()
-    const phone = String(fd.get('phone') ?? '').trim()
-    const email = String(fd.get('email') ?? '').trim()
-    const project = String(fd.get('project') ?? '').trim()
-    const message = String(fd.get('message') ?? '').trim()
-
-    const projectLabel =
-      contactProjectOptions.find((p) => p.value === project)?.label ?? project
-
-    const body = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      email ? `Email: ${email}` : null,
-      `Project interest: ${projectLabel}`,
-      '',
-      message,
-    ]
-      .filter(Boolean)
-      .join('\n')
-
-    const mailto = `mailto:${contact.email}?subject=${encodeURIComponent(`Website enquiry — ${projectLabel}`)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailto
-    setSubmitted(true)
-  }
 
   return (
     <>
@@ -136,7 +87,7 @@ export default function Contact() {
       {/* Quick actions */}
       <section className="relative border-b border-ink/8 bg-white py-6 sm:py-8">
         <PageContainer>
-          <StaggerReveal className="grid gap-3 sm:grid-cols-3 sm:gap-4">
+          <StaggerReveal className="grid gap-3 sm:max-w-md">
             {quickActions.map((action) => {
               const Icon = action.icon
               return (
@@ -192,126 +143,14 @@ export default function Contact() {
                   availability, pricing, and site visits.
                 </p>
 
-                <CardShell className="mt-8" fit>
-                  <div className="bg-white p-5 sm:p-7 md:p-8">
-                    {submitted ? (
-                      <div className="py-8 text-center">
-                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-sage/15 text-sage">
-                          <Send className="h-6 w-6" />
-                        </div>
-                        <h3 className="mt-4 text-lg font-semibold text-ink">
-                          Thank you
-                        </h3>
-                        <p className="mt-2 text-sm text-stone">
-                          Your email client should open with your enquiry. If it
-                          didn&apos;t, call us at{' '}
-                          <a
-                            href={`tel:${contact.phones[0].replace(/\s/g, '')}`}
-                            className="font-semibold text-sage"
-                          >
-                            {contact.phones[0]}
-                          </a>
-                          .
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => setSubmitted(false)}
-                          className="mt-6 text-xs font-semibold tracking-[0.14em] text-sage uppercase underline-offset-4 hover:underline"
-                        >
-                          Send another enquiry
-                        </button>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubmit} className="space-y-5">
-                        <div className="grid gap-5 sm:grid-cols-2">
-                          <label className="block sm:col-span-1">
-                            <span className="mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-ink/70 uppercase">
-                              Full name *
-                            </span>
-                            <input
-                              name="name"
-                              type="text"
-                              required
-                              autoComplete="name"
-                              placeholder="Your name"
-                              className={inputClass}
-                            />
-                          </label>
-                          <label className="block sm:col-span-1">
-                            <span className="mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-ink/70 uppercase">
-                              Phone *
-                            </span>
-                            <input
-                              name="phone"
-                              type="tel"
-                              required
-                              autoComplete="tel"
-                              placeholder="+91 98765 43210"
-                              className={inputClass}
-                            />
-                          </label>
-                        </div>
-
-                        <label className="block">
-                          <span className="mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-ink/70 uppercase">
-                            Email
-                          </span>
-                          <input
-                            name="email"
-                            type="email"
-                            autoComplete="email"
-                            placeholder="you@email.com"
-                            className={inputClass}
-                          />
-                        </label>
-
-                        <label className="block">
-                          <span className="mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-ink/70 uppercase">
-                            Project interest *
-                          </span>
-                          <select
-                            name="project"
-                            required
-                            defaultValue="general"
-                            className={`${inputClass} cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2716%27 height=%2716%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%236b7280%27 stroke-width=%272%27%3E%3Cpath d=%27m6 9 6 6 6-6%27/%3E%3C/svg%3E')] bg-[length:16px] bg-[position:right_12px_center] bg-no-repeat pr-10`}
-                          >
-                            {contactProjectOptions.map((opt) => (
-                              <option key={opt.value} value={opt.value}>
-                                {opt.label}
-                              </option>
-                            ))}
-                          </select>
-                        </label>
-
-                        <label className="block">
-                          <span className="mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-ink/70 uppercase">
-                            Message *
-                          </span>
-                          <textarea
-                            name="message"
-                            required
-                            rows={4}
-                            placeholder="Tell us about your requirements, preferred unit type, or site visit timing…"
-                            className={`${inputClass} resize-y min-h-[120px]`}
-                          />
-                        </label>
-
-                        <button
-                          type="submit"
-                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-xs font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest sm:w-auto"
-                        >
-                          Submit enquiry
-                          <Send className="h-3.5 w-3.5" />
-                        </button>
-
-                        <p className="flex items-start gap-2 text-[11px] leading-relaxed text-stone">
-                          <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sage" />
-                          Your information is used only to respond to your
-                          enquiry. RERA-approved projects · MAK Projects Pvt.
-                          Ltd.
-                        </p>
-                      </form>
-                    )}
+                <CardShell className="mt-8 overflow-hidden" fit>
+                  <div className="bg-white p-2 sm:p-3">
+                    <MakFormIframe className="min-h-[560px] w-full rounded-2xl" />
+                    <p className="flex items-start gap-2 px-3 pb-3 pt-2 text-[11px] leading-relaxed text-stone sm:px-4">
+                      <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sage" />
+                      Secure enquiry with OTP verification · RERA-approved
+                      projects · MAK Projects Pvt. Ltd.
+                    </p>
                   </div>
                 </CardShell>
               </div>
@@ -347,13 +186,6 @@ export default function Contact() {
                   <p className="mt-2 text-sm leading-relaxed text-ink/80">
                     {contact.responseNote}
                   </p>
-                  <a
-                    href={`tel:${contact.phones[0].replace(/\s/g, '')}`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sage transition hover:text-forest"
-                  >
-                    <Phone className="h-4 w-4" />
-                    {contact.phones[0]}
-                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -374,17 +206,17 @@ export default function Contact() {
               <h2 className="mt-2 text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-ink">
                 Our locations
               </h2>
-              <p className="mx-auto mt-3 max-w-lg text-sm text-stone">
-                Corporate meetings at Banjara Hills · Site visits at BTR Township
-                on Srisailam Highway.
+              <p className="mx-auto mt-3 max-w-xl text-sm text-stone">
+                Corporate meetings at Banjara Hills · Site visits at MAK — BTR
+                Township & Fern by MAK Projects.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.05}>
-            <div className="mb-6 flex justify-center">
+            <div className="mb-6 flex justify-center overflow-x-auto px-2 scrollbar-none">
               <div
-                className="inline-flex rounded-full border border-ink/8 bg-cream/60 p-1"
+                className="inline-flex shrink-0 rounded-full border border-ink/8 bg-cream/60 p-1"
                 role="tablist"
                 aria-label="Office locations"
               >
@@ -398,7 +230,7 @@ export default function Contact() {
                       role="tab"
                       aria-selected={on}
                       onClick={() => setLocation(id)}
-                      className="relative rounded-full px-4 py-2.5 text-[11px] font-semibold tracking-[0.12em] uppercase sm:px-6"
+                      className="relative rounded-full px-3 py-2.5 text-[10px] font-semibold tracking-[0.1em] uppercase sm:px-5 sm:text-[11px] sm:tracking-[0.12em]"
                     >
                       {on && (
                         <motion.span
@@ -412,9 +244,10 @@ export default function Contact() {
                         />
                       )}
                       <span
-                        className={`relative ${on ? 'text-cream' : 'text-stone'}`}
+                        className={`relative whitespace-nowrap ${on ? 'text-cream' : 'text-stone'}`}
                       >
-                        {loc.label}
+                        <span className="sm:hidden">{loc.tabShort}</span>
+                        <span className="hidden sm:inline">{loc.label}</span>
                       </span>
                     </button>
                   )
@@ -517,26 +350,13 @@ export default function Contact() {
               Schedule a site visit today
             </h2>
             <p className="mt-3 text-sm text-white/60">
-              Call or WhatsApp our team to plan your township tour on Srisailam
-              Highway.
+              Send an enquiry and our team will help plan your township tour on
+              Srisailam Highway.
             </p>
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3">
-              <a
-                href={`tel:${contact.phones[0].replace(/\s/g, '')}`}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold tracking-[0.14em] text-ink uppercase"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                {contact.phones[0]}
-              </a>
-              <a
-                href={`https://wa.me/${contact.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3 text-xs font-semibold tracking-[0.14em] text-white uppercase"
-              >
-                <MessageCircle className="h-3.5 w-3.5" />
-                WhatsApp
-              </a>
+            <div className="mt-6 flex justify-center">
+              <EnquireButton className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold tracking-[0.14em] text-ink uppercase">
+                Send enquiry
+              </EnquireButton>
             </div>
           </FadeIn>
         </PageContainer>

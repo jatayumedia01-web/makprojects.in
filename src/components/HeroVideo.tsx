@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, FileDown, ChevronDown, Volume2, VolumeX } from 'lucide-react'
+import { FileDown, ChevronDown, Volume2, VolumeX } from 'lucide-react'
+import { FERN_SITE_URL, prefetchFernSite } from '../utils/prefetchFern'
+import EnquireButton from './mak-crm/EnquireButton'
 
-const LOCAL_VIDEO = '/media/home/hero.mp4'
-const POSTER = '/media/home/hero-poster.png'
+const FERN_VIDEO = '/fern/assets/videos/fern-walkthrough.mp4'
+const POSTER = '/fern/assets/images/aerial_view.jpg'
+const FERN_BROCHURE = '/fern/assets/brochure/fern_brochure.pdf'
 
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -23,6 +25,11 @@ export default function HeroVideo() {
     el.addEventListener('loadeddata', play)
     return () => el.removeEventListener('loadeddata', play)
   }, [muted])
+
+  useEffect(() => {
+    const t = window.setTimeout(prefetchFernSite, 800)
+    return () => window.clearTimeout(t)
+  }, [])
 
   function toggleMute() {
     const el = videoRef.current
@@ -55,7 +62,7 @@ export default function HeroVideo() {
         poster={POSTER}
         onCanPlay={() => setReady(true)}
       >
-        <source src={LOCAL_VIDEO} type="video/mp4" />
+        <source src={FERN_VIDEO} type="video/mp4" />
       </video>
 
       <div className="hero-cinematic pointer-events-none absolute inset-0" />
@@ -63,7 +70,7 @@ export default function HeroVideo() {
 
       <div className="relative z-10 site-container-hero flex h-full flex-col justify-end px-6 pb-16 pt-28 sm:px-10 lg:px-14 lg:pb-20">
         <div className="grid items-end gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-8">
+          <div className="max-w-3xl lg:col-span-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,19 +78,18 @@ export default function HeroVideo() {
               className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md"
             >
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
-              Hyderabad · Ready to Move
+              Fern by MAK Projects
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl text-[clamp(2.4rem,6.5vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.02em] text-white"
+              className="text-[clamp(2.2rem,6vw,5rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-white"
             >
-              Experience
-              <br />
+              Bespoke{' '}
               <span className="bg-gradient-to-r from-gold-soft via-white to-gold bg-clip-text text-transparent">
-                Luxury Living
+                Triplex Villas
               </span>
             </motion.h1>
 
@@ -98,44 +104,56 @@ export default function HeroVideo() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
-              className="mt-5 max-w-xl text-base font-light tracking-[0.12em] text-white/80 uppercase sm:text-lg"
+              className="mt-5 max-w-2xl text-[13px] font-medium leading-relaxed tracking-[0.18em] text-white/85 uppercase sm:text-sm sm:tracking-[0.2em]"
             >
-              Explore Our Exclusive Listings
+              Timeless design. Inspired by nature. Made for you.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.72 }}
+              className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] font-light tracking-[0.12em] text-white/70 sm:text-[15px]"
+            >
+              <span className="hidden h-4 w-px bg-white/25 sm:inline-block" aria-hidden />
+              <span className="font-medium text-gold-soft">@Tukkuguda</span>
+              <span className="text-white/40">·</span>
+              <span>4 BHK + Home Theater Villas</span>
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.75 }}
+              transition={{ duration: 0.7, delay: 0.85 }}
               className="mt-9 flex flex-wrap items-center gap-3"
             >
+              <EnquireButton className="inline-flex items-center gap-2 rounded-full bg-white/15 px-7 py-3.5 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-md transition duration-300 hover:bg-white hover:text-ink">
+                Enquire now
+              </EnquireButton>
               <a
-                href="tel:+919912797979"
-                className="glass-btn inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-xs font-semibold tracking-[0.16em] text-white uppercase transition duration-300"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                Call Request
-              </a>
-              <a
-                href="mailto:info@makprojects.com?subject=Brochure%20Request"
+                href={FERN_BROCHURE}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-xs font-semibold tracking-[0.16em] text-ink uppercase shadow-lg shadow-black/25 transition duration-300 hover:-translate-y-0.5 hover:bg-gold-soft"
               >
                 <FileDown className="h-3.5 w-3.5" />
                 Download Brochure
               </a>
-              <Link
-                to="/projects"
+              <a
+                href={FERN_SITE_URL}
+                onMouseEnter={prefetchFernSite}
+                onFocus={prefetchFernSite}
                 className="ml-1 text-xs font-medium tracking-[0.14em] text-white/75 uppercase underline-offset-4 transition hover:text-gold-soft hover:underline"
               >
-                View projects →
-              </Link>
+                Explore Fern →
+              </a>
             </motion.div>
           </div>
 
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.85 }}
+            transition={{ duration: 0.8, delay: 0.95 }}
             className="hidden lg:col-span-4 lg:block"
           >
             <div className="ml-auto max-w-xs rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
@@ -143,17 +161,19 @@ export default function HeroVideo() {
                 Featured
               </p>
               <p className="mt-2 text-lg font-semibold text-white">
-                BTR Serenity
+                Fern by MAK Projects
               </p>
-              <p className="mt-1 text-sm text-white/65">
-                3 & 4 BHK · Ready to Move-In · RERA Approved
+              <p className="mt-1 text-sm leading-relaxed text-white/65">
+                4 BHK + Home Theater · Tukkuguda · 5 mins from ORR
               </p>
-              <Link
-                to="/btr-serenity"
+              <a
+                href={FERN_SITE_URL}
+                onMouseEnter={prefetchFernSite}
+                onFocus={prefetchFernSite}
                 className="mt-4 inline-flex text-xs font-semibold tracking-wider text-gold uppercase"
               >
                 Discover →
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -166,9 +186,9 @@ export default function HeroVideo() {
         >
           <span>RERA Approved</span>
           <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:inline-block" />
-          <span>Srisailam Highway</span>
+          <span>Tukkuguda · Hyderabad</span>
           <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:inline-block" />
-          <span>Golf Community</span>
+          <span>5 mins from ORR</span>
         </motion.div>
       </div>
 

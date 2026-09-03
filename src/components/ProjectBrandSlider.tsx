@@ -2,40 +2,69 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, useAnimationControls } from 'framer-motion'
-import { BtrLogo } from './BrandLogos'
+import { BrandLogoImage } from './BrandLogos'
+import { btrBrands, type BtrBrand } from '../data/btrBrands'
 
 /**
  * Section name: ProjectBrandSlider
- * Side-by-side horizontal sliding — one brand at a time, 3 visible
+ * Side-by-side horizontal sliding — 3 brands visible, official logos per project
  */
-const brands = [
-  {
-    id: 'btr',
-    label: 'Life is Beautiful',
-    style: 'soft' as const,
-    href: '/projects',
-  },
-  {
-    id: 'township',
-    label: 'TOWNSHIP',
-    style: 'caps' as const,
-    href: '/btr-township',
-  },
-  {
-    id: 'serenity',
-    label: 'SERENITY',
-    style: 'caps' as const,
-    href: '/btr-serenity',
-  },
-]
-
+const brands = btrBrands
 const VISIBLE = 3
 
-function labelClass(style: (typeof brands)[number]['style']) {
-  if (style === 'soft') {
-    return 'mt-3 text-[11px] font-medium tracking-[0.28em] text-[#8a9199] uppercase'
+function BrandCard({
+  brand,
+  cardW,
+}: {
+  brand: BtrBrand
+  cardW: number
+}) {
+  const inner = (
+    <>
+      <span className="pointer-events-none absolute inset-x-8 top-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-gold/55 to-transparent transition duration-500 group-hover:scale-x-100" />
+
+      <motion.div
+        whileHover={{ y: -4, scale: 1.03 }}
+        transition={{
+          type: 'spring',
+          stiffness: 340,
+          damping: 18,
+        }}
+        className="flex items-center justify-center overflow-hidden rounded-2xl bg-white px-4 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.12)] ring-1 ring-black/5"
+      >
+        <BrandLogoImage
+          src={brand.logo}
+          alt={brand.logoAlt}
+          className={`object-contain ${brand.logoClass}`}
+        />
+      </motion.div>
+    </>
+  )
+
+  const className =
+    'group relative flex min-h-[140px] shrink-0 flex-col items-center justify-center border-r border-black/[0.06] px-3 py-8 transition duration-500 hover:bg-gradient-to-b hover:from-[#f8f6f2] hover:to-white'
+
+  const style = { width: cardW || `${100 / VISIBLE}%` }
+
+  if ('external' in brand && brand.external) {
+    return (
+      <a
+        href={brand.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        style={style}
+      >
+        {inner}
+      </a>
+    )
   }
-  return 'mt-3 text-[11px] font-bold tracking-[0.36em] text-[#1a7a8a] uppercase'
+
+  return (
+    <Link to={brand.href} className={className} style={style}>
+      {inner}
+    </Link>
+  )
 }
 
 export default function ProjectBrandSlider() {
@@ -152,33 +181,11 @@ export default function ProjectBrandSlider() {
               <div ref={viewportRef} className="relative w-full overflow-hidden">
                 <motion.div className="flex" animate={controls}>
                   {track.map((brand, i) => (
-                    <Link
+                    <BrandCard
                       key={`${brand.id}-${i}`}
-                      to={brand.href}
-                      className="group relative flex min-h-[168px] shrink-0 flex-col items-center justify-center border-r border-black/[0.06] px-3 py-9 transition duration-500 hover:bg-gradient-to-b hover:from-[#f8f6f2] hover:to-white"
-                      style={{
-                        width: cardW || `${100 / VISIBLE}%`,
-                      }}
-                    >
-                      <span className="pointer-events-none absolute inset-x-8 top-0 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-gold/55 to-transparent transition duration-500 group-hover:scale-x-100" />
-
-                      <motion.div
-                        whileHover={{ y: -4, scale: 1.03 }}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 340,
-                          damping: 18,
-                        }}
-                        className="overflow-hidden rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.12)] ring-1 ring-black/5"
-                      >
-                        <BtrLogo className="h-[4.35rem] w-auto sm:h-[4.75rem]" />
-                      </motion.div>
-
-                      <span className={labelClass(brand.style)}>
-                        {brand.label}
-                      </span>
-                      <span className="mt-2.5 h-0.5 w-0 rounded-full bg-gold transition-all duration-500 group-hover:w-10" />
-                    </Link>
+                      brand={brand}
+                      cardW={cardW}
+                    />
                   ))}
                 </motion.div>
               </div>
@@ -197,7 +204,7 @@ export default function ProjectBrandSlider() {
           </motion.button>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-2">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
           {brands.map((_, i) => (
             <button
               key={i}

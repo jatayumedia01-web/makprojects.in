@@ -21,6 +21,7 @@ import {
   SectionAccent,
   SectionBackdrop,
 } from '../components/project/ProjectChrome'
+import EnquireButton from '../components/mak-crm/EnquireButton'
 import { leaders } from '../data/content'
 import { managementNav, managementProfiles } from '../data/managementProfiles'
 
@@ -284,12 +285,9 @@ export default function Management() {
               For project discussions, site visits, or corporate correspondence.
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold tracking-[0.14em] text-ink uppercase"
-              >
+              <EnquireButton className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold tracking-[0.14em] text-ink uppercase">
                 Contact office <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
+              </EnquireButton>
               <Link
                 to="/about"
                 className="inline-flex items-center justify-center rounded-full border border-white/25 px-6 py-3 text-xs font-semibold tracking-[0.14em] text-white uppercase"

@@ -5,20 +5,19 @@ import {
   ArrowDown,
   ArrowUpRight,
   Download,
-  Heart,
-  Leaf,
   MapPin,
-  Shield,
-  Sparkles,
   Volume2,
   VolumeX,
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
 import { ScrollSection } from '../components/ScrollSection'
-import FAQ from '../components/FAQ'
+import SerenityFAQ from '../components/SerenityFAQ'
+import EnquireButton from '../components/mak-crm/EnquireButton'
 import ProjectBrandSlider from '../components/ProjectBrandSlider'
 import SerenityGallery from '../components/SerenityGallery'
+import SerenityAmenities from '../components/SerenityAmenities'
 import SerenityFloorPlans from '../components/SerenityFloorPlans'
+import SerenityOverview from '../components/SerenityOverview'
 import SerenitySpecifications from '../components/SerenitySpecifications'
 import SerenityVideoFeatures from '../components/SerenityVideoFeatures'
 import {
@@ -27,24 +26,9 @@ import {
   SectionBackdrop,
   SectionHead,
 } from '../components/project/ProjectChrome'
-import { serenityFaqs } from '../data/content'
-import {
-  serenityAmenityGroups,
-  serenityBrochure,
-  serenityChapters,
-  serenityConnectivity,
-  serenityDetails,
-  serenityExperience,
-  serenityHero,
-  serenityMap,
-  serenityMedia,
-  serenityOverview,
-  type SerenityChapterId,
-} from '../data/serenityPage'
+import { serenityBrochure, serenityChapters, serenityConnectivity, serenityHero, serenityMap, serenityMedia, type SerenityChapterId } from '../data/serenityPage'
 
 const EASE = [0.22, 1, 0.36, 1] as const
-
-const experienceIcons = [Sparkles, Heart, Shield, Leaf] as const
 
 export default function Serenity() {
   const [active, setActive] = useState<SerenityChapterId>('serenity-overview')
@@ -176,12 +160,9 @@ export default function Serenity() {
 
             <div className="mt-8 flex flex-col gap-4">
               <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-xs font-semibold tracking-[0.14em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft"
-                >
+                <EnquireButton className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 text-xs font-semibold tracking-[0.14em] text-ink uppercase shadow-lg transition hover:-translate-y-0.5 hover:bg-gold-soft">
                   Schedule a visit <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                </EnquireButton>
                 <a
                   href="#serenity-plans"
                   className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/20 px-7 py-3.5 text-xs font-semibold tracking-[0.14em] text-white uppercase backdrop-blur-sm transition hover:bg-white hover:text-ink"
@@ -264,181 +245,22 @@ export default function Serenity() {
         </div>
       </nav>
 
-      {/* Overview — image + details row, then about, then pillars */}
+      {/* Overview — elevation, details, about, pillars */}
       <ScrollSection
         id="serenity-overview"
         index={0}
         bridge={false}
         className="relative scroll-mt-36 overflow-hidden py-12 md:py-20"
       >
-        <SectionBackdrop theme="warm" fadeBottom="white" />
+        <SectionBackdrop theme="white" fadeBottom="pearl" />
         <SectionAccent variant="fade" />
-        <div className="relative site-container px-5">
-          <FadeIn>
-            <SectionHead
-              eyebrow={serenityOverview.eyebrow}
-              title={serenityOverview.title}
-            />
-          </FadeIn>
-
-          {/* Row 1 — render + project details (equal height) */}
-          <div className="grid gap-5 lg:grid-cols-12 lg:items-stretch lg:gap-6">
-            <FadeIn className="lg:col-span-7">
-              <div className="flex h-full min-h-[260px] flex-col overflow-hidden rounded-[24px] border border-ink/8 bg-white shadow-[0_12px_40px_rgba(15,35,28,0.07)] sm:min-h-[320px] lg:min-h-[380px]">
-                <div className="relative flex flex-1 items-center justify-center bg-[#f6f3ec] p-4 sm:p-6">
-                  <img
-                    src="/media/serenity/render-day.png"
-                    alt="BTR Serenity elevation"
-                    loading="lazy"
-                    className="max-h-[340px] w-full object-contain lg:max-h-[400px]"
-                  />
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.06} className="flex lg:col-span-5">
-              <div className="group relative flex w-full flex-1">
-                <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-[#1a2e28] to-sage/35 opacity-80" />
-                <div className="relative flex w-full flex-col rounded-[25px] bg-[#0c1612] px-6 py-6 text-cream shadow-[0_20px_55px_rgba(7,17,14,0.18)] sm:px-7 sm:py-7">
-                  <p className="text-[11px] font-semibold tracking-[0.28em] text-gold uppercase">
-                    Project details
-                  </p>
-                  <div className="mt-5 grid flex-1 grid-cols-2 content-start gap-x-5 gap-y-5">
-                    {serenityDetails.map((d) => (
-                      <div
-                        key={d.label}
-                        className={
-                          d.label === 'RERA ID'
-                            ? 'col-span-2 border-t border-cream/10 pt-4'
-                            : ''
-                        }
-                      >
-                        <p className="text-[10px] tracking-[0.16em] text-gold/75 uppercase">
-                          {d.label}
-                        </p>
-                        <p
-                          className={`mt-1.5 font-semibold leading-snug text-cream ${
-                            d.label === 'RERA ID'
-                              ? 'text-[11px] leading-relaxed text-cream/85'
-                              : 'text-[14px] sm:text-[15px]'
-                          }`}
-                        >
-                          {d.value}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Row 2 — about (full width) */}
-          <FadeIn delay={0.08} className="mt-5 lg:mt-6">
-            <div className="rounded-[24px] border border-ink/8 bg-white px-6 py-7 shadow-[0_8px_32px_rgba(15,35,28,0.06)] sm:px-8 sm:py-8">
-              <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
-                {serenityOverview.aboutTitle}
-              </p>
-              <p className="mt-4 max-w-4xl text-[15px] leading-[1.85] text-[#4a5560]">
-                {serenityOverview.body}
-              </p>
-              <p className="mt-5 flex items-start gap-2 text-sm text-stone">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
-                {serenityHero.location}
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-sage"
-                >
-                  Enquire now <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-                <a
-                  href={serenityBrochure.pdf}
-                  download
-                  className="inline-flex items-center gap-2 rounded-full border border-ink/12 bg-white px-6 py-3 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase transition hover:border-sage/30 hover:text-sage"
-                >
-                  <Download className="h-3.5 w-3.5" />
-                  Brochure
-                </a>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Row 3 — experience pillars */}
-          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-4">
-            {serenityExperience.map((line, i) => {
-              const Icon = experienceIcons[i] ?? Sparkles
-              return (
-                <FadeIn key={line} delay={0.12 + i * 0.04}>
-                  <div className="flex h-full min-h-[108px] items-start gap-3.5 rounded-[20px] border border-ink/8 bg-white px-5 py-5 shadow-[0_4px_20px_rgba(15,35,28,0.05)]">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/12 text-gold">
-                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
-                    </span>
-                    <p className="pt-1.5 text-[13px] font-medium leading-snug text-ink">
-                      {line}
-                    </p>
-                  </div>
-                </FadeIn>
-              )
-            })}
-          </div>
-        </div>
+        <SerenityOverview />
       </ScrollSection>
       <SerenityVideoFeatures />
       <SerenityGallery />
       <SerenityFloorPlans />
 
-      {/* Amenities — featured spread + compact tags */}
-      <ScrollSection
-        id="serenity-amenities"
-        index={4}
-        className="relative scroll-mt-36 overflow-hidden py-14 md:py-20"
-      >
-        <SectionBackdrop theme="sage" fadeBottom="white" />
-        <SectionAccent variant="sage" />
-        <div className="relative site-container px-5">
-          <FadeIn>
-            <SectionHead eyebrow="Lifestyle" title="Amenities & Facilities" />
-            <p className="-mt-6 mx-auto mb-10 max-w-2xl text-center text-sm leading-relaxed text-[#4a5560] md:mb-12">
-              Dedicated to BTR Serenity residents — per the official brochure.
-            </p>
-          </FadeIn>
-
-          <FadeIn>
-            <div className="mx-auto mb-10 max-w-4xl overflow-hidden rounded-[24px] border border-ink/8 bg-[#f6f3ec] shadow-[0_12px_40px_rgba(15,35,28,0.08)] md:mb-14">
-              <img
-                src="/media/serenity/amenities-spread.png"
-                alt="BTR Serenity amenities overview"
-                loading="lazy"
-                className="w-full object-contain p-3 sm:p-5"
-              />
-            </div>
-          </FadeIn>
-
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
-            {serenityAmenityGroups.map((group, gi) => (
-              <FadeIn key={group.title} delay={gi * 0.06}>
-                <div>
-                  <p className="mb-4 text-[11px] font-bold tracking-[0.22em] text-sage uppercase">
-                    {group.title}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map((a) => (
-                      <span
-                        key={a.name}
-                        className="inline-flex items-center rounded-full border border-ink/10 bg-white/90 px-3.5 py-2 text-[11px] font-semibold tracking-wide text-ink shadow-sm transition hover:border-sage/30 hover:bg-white"
-                      >
-                        {a.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </ScrollSection>
+      <SerenityAmenities />
       <SerenitySpecifications />
 
       {/* Map */}
@@ -512,40 +334,7 @@ export default function Serenity() {
         </div>
       </ScrollSection>
 
-      {/* FAQ */}
-      <ScrollSection
-        id="serenity-faq"
-        index={6}
-        className="relative scroll-mt-36 overflow-hidden bg-white py-16 md:py-24"
-      >
-        <SectionBackdrop theme="white" />
-        <div className="relative site-container px-5">
-          <FadeIn>
-            <div className="mb-10 flex flex-col gap-3 md:mb-12 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
-                  Support
-                </p>
-                <h2 className="mt-2 text-[clamp(1.55rem,3.1vw,2.4rem)] font-semibold tracking-tight text-ink">
-                  Frequently asked questions
-                </h2>
-                <div className="mt-4 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
-              </div>
-              <p className="max-w-sm text-[11px] leading-relaxed text-stone md:text-right">
-                Specs, UDS, amenities, maintenance and more — from BTR Serenity.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.08}>
-            <FAQ
-              items={serenityFaqs}
-              showAside
-              asideTitle={'Still have\nquestions?'}
-              asideBody="Browse all Serenity answers, or speak with our team for a guided walkthrough and site visit."
-            />
-          </FadeIn>
-        </div>
-      </ScrollSection>
+      <SerenityFAQ />
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-white py-12 md:py-16">
@@ -566,12 +355,9 @@ export default function Serenity() {
                   &amp; 4 BHK homes.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft"
-                  >
+                  <EnquireButton className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3 text-xs font-semibold tracking-[0.16em] text-ink uppercase transition hover:-translate-y-0.5 hover:bg-gold-soft">
                     Contact us <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </EnquireButton>
                   <a
                     href={serenityBrochure.pdf}
                     download

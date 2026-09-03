@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { FadeIn } from '../components/Motion'
 import { ScrollSection } from '../components/ScrollSection'
+import EnquireButton from '../components/mak-crm/EnquireButton'
 import { CardShell, SectionAccent, SectionBackdrop } from '../components/project/ProjectChrome'
 import BtrClubShowcase from '../components/project/BtrClubShowcase'
 import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
@@ -602,12 +603,9 @@ export default function Township() {
                       ))}
                   </ul>
                 </div>
-                <Link
-                  to="/contact"
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase transition hover:bg-gold-soft"
-                >
+                <EnquireButton className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-gold px-5 py-3 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase transition hover:bg-gold-soft">
                   Schedule a visit <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
+                </EnquireButton>
               </div>
             </FadeIn>
           </div>

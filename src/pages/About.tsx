@@ -34,7 +34,7 @@ import {
   SectionAccent,
   SectionBackdrop,
 } from '../components/project/ProjectChrome'
-import { contact, leaders } from '../data/content'
+import { leaders } from '../data/content'
 import { managementProfiles } from '../data/managementProfiles'
 
 const HERO = '/media/clubhouse/btr-club-exterior-pool.jpg'
@@ -926,13 +926,6 @@ export default function About() {
               >
                 Contact us <ArrowUpRight className="h-3.5 w-3.5" />
               </Link>
-              <a
-                href={`tel:${contact.phones[0].replace(/\s/g, '')}`}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-3.5 text-[11px] font-semibold tracking-[0.16em] text-white uppercase transition hover:bg-white/10 sm:w-auto"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                {contact.phones[0]}
-              </a>
             </div>
           </FadeIn>
         </PageContainer>

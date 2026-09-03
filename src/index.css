@@ -440,3 +440,11 @@ body {
 .serenity-hero-copy {
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.65);
 }
+
+.serenity-overview-panel img {
+  image-rendering: auto;
+}
+
+.serenity-brand-row {
+  white-space: nowrap;
+}
