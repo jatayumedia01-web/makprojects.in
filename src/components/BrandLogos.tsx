@@ -1,4 +1,4 @@
-const MAK_LOGO = '/media/shared/logo/mak-projects.jpg'
+const MAK_LOGO = '/media/shared/logo/mak-logo.png'
 const BTR_LOGO = '/media/shared/logo/btr.png'
 
 /** Official MAK Projects logo */

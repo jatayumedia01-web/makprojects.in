@@ -201,9 +201,6 @@ export default function Management() {
             <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
               Leadership team
             </p>
-            <h2 className="mt-1 text-lg font-bold uppercase text-ink sm:text-xl">
-              Executive Profiles
-            </h2>
             <ScrollLine className="mt-4" />
           </div>
 

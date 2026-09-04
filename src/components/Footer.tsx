@@ -10,12 +10,11 @@ const companyLinks = [
 ]
 
 const projectLinks = [
-  { label: 'MAK — BTR Township', to: '/btr-township' },
+  { label: 'Fern by MAK · Tukkuguda', to: '/fern/', external: true },
+  { label: 'MAK — BTR', to: '/btr-township' },
+  { label: 'BTR — Villas', to: '/btr-villas' },
   { label: 'BTR — Serenity', to: '/btr-serenity' },
   { label: 'BTR — Gardenia', to: '/btr-villa-plots' },
-  { label: 'BTR — Villas', to: '/btr-villas' },
-  { label: 'Canadian Wood Villa', to: '/canadian-wood-villa' },
-  { label: 'Fern by MAK · Tukkuguda', to: '/fern/', external: true },
   { label: 'All Projects', to: '/projects' },
 ]
 

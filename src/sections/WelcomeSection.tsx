@@ -66,7 +66,7 @@ export default function WelcomeSection() {
                 </p>
                 <p>
                   The range of properties offered, including villas, open plots,
-                  and apartments near Srisailam Highway, indicates a diverse
+                  and apartments on Srisailam Highway, indicates a diverse
                   portfolio catering to various segments of the market. This
                   versatility likely contributes to their success and appeal to
                   a wide range of customers.

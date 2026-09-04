@@ -36,7 +36,7 @@ const HERO_IMAGE =
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const chapters = [
-  { id: 'btr-township', label: 'Township' },
+  { id: 'btr-township', label: 'MAK — BTR' },
   { id: 'township-amenities', label: 'Amenities' },
   { id: 'township-clubhouse', label: 'Club' },
   { id: 'township-pavilion', label: 'Club Pavilion' },
@@ -102,7 +102,7 @@ export default function Township() {
           animate={{ scale: 1 }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO_IMAGE}
-          alt="MAK — BTR Township"
+          alt="MAK — BTR"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />
@@ -124,7 +124,6 @@ export default function Township() {
             </p>
             <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.6rem)] font-semibold leading-[0.98] tracking-tight text-white">
               MAK — BTR
-              <span className="mt-1 block text-gold-soft">Township</span>
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
               Telangana’s pioneer integrated luxury township across 260+ acres
@@ -198,12 +197,12 @@ export default function Township() {
           <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
             <FadeIn className="lg:col-span-6">
               <p className="text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
-                Master development · Delivered
+                Excellence · Delivered.
               </p>
               <h2 className="mt-3 text-[clamp(1.9rem,3.8vw,3rem)] font-semibold leading-[1.08] tracking-tight text-ink">
                 We delivered
                 <span className="mt-1 block text-sage">
-                  MAK — BTR Township
+                  MAK — BTR
                 </span>
               </h2>
               <div className="mt-5 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
@@ -488,20 +487,14 @@ export default function Township() {
         <div className="relative site-container px-5">
           <FadeIn>
             <div className="mb-10 text-center">
-              <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
-                {townshipPage.offerings?.eyebrow}
-              </p>
-              <h2 className="mt-2 text-[clamp(1.55rem,3.1vw,2.4rem)] font-semibold tracking-tight text-ink">
+              <h2 className="text-[clamp(1.55rem,3.1vw,2.4rem)] font-semibold tracking-tight text-ink">
                 {townshipPage.offerings?.title}
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-[#4a5560]">
-                {townshipPage.offerings?.body}
-              </p>
               <div className="mx-auto mt-5 h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent" />
             </div>
           </FadeIn>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {townshipPage.offerings?.items.map((item, i) => (
               <FadeIn key={item.href} delay={i * 0.07}>
                 <Link to={item.href} className="group block h-full">
@@ -520,7 +513,7 @@ export default function Township() {
                       </div>
                       <div className="px-6 py-6">
                         <p className="text-[11px] font-semibold tracking-[0.2em] text-sage uppercase">
-                          Part of MAK — BTR Township
+                          Part of MAK — BTR
                         </p>
                         <h3 className="mt-1.5 text-xl font-bold tracking-tight text-ink">
                           {item.title}
@@ -564,7 +557,7 @@ export default function Township() {
                 Location
               </p>
               <h2 className="text-[clamp(1.4rem,3vw,2.25rem)] font-bold tracking-[0.06em] text-cream uppercase">
-                BTR Township Map
+                MAK — BTR Map
               </h2>
               <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
             </div>
@@ -574,7 +567,7 @@ export default function Township() {
             <FadeIn className="lg:col-span-8">
               <div className="relative min-h-[320px] overflow-hidden rounded-[24px] border border-white/10 shadow-2xl lg:h-full lg:min-h-[380px]">
                 <iframe
-                  title="MAK BTR Township Location"
+                  title="MAK BTR Location"
                   className="absolute inset-0 h-full w-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

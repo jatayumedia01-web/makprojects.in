@@ -51,7 +51,7 @@ const filters: { id: Filter; label: string }[] = [
 ]
 
 const chapters = [
-  { id: 'btr-township', label: 'Township' },
+  { id: 'btr-township', label: 'MAK — BTR' },
   { id: 'township-amenities', label: 'Amenities' },
   { id: 'township-clubhouse', label: 'Club' },
   { id: 'township-pavilion', label: 'Club Pavilion' },
@@ -73,6 +73,70 @@ const inventoryIcons = {
   plots: Trees,
   roads: Route,
 } as const
+
+type ProjectItem = (typeof projects)[number]
+
+function ProjectPortfolioCard({
+  p,
+  reduce,
+}: {
+  p: ProjectItem
+  reduce: boolean | null
+}) {
+  const meta = [p.size, p.possession].filter(Boolean).join(' · ')
+
+  const card = (
+    <motion.article
+      whileHover={reduce ? undefined : { y: -6 }}
+      transition={{ type: 'spring', stiffness: 360, damping: 24 }}
+      className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/95 shadow-[0_18px_50px_rgba(7,17,14,0.08)] transition duration-500 group-hover:shadow-[0_28px_70px_rgba(7,17,14,0.14)]"
+    >
+      <div className="pointer-events-none absolute inset-0 z-10 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-[130%]" />
+
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <img
+          src={p.image}
+          alt={p.title}
+          loading="lazy"
+          className="h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
+        {p.status ? (
+          <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
+            {p.status}
+          </span>
+        ) : null}
+      </div>
+
+      <div className="flex flex-1 flex-col px-5 py-5 sm:px-6 sm:py-6">
+        <p className="flex items-center gap-1.5 text-[10px] font-medium tracking-[0.1em] text-stone uppercase sm:text-[11px]">
+          <MapPin className="h-3 w-3 shrink-0 text-sage" aria-hidden />
+          <span className="truncate">{p.location}</span>
+        </p>
+        <h3 className="mt-2 line-clamp-2 text-lg font-bold leading-snug tracking-tight text-ink sm:text-xl">
+          {p.title}
+        </h3>
+
+        <div className="mt-auto flex items-center justify-between gap-3 border-t border-ink/[0.06] pt-4">
+          <p className="min-w-0 flex-1 truncate text-[10px] font-medium leading-relaxed tracking-[0.08em] text-[#5a6670] uppercase sm:text-[11px]">
+            {meta}
+          </p>
+          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-ink/15 bg-white px-3.5 py-2 text-[10px] font-semibold tracking-[0.14em] text-ink uppercase transition duration-300 group-hover:border-transparent group-hover:bg-ink group-hover:text-cream sm:px-4 sm:text-[11px]">
+            More info
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
+        </div>
+      </div>
+    </motion.article>
+  )
+
+  return (
+    <>
+      <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-white to-sage/25 opacity-55 transition duration-500 group-hover:opacity-100" />
+      {card}
+    </>
+  )
+}
 
 export default function Projects() {
   const [filter, setFilter] = useState<Filter>('all')
@@ -119,7 +183,7 @@ export default function Projects() {
           animate={{ scale: 1 }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO_IMAGE}
-          alt="MAK — BTR Township"
+          alt="MAK — BTR"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />
@@ -141,7 +205,6 @@ export default function Projects() {
             </p>
             <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.6rem)] font-semibold leading-[0.98] tracking-tight text-white">
               MAK — BTR
-              <span className="mt-1 block text-gold-soft">Township</span>
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
               Telangana’s pioneer integrated luxury township across 260+ acres
@@ -216,12 +279,12 @@ export default function Projects() {
           <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-12">
             <FadeIn className="lg:col-span-6">
               <p className="text-[11px] font-semibold tracking-[0.32em] text-sage uppercase">
-                Master development · Delivered
+                Excellence · Delivered.
               </p>
               <h2 className="mt-3 text-[clamp(1.9rem,3.8vw,3rem)] font-semibold leading-[1.08] tracking-tight text-ink">
                 We delivered
                 <span className="mt-1 block text-sage">
-                  MAK — BTR Township
+                  MAK — BTR
                 </span>
               </h2>
               <div className="mt-5 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
@@ -547,7 +610,7 @@ export default function Projects() {
             </div>
           </FadeIn>
 
-          <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:gap-7">
+          <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             <AnimatePresence mode="popLayout">
               {list.map((p, i) => (
                 <motion.div
@@ -557,123 +620,16 @@ export default function Projects() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.4, delay: i * 0.04, ease: EASE }}
+                  className="h-full"
                 >
                   {p.href.startsWith('http') || p.href.startsWith('/fern') ? (
                     <a href={p.href} className="group relative block h-full">
-                      <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-white to-sage/25 opacity-55 transition duration-500 group-hover:opacity-100" />
-
-                      <motion.article
-                        whileHover={reduce ? undefined : { y: -6 }}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 360,
-                          damping: 24,
-                        }}
-                        className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/95 shadow-[0_18px_50px_rgba(7,17,14,0.08)] transition duration-500 group-hover:shadow-[0_28px_70px_rgba(7,17,14,0.14)]"
-                      >
-                        <div className="pointer-events-none absolute inset-0 z-10 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-[130%]" />
-
-                        <div className="relative aspect-[16/10] overflow-hidden">
-                          <img
-                            src={p.image}
-                            alt={p.title}
-                            loading="lazy"
-                            className="h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
-                          {p.status && (
-                            <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
-                              {p.status}
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="relative flex flex-1 flex-col gap-3 px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6 sm:py-6">
-                          <div className="min-w-0 flex-1">
-                            <p className="flex items-start gap-1.5 text-[11px] font-medium tracking-[0.08em] text-stone uppercase">
-                              <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-sage" />
-                              <span className="leading-relaxed">{p.location}</span>
-                            </p>
-                            <h3 className="mt-2 text-lg font-bold tracking-tight text-ink sm:text-xl">
-                              {p.title}
-                            </h3>
-                            {p.size ? (
-                              <p className="mt-1.5 text-[11px] font-medium tracking-wide text-[#5a6670] uppercase">
-                                {p.size}
-                              </p>
-                            ) : null}
-                            {p.possession ? (
-                              <p className="mt-1 text-[11px] font-semibold tracking-wide text-sage uppercase">
-                                {p.possession}
-                              </p>
-                            ) : null}
-                          </div>
-
-                          <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-ink/15 bg-white px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-ink uppercase transition duration-300 group-hover:border-transparent group-hover:bg-ink group-hover:text-cream sm:self-auto">
-                            More info
-                            <ArrowUpRight className="h-3.5 w-3.5" />
-                          </span>
-                        </div>
-                      </motion.article>
+                      <ProjectPortfolioCard p={p} reduce={reduce} />
                     </a>
                   ) : (
-                  <Link to={p.href} className="group relative block h-full">
-                    <div className="absolute -inset-[1px] rounded-[26px] bg-gradient-to-br from-gold/45 via-white to-sage/25 opacity-55 transition duration-500 group-hover:opacity-100" />
-
-                    <motion.article
-                      whileHover={reduce ? undefined : { y: -6 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 360,
-                        damping: 24,
-                      }}
-                      className="relative flex h-full flex-col overflow-hidden rounded-[25px] bg-white/95 shadow-[0_18px_50px_rgba(7,17,14,0.08)] transition duration-500 group-hover:shadow-[0_28px_70px_rgba(7,17,14,0.14)]"
-                    >
-                      <div className="pointer-events-none absolute inset-0 z-10 translate-x-[-130%] bg-gradient-to-r from-transparent via-white/30 to-transparent transition duration-700 group-hover:translate-x-[130%]" />
-
-                      <div className="relative aspect-[16/10] overflow-hidden">
-                        <img
-                          src={p.image}
-                          alt={p.title}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition duration-[900ms] ease-out group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
-                        {p.status && (
-                          <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
-                            {p.status}
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="relative flex flex-1 flex-col gap-3 px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6 sm:py-6">
-                        <div className="min-w-0 flex-1">
-                          <p className="flex items-start gap-1.5 text-[11px] font-medium tracking-[0.08em] text-stone uppercase">
-                            <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-sage" />
-                            <span className="leading-relaxed">{p.location}</span>
-                          </p>
-                          <h3 className="mt-2 text-lg font-bold tracking-tight text-ink sm:text-xl">
-                            {p.title}
-                          </h3>
-                          {p.size ? (
-                            <p className="mt-1.5 text-[11px] font-medium tracking-wide text-[#5a6670] uppercase">
-                              {p.size}
-                            </p>
-                          ) : null}
-                          {p.possession ? (
-                            <p className="mt-1 text-[11px] font-semibold tracking-wide text-sage uppercase">
-                              {p.possession}
-                            </p>
-                          ) : null}
-                        </div>
-
-                        <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full border border-ink/15 bg-white px-4 py-2 text-[11px] font-semibold tracking-[0.14em] text-ink uppercase transition duration-300 group-hover:border-transparent group-hover:bg-ink group-hover:text-cream sm:self-auto">
-                          More info
-                          <ArrowUpRight className="h-3.5 w-3.5" />
-                        </span>
-                      </div>
-                    </motion.article>
-                  </Link>
+                    <Link to={p.href} className="group relative block h-full">
+                      <ProjectPortfolioCard p={p} reduce={reduce} />
+                    </Link>
                   )}
                 </motion.div>
               ))}
@@ -712,7 +668,7 @@ export default function Projects() {
                 Location
               </p>
               <h2 className="text-[clamp(1.4rem,3vw,2.25rem)] font-bold tracking-[0.06em] text-cream uppercase">
-                BTR Township Map
+                MAK — BTR Map
               </h2>
               <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
             </div>

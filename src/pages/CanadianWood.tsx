@@ -1,7 +1,6 @@
-import AdvancedProjectPage from '../components/project/AdvancedProjectPage'
-import { canadianPage } from '../data/projectPages'
+import { Navigate } from 'react-router-dom'
 
-/** Canadian Wood Villa — signature residence */
+/** Legacy Canadian Wood Villa URL → MAK — BTR */
 export default function CanadianWood() {
-  return <AdvancedProjectPage data={canadianPage} />
+  return <Navigate to="/btr-township" replace />
 }

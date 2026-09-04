@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
  */
 
 const brands = [
-  { label: 'BTR Township', href: '/btr-township' },
+  { label: 'MAK — BTR', href: '/btr-township' },
   { label: 'BTR Serenity', href: '/btr-serenity' },
   { label: 'Fern by MAK', href: '/fern/', external: true },
 ]

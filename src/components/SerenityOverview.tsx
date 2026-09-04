@@ -35,7 +35,7 @@ export default function SerenityOverview() {
 
           <h2 className="serenity-brand-lockup mt-4 text-center">
             <span className="block text-[11px] font-semibold tracking-[0.22em] text-stone uppercase sm:text-xs">
-              MAK Projects · BTR Township
+              MAK Projects · MAK — BTR
             </span>
             <span className="serenity-brand-row mt-3 inline-flex items-baseline justify-center gap-x-2">
               <span className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-ink">

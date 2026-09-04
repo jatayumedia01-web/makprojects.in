@@ -184,7 +184,7 @@ export default function Serenity() {
                   to="/btr-township"
                   className="text-white/75 transition hover:text-gold-soft"
                 >
-                  BTR Township →
+                  MAK — BTR →
                 </Link>
               </div>
             </div>

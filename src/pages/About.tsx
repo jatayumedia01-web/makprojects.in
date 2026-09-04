@@ -119,13 +119,13 @@ const philosophy =
 
 const stats = [
   { value: '20+', label: 'Years of excellence', icon: Award },
-  { value: '260+', label: 'Acres · BTR Township', icon: Landmark },
+  { value: '260+', label: 'Acres · MAK — BTR', icon: Landmark },
   { value: '650+', label: 'Families living here', icon: Users },
   { value: '7+', label: 'Landmark projects', icon: Building2 },
 ] as const
 
 const exploreLinks = [
-  { label: 'BTR Township', to: '/btr-township', icon: Landmark },
+  { label: 'MAK — BTR', to: '/btr-township', icon: Landmark },
   { label: 'BTR Serenity', to: '/btr-serenity', icon: Building2 },
   { label: 'Management', to: '/management', icon: Users },
   { label: 'Contact Us', to: '/contact', icon: Phone },
@@ -532,7 +532,7 @@ export default function About() {
                   <div className="project-card-shine relative h-full min-h-[280px] overflow-hidden rounded-3xl bg-ink ring-1 ring-ink/10 lg:min-h-[420px]">
                     <img
                       src={STORY_IMAGE}
-                      alt="MAK — BTR Township golf community"
+                      alt="MAK — BTR golf community"
                       className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
                       loading="lazy"
                     />
@@ -542,7 +542,7 @@ export default function About() {
                         Flagship community
                       </p>
                       <p className="mt-3 text-[clamp(1.35rem,2.8vw,2rem)] font-semibold leading-tight text-white">
-                        MAK — BTR Township
+                        MAK — BTR
                       </p>
                       <p className="mt-2 text-sm text-white/80">
                         260+ acres · Srisailam Highway

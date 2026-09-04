@@ -38,7 +38,7 @@ const quickActions = [
 
 const visitLinks = [
   { label: 'BTR Serenity', to: '/btr-serenity' },
-  { label: 'BTR Township', to: '/btr-township' },
+  { label: 'MAK — BTR', to: '/btr-township' },
   { label: 'Villa Plots', to: '/btr-villa-plots' },
   { label: 'All Projects', to: '/projects' },
 ] as const
@@ -208,7 +208,7 @@ export default function Contact() {
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-stone">
                 Corporate meetings at Banjara Hills · Site visits at MAK — BTR
-                Township & Fern by MAK Projects.
+                MAK — BTR & Fern by MAK Projects.
               </p>
             </div>
           </FadeIn>

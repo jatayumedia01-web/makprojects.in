@@ -6,24 +6,13 @@ import { FadeIn } from '../components/Motion'
 /**
  * Section name: OngoingProjectsSection
  * Home page order: 3 (after WelcomeSection)
- * Three cards: Apartments · Fern Villas · BTR Township
+ * Three cards: Fern Villas · BTR Township · Apartments
  */
 const cards = [
   {
-    key: 'apartments',
-    n: '01',
-    category: 'Apartments',
-    title: 'BTR – Serenity',
-    status: 'Part of MAK — BTR Township',
-    href: '/btr-serenity',
-    external: false,
-    image: serenityCardImage,
-    body: 'BTR – SERENITY like a tranquil oasis nestled within the bustling urban landscape. With 150 residential apartments spread across 3 acres of prime land, it offers a spacious and serene environment for its residents.',
-  },
-  {
     key: 'fern-villas',
-    n: '02',
-    category: 'Villas',
+    n: '01',
+    category: 'Bespoke Triplex Villas',
     title: 'Fern by MAK Projects',
     status: 'New Launch · Tukkuguda',
     href: '/fern/',
@@ -33,14 +22,25 @@ const cards = [
   },
   {
     key: 'township',
-    n: '03',
-    category: 'Township',
-    title: 'MAK – BTR Township',
-    status: 'Serenity · Gardenia · Villas · Canadian',
+    n: '02',
+    category: 'Golf Residential Community',
+    title: 'MAK – BTR',
+    status: 'Serenity · Gardenia · Villas',
     href: '/btr-township',
     external: false,
     image: '/media/home/btr-villa-plots.jpg',
-    body: 'MAK — BTR Township is the master community on Srisailam Highway — home to Serenity apartments, Gardenia villa plots, BTR Villas, and Canadian Wood Villa, with full township amenities.',
+    body: 'MAK — BTR is the golf residential community on Srisailam Highway — home to Serenity apartments, Gardenia villa plots, and BTR Villas, with full township amenities.',
+  },
+  {
+    key: 'apartments',
+    n: '03',
+    category: 'Luxury Apartments',
+    title: 'BTR – Serenity',
+    status: 'Part of MAK — BTR',
+    href: '/btr-serenity',
+    external: false,
+    image: serenityCardImage,
+    body: 'BTR – SERENITY like a tranquil oasis nestled within the bustling urban landscape. With 150 residential apartments spread across 3 acres of prime land, it offers a spacious and serene environment for its residents.',
   },
 ]
 
@@ -87,9 +87,6 @@ export default function OngoingProjectsSection() {
                     </span>
                     <span className="absolute right-4 top-4 text-2xl font-bold text-white/25">
                       {card.n}
-                    </span>
-                    <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1.5 text-[11px] font-bold tracking-[0.12em] text-ink uppercase shadow-md">
-                      {card.status}
                     </span>
                   </div>
 

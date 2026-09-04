@@ -178,7 +178,7 @@ export default function Amenities() {
           animate={{ scale: 1 }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO}
-          alt="BTR Township amenities"
+          alt="MAK — BTR amenities"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/20" />
@@ -193,7 +193,7 @@ export default function Amenities() {
           >
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
-              BTR Township · Lifestyle
+              MAK — BTR · Lifestyle
             </p>
             <h1 className="text-[clamp(2rem,5.5vw,4.25rem)] font-semibold leading-[1.05] tracking-tight text-white uppercase">
               Amenities that

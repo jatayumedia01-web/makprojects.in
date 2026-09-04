@@ -6,7 +6,7 @@ export const btrBrands = [
     style: 'caps' as const,
     href: '/btr-township',
     logo: '/media/shared/logo/btr-life-is-beautiful.png',
-    logoAlt: 'BTR — Life is Beautiful · MAK — BTR Township',
+    logoAlt: 'BTR — Life is Beautiful · MAK — BTR',
     logoClass: 'h-[4.35rem] w-auto sm:h-[4.75rem]',
   },
   {

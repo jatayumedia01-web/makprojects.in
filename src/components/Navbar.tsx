@@ -3,13 +3,13 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronRight } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { projects } from '../data/content'
-import { MakLogo, BtrLogo } from './BrandLogos'
+import { MakLogo } from './BrandLogos'
 import { ProjectsDropdown, ContactDropdown } from './NavMenus'
 
 const mainLinks = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects', dropdown: 'projects' as const },
-  { label: 'BTR Township', to: '/btr-township' },
+  { label: 'MAK — BTR', to: '/btr-township' },
   { label: 'Amenities', to: '/amenities' },
   { label: 'Contact', to: '/contact', dropdown: 'contact' as const },
 ]
@@ -96,18 +96,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* BTR logo + mobile menu */}
-          <div className="flex items-center justify-end justify-self-end gap-2 sm:gap-3">
-            <Link
-              to="/btr-township"
-              className={`hidden shrink-0 transition duration-300 md:block ${
-                floating ? 'drop-shadow-md' : 'opacity-95 hover:opacity-100'
-              }`}
-              aria-label="BTR — Life is Beautiful"
-            >
-              <BtrLogo className="h-14 w-auto max-w-[120px] sm:h-[60px] sm:max-w-[128px]" />
-            </Link>
-
+          {/* Mobile menu */}
+          <div className="flex items-center justify-end justify-self-end">
             <button
               type="button"
               className={`flex h-9 w-9 items-center justify-center rounded-full xl:hidden ${

@@ -248,7 +248,7 @@ export function ContactDropdown({ floating }: { floating: boolean }) {
           <div className="mt-2 flex items-start gap-2 rounded-2xl border border-ink/5 bg-mist/80 px-3 py-3">
             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sage" />
             <p className="text-[11px] leading-relaxed text-stone">
-              Park Citi Plaza, 4th Floor, Road No.1, Banjara Hills, Hyderabad
+              Park Citi Plaza, Road No.1, Banjara Hills, Hyderabad
             </p>
           </div>
         </div>

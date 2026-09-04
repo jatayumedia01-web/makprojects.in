@@ -11,7 +11,6 @@ const PROJECT_PATHS = [
   '/btr-villa-plots',
   '/btr-villas',
   '/fern-villas',
-  '/canadian-wood-villa',
   '/btr-greens',
   '/btr-township',
   '/amenities',

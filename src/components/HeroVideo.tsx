@@ -164,7 +164,7 @@ export default function HeroVideo() {
                 Fern by MAK Projects
               </p>
               <p className="mt-1 text-sm leading-relaxed text-white/65">
-                4 BHK + Home Theater · Tukkuguda · 5 mins from ORR
+                4 BHK + Home Theater Villas · Tukkuguda · 5 mins from ORR
               </p>
               <a
                 href={FERN_SITE_URL}
@@ -187,8 +187,6 @@ export default function HeroVideo() {
           <span>RERA Approved</span>
           <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:inline-block" />
           <span>Tukkuguda · Hyderabad</span>
-          <span className="hidden h-1 w-1 rounded-full bg-gold/70 sm:inline-block" />
-          <span>5 mins from ORR</span>
         </motion.div>
       </div>
 

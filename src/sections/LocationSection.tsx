@@ -5,7 +5,7 @@ import { FadeIn } from '../components/Motion'
  * Section name: LocationSection
  * Home page order: 5 (after WhyChooseUsSection)
  */
-const tags = ['RERA Approved', 'HMDA Cleared', 'Golf Community']
+const tags = ['RERA Approved', 'HMDA Approved', 'Golf Community']
 
 export default function LocationSection() {
   return (
