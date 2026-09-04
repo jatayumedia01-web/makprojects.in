@@ -31,9 +31,9 @@ export const contact = {
   email: 'info@makprojects.com',
   web: 'www.makprojects.com',
   corporate:
-    'Park Citi Plaza, 4th Floor, Road No.1, Banjara Hills, Hyderabad – 500034',
+    'Park Citi Plaza, Road No.1, Banjara Hills, Hyderabad – 500034',
   project:
-    'BTR Township – 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) – 501359',
+    'MAK — BTR – 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) – 501359',
   hours: 'Mon–Sat 09:00–18:00 · Sunday Holiday',
   responseNote: 'Our team typically responds within one business day.',
 }
@@ -43,8 +43,7 @@ export const contactProjectOptions = [
   { value: 'serenity', label: 'BTR Serenity — 3 & 4 BHK Apartments' },
   { value: 'gardenia', label: 'BTR Gardenia — Villa Plots' },
   { value: 'villas', label: 'BTR Villas' },
-  { value: 'township', label: 'MAK — BTR Township' },
-  { value: 'canadian-wood', label: 'Canadian Wood Villa' },
+  { value: 'township', label: 'MAK — BTR' },
   { value: 'fern', label: 'Fern by MAK — Tukkuguda Villas' },
   { value: 'site-visit', label: 'Schedule a site visit' },
 ] as const
@@ -55,7 +54,7 @@ export const contactLocations = {
     label: 'Corporate Office',
     tabShort: 'Corporate',
     subtitle: 'Banjarah Hills · Hyderabad',
-    address: 'MAK Projects Private Limited\nPark Citi Plaza, 4th Floor\nRoad No.1, Banjara Hills\nHyderabad – 500034',
+    address: 'MAK Projects Private Limited\nPark Citi Plaza\nRoad No.1, Banjara Hills\nHyderabad – 500034',
     mapEmbed:
       'https://maps.google.com/maps?q=Park%20Citi%20Plaza%20Banjara%20Hills%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed',
     mapLink:
@@ -63,15 +62,15 @@ export const contactLocations = {
   },
   township: {
     id: 'township',
-    label: 'MAK — BTR Township',
-    tabShort: 'BTR Township',
-    subtitle: 'BTR Township · Srisailam Highway',
+    label: 'MAK — BTR',
+    tabShort: 'MAK — BTR',
+    subtitle: 'MAK — BTR · Srisailam Highway',
     address:
-      'MAK — BTR Township\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
+      'MAK — BTR\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
     mapEmbed:
-      'https://maps.google.com/maps?q=MAK+BTR+Township+Srisailam+Highway+Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed',
+      'https://maps.google.com/maps?q=MAK+BTR+Srisailam+Highway+Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed',
     mapLink:
-      'https://www.google.com/maps/search/?api=1&query=MAK+BTR+Township+Srisailam+Highway+Hyderabad',
+      'https://www.google.com/maps/search/?api=1&query=MAK+BTR+Srisailam+Highway+Hyderabad',
   },
   fern: {
     id: 'fern',
@@ -79,33 +78,33 @@ export const contactLocations = {
     tabShort: 'Fern',
     subtitle: 'Tukkuguda · Srisailam Highway',
     address:
-      'Fern by MAK Projects\nSurvey Nos. 438 & 439, Srisailam Highway\nMalikdanguda, Maheswaram (M)\nRanga Reddy (D) – 501359',
+      'Fern by MAK Projects\nFern Villas, On Srisailam Hwy\nTukkuguda, Hyderabad\nTelangana 501359',
     mapEmbed:
-      'https://maps.google.com/maps?q=MAK+Fern+Malikdanguda+Tukkuguda+Hyderabad&t=&z=14&ie=UTF8&iwloc=&output=embed',
+      'https://maps.google.com/maps?q=Fern+Villas,+On+Srisailam+Hwy,+Tukkuguda,+Hyderabad,+Telangana+501359&t=&z=14&ie=UTF8&iwloc=&output=embed',
     mapLink:
-      'https://www.google.com/maps/search/?api=1&query=MAK+Fern+Malikdanguda+Tukkuguda+Hyderabad',
+      'https://www.google.com/maps/search/?api=1&query=Fern+Villas,+On+Srisailam+Hwy,+Tukkuguda,+Hyderabad,+Telangana+501359',
   },
 } as const
 
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects' },
-  { label: 'BTR Township', to: '/btr-township' },
+  { label: 'MAK — BTR', to: '/btr-township' },
   { label: 'Amenities', to: '/amenities' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
 
-/** MAK — BTR Township (master development) */
+/** MAK — BTR (master development) */
 export const btrTownship = {
-  name: 'MAK — BTR Township',
+  name: 'MAK — BTR',
   tagline: "Telangana’s pioneer integrated luxury township",
   location: 'South Hyderabad · 26th Milestone, Srisailam Highway',
   status: 'Completed',
   summary: [
-    'We delivered MAK — BTR Township, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 260+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
+    'We delivered MAK — BTR, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 260+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
     'Today, it stands as a vibrant community home to over 650+ families. The township features wide 40, 50, and 60-feet internal roads, offering smooth connectivity across 333 luxury villas, 150 3 & 4 BHK apartment units with a clubhouse, and exclusive villa plots.',
-    'The entire community spreads over 1,450+ units in MAK — BTR Township, with easy access to public transport facilities.',
+    'The entire community spreads over 1,450+ units in MAK — BTR, with easy access to public transport facilities.',
   ],
   connectivity: [
     'ORR Exit 14',
@@ -197,7 +196,7 @@ export const btrTownship = {
 export const btrProjectHighlights = {
   title: 'Project Highlights',
   subtitle:
-    'Schools, healthcare, workplaces and transit — minutes from MAK — BTR Township',
+    'Schools, healthcare, workplaces and transit — minutes from MAK — BTR',
   categories: [
     {
       id: 'connectivity',
@@ -285,10 +284,10 @@ export const nearby = {
 
 /** BTR Township — MAK — BTR Club showcase */
 export const btrClubhouse = {
-  eyebrow: 'Lifestyle · MAK — BTR Township',
+  eyebrow: 'Lifestyle · MAK — BTR',
   title: 'MAK — BTR Club',
   subtitle: 'The signature clubhouse for wellness, leisure, and community living.',
-  body: 'MAK — BTR Club is the heart of leisure at MAK — BTR Township — resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
+  body: 'MAK — BTR Club is the heart of leisure at MAK — BTR — resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
   video: '/media/clubhouse/club-house.mp4',
   poster: '/media/clubhouse/btr-club-exterior-pool.jpg',
   videoCaption: 'Walkthrough of MAK — BTR Club — pool, elevation, and lifestyle spaces.',
@@ -341,7 +340,7 @@ export type BtrClubhouseImage = (typeof btrClubhouse.images)[number]
 
 /** BTR Township — Club Pavilion (second clubhouse) */
 export const btrClubPavilion = {
-  eyebrow: 'Second Clubhouse · MAK — BTR Township',
+  eyebrow: 'Second Clubhouse · MAK — BTR',
   title: 'Club Pavilion',
   subtitle:
     'A refined community pavilion with grand reception, glass atrium entrance, and landscaped forecourt.',
@@ -367,11 +366,11 @@ export const btrClubPavilion = {
       id: 'grand-entrance',
       title: 'Grand Entrance',
       caption: 'Marble-lined atrium with floor-to-ceiling glass',
-      image: '/media/club-pavilion/club-pavilion-grand-entrance.jpg',
+      image: '/media/club-pavilion/club-pavilion-grand-entrance-new.jpg',
     },
     {
       id: 'reception-lobby',
-      title: 'Reception & Lounge',
+      title: 'Lobby',
       caption: 'Wood-slatted lobby with reception and lounge seating',
       image: '/media/club-pavilion/club-pavilion-reception-lobby.jpg',
     },
@@ -391,14 +390,14 @@ export const lifestylePillars = {
       title: 'Club & Leisure',
       body: 'Dual clubhouses, pool, yoga and social spaces designed for everyday joy.',
       image: '/media/club-pavilion/club-pavilion-exterior.jpg',
-      alt: 'Club Pavilion at MAK — BTR Township',
+      alt: 'Club Pavilion at MAK — BTR',
     },
     {
       id: 'sports',
       title: 'Sports & Golf',
       body: '10-hole golf, cricket, basketball, gym and jogging tracks for active living.',
       image: '/media/township-amenities/golf-course.jpg',
-      alt: '10-hole golf course at BTR Township',
+      alt: '10-hole golf course at MAK — BTR',
     },
     {
       id: 'security',
@@ -412,7 +411,7 @@ export const lifestylePillars = {
 
 /** BTR Township — amenities image gallery (drop images in public/media/township-amenities/) */
 export const btrAmenitiesGallery = {
-  eyebrow: 'Visual Tour · MAK — BTR Township',
+  eyebrow: 'Visual Tour · MAK — BTR',
   title: 'Amenities & Lifestyle Gallery',
   subtitle:
     'Cricket, golf, club, wide roads, parks, and everyday leisure — explore life across the township.',
@@ -535,7 +534,7 @@ export const projects = [
     subtitle: '3 & 4 BHK ready-to-move apartments',
     size: '3 acres · 150 apartments',
     status: 'Ready to Move-In',
-    possession: 'PART OF BTR TOWNSHIP',
+    possession: 'PART OF MAK — BTR',
     location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
     image: serenityCardImage,
     href: '/btr-serenity',
@@ -543,11 +542,11 @@ export const projects = [
   },
   {
     slug: 'township',
-    title: 'MAK – BTR Township',
-    subtitle: 'Serenity · Gardenia · Villas · Canadian Wood',
+    title: 'MAK – BTR',
+    subtitle: 'Serenity · Gardenia · Villas',
     size: '260+ acres · 1,450+ units · 80+ amenities',
     status: 'Completed',
-    possession: 'INTEGRATED TOWNSHIP',
+    possession: 'PART OF MAK — BTR',
     location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
     image: '/media/gardenia/hero.jpg',
     href: '/btr-township',
@@ -726,7 +725,7 @@ export type FaqItem = {
 
 export const serenityFaqs: FaqItem[] = [
   {
-    q: 'What is BTR Serenity Apartments, and where is it located within BTR Township?',
+    q: 'What is BTR Serenity Apartments, and where is it located within MAK — BTR?',
     a: 'BTR Serenity Apartments is a part of the BTR luxurious active residential township, comprising approximately 150 residential flats across 3 acres on Srisailam Highway, Thummalur.',
   },
   {
@@ -826,7 +825,7 @@ export const plotFaqs = [
 export const villaFaqs = [
   {
     q: 'How many villas and what area?',
-    a: '333 luxury villas within MAK — BTR Township’s 260+ acres of land in Hyderabad’s Knowledge City.',
+    a: '333 luxury villas within MAK — BTR’s 260+ acres of land in Hyderabad’s Knowledge City.',
   },
   {
     q: 'Who designed the project?',
