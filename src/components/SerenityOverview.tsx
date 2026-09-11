@@ -26,7 +26,7 @@ const reraDetail = serenityDetails.find((d) => d.label === 'RERA ID')
 export default function SerenityOverview() {
   return (
     <div className="relative site-container px-5">
-      {/* Brand lockup — BTR — Serenity primary, tagline secondary */}
+      {/* Brand lockup - BTR - Serenity primary, tagline secondary */}
       <FadeIn>
         <header className="serenity-overview-head mb-8 md:mb-10">
           <p className="text-center text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
@@ -35,7 +35,7 @@ export default function SerenityOverview() {
 
           <h2 className="serenity-brand-lockup mt-4 text-center">
             <span className="block text-[11px] font-semibold tracking-[0.22em] text-stone uppercase sm:text-xs">
-              MAK Projects · MAK — BTR
+              MAK Projects · MAK - BTR
             </span>
             <span className="serenity-brand-row mt-3 inline-flex items-baseline justify-center gap-x-2">
               <span className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-ink">
@@ -58,11 +58,11 @@ export default function SerenityOverview() {
         </header>
       </FadeIn>
 
-      {/* Single unified panel — image + details + about (no floating boxes) */}
+      {/* Single unified panel - image + details + about (no floating boxes) */}
       <FadeIn delay={0.05}>
         <article className="serenity-overview-panel overflow-hidden rounded-[28px] border border-ink/[0.07] bg-white shadow-[0_16px_48px_rgba(7,17,14,0.08)]">
           <div className="grid lg:grid-cols-2 lg:items-stretch">
-            {/* Elevation — edge-to-edge, fills column height */}
+            {/* Elevation - edge-to-edge, fills column height */}
             <div className="relative min-h-[240px] bg-[#ebe6de] sm:min-h-[300px] lg:min-h-[420px]">
               <img
                 src={serenityMedia.hero}
@@ -72,7 +72,7 @@ export default function SerenityOverview() {
               />
             </div>
 
-            {/* Project details — compact, matched height */}
+            {/* Project details - compact, matched height */}
             <div className="flex flex-col bg-[#0c1612] px-6 py-7 text-cream sm:px-8 sm:py-8">
               <p className="text-[11px] font-semibold tracking-[0.2em] text-gold uppercase">
                 Project details
@@ -102,7 +102,7 @@ export default function SerenityOverview() {
             </div>
           </div>
 
-          {/* About + CTAs — continuation of same card */}
+          {/* About + CTAs - continuation of same card */}
           <div className="grid border-t border-ink/[0.06] lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10">
             <div className="px-6 py-7 sm:px-8 sm:py-8">
               <p className="text-[11px] font-semibold tracking-[0.2em] text-sage uppercase">
@@ -136,7 +136,7 @@ export default function SerenityOverview() {
             </div>
           </div>
 
-          {/* Experience — single connected strip, not 4 separate boxes */}
+          {/* Experience - single connected strip, not 4 separate boxes */}
           <ul className="grid divide-y divide-ink/[0.06] sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4">
             {serenityExperience.map((line, i) => {
               const Icon = experienceIcons[i] ?? Sparkles

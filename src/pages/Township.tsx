@@ -26,7 +26,7 @@ import { btrTownship } from '../data/content'
 import { townshipPage } from '../data/projectPages'
 
 /**
- * MAK — BTR Township — full master page
+ * MAK - BTR Township - full master page
  * Content aligned to township story, mix, amenities, offerings & map.
  */
 
@@ -36,7 +36,7 @@ const HERO_IMAGE =
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const chapters = [
-  { id: 'btr-township', label: 'MAK — BTR' },
+  { id: 'btr-township', label: 'MAK - BTR' },
   { id: 'township-amenities', label: 'Amenities' },
   { id: 'township-clubhouse', label: 'Club' },
   { id: 'township-pavilion', label: 'Club Pavilion' },
@@ -102,7 +102,7 @@ export default function Township() {
           animate={{ scale: 1 }}
           transition={{ duration: reduce ? 0 : 10, ease: 'easeOut' }}
           src={HERO_IMAGE}
-          alt="MAK — BTR"
+          alt="MAK - BTR"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/15" />
@@ -123,7 +123,7 @@ export default function Township() {
               Completed · South Hyderabad
             </p>
             <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.6rem)] font-semibold leading-[0.98] tracking-tight text-white">
-              MAK — BTR
+              MAK - BTR
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
               Telangana’s pioneer integrated luxury township across 260+ acres
@@ -202,7 +202,7 @@ export default function Township() {
               <h2 className="mt-3 text-[clamp(1.9rem,3.8vw,3rem)] font-semibold leading-[1.08] tracking-tight text-ink">
                 We delivered
                 <span className="mt-1 block text-sage">
-                  MAK — BTR
+                  MAK - BTR
                 </span>
               </h2>
               <div className="mt-5 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
@@ -513,7 +513,7 @@ export default function Township() {
                       </div>
                       <div className="px-6 py-6">
                         <p className="text-[11px] font-semibold tracking-[0.2em] text-sage uppercase">
-                          Part of MAK — BTR
+                          Part of MAK - BTR
                         </p>
                         <h3 className="mt-1.5 text-xl font-bold tracking-tight text-ink">
                           {item.title}
@@ -557,7 +557,7 @@ export default function Township() {
                 Location
               </p>
               <h2 className="text-[clamp(1.4rem,3vw,2.25rem)] font-bold tracking-[0.06em] text-cream uppercase">
-                MAK — BTR Map
+                MAK - BTR Map
               </h2>
               <div className="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
             </div>
@@ -582,7 +582,7 @@ export default function Township() {
                     Easy access
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-cream/65">
-                    26th Milestone on Srisailam Highway — Thummalur, Maheswaram.
+                    26th Milestone on Srisailam Highway - Thummalur, Maheswaram.
                     1,450+ units with public transport connectivity.
                   </p>
                   <ul className="mt-5 space-y-2.5 text-sm text-cream/70">

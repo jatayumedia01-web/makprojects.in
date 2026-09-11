@@ -75,9 +75,9 @@ export default function HeroVideo() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[16px] font-medium tracking-[0.22em] text-gold-soft uppercase backdrop-blur-md"
             >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
+              <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
               Fern by MAK Projects
             </motion.div>
 

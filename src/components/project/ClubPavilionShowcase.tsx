@@ -11,7 +11,7 @@ import {
   useClubLightbox,
 } from './ClubGalleryParts'
 
-/** Club Pavilion — aligned bento gallery */
+/** Club Pavilion - aligned bento gallery */
 export default function ClubPavilionShowcase({
   id = 'township-pavilion',
 }: {

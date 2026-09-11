@@ -85,7 +85,7 @@ export default function Management() {
               MAK Projects Private Limited
             </p>
             <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-semibold leading-tight tracking-tight text-white">
-              Board of Directors
+              Leadership Team
             </h1>
             <div className="mt-4 h-px w-20 bg-gold" />
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">
@@ -110,7 +110,7 @@ export default function Management() {
         </a>
       </section>
 
-      {/* Sticky sub-nav — sits below main header (Board + directors) */}
+      {/* Sticky sub-nav - sits below main header (Board + directors) */}
       <nav
         aria-label="Leadership sections"
         className="sticky top-[4.75rem] z-[48] border-b border-ink/10 bg-white py-2.5 shadow-[0_4px_20px_rgba(7,17,14,0.08)] sm:py-3 md:top-20"
@@ -199,7 +199,7 @@ export default function Management() {
         <PageContainer>
           <div className="mb-6 text-center sm:mb-8">
             <p className="text-[11px] font-semibold tracking-[0.28em] text-sage uppercase">
-              Leadership team
+              Leadership Team
             </p>
             <ScrollLine className="mt-4" />
           </div>

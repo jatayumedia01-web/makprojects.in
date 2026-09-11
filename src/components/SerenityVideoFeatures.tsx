@@ -28,7 +28,7 @@ function formatTime(sec: number) {
   return `${m}:${s.toString().padStart(2, '0')}`
 }
 
-/** Serenity — cinematic featured video (+ optional extra clips) */
+/** Serenity - cinematic featured video (+ optional extra clips) */
 export default function SerenityVideoFeatures() {
   const clips = useMemo<VideoClip[]>(() => {
     const main: VideoClip = {

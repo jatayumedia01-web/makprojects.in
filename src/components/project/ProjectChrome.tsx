@@ -15,7 +15,7 @@ export function PageContainer({
   )
 }
 
-/** Distinct section background themes — avoids one flat colour across the page */
+/** Distinct section background themes - avoids one flat colour across the page */
 export type SectionTheme =
   | 'cream'
   | 'white'
@@ -147,7 +147,7 @@ export function SectionAccent({ variant = 'gold' }: { variant?: 'gold' | 'sage' 
   )
 }
 
-/** Shared MAK advanced card shell — gold frame · lift · shine */
+/** Shared MAK advanced card shell - gold frame · lift · shine */
 export function CardShell({
   children,
   className = '',
@@ -158,9 +158,9 @@ export function CardShell({
   children: ReactNode
   className?: string
   dark?: boolean
-  /** Hover lift — off for dense grids */
+  /** Hover lift - off for dense grids */
   lift?: boolean
-  /** Content height — no stretch in grids */
+  /** Content height - no stretch in grids */
   fit?: boolean
 }) {
   const height = fit ? 'h-auto' : 'h-full'

@@ -38,7 +38,7 @@ const quickActions = [
 
 const visitLinks = [
   { label: 'BTR Serenity', to: '/btr-serenity' },
-  { label: 'MAK — BTR', to: '/btr-township' },
+  { label: 'MAK - BTR', to: '/btr-township' },
   { label: 'Villa Plots', to: '/btr-villa-plots' },
   { label: 'All Projects', to: '/projects' },
 ] as const
@@ -207,8 +207,8 @@ export default function Contact() {
                 Our locations
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-sm text-stone">
-                Corporate meetings at Banjara Hills · Site visits at MAK — BTR
-                MAK — BTR & Fern by MAK Projects.
+                Corporate meetings at Banjara Hills · Site visits at MAK - BTR
+                MAK - BTR & Fern by MAK Projects.
               </p>
             </div>
           </FadeIn>
@@ -350,8 +350,7 @@ export default function Contact() {
               Schedule a site visit today
             </h2>
             <p className="mt-3 text-sm text-white/60">
-              Send an enquiry and our team will help plan your township tour on
-              Srisailam Highway.
+              Send us your enquiry, and our team will be happy to assist you.
             </p>
             <div className="mt-6 flex justify-center">
               <EnquireButton className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-xs font-semibold tracking-[0.14em] text-ink uppercase">

@@ -4,7 +4,9 @@ import { MakLogo } from './BrandLogos'
 
 const companyLinks = [
   { label: 'About Us', to: '/about' },
-  { label: 'Management', to: '/management' },
+  { label: 'Leadership Team', to: '/management' },
+  { label: 'Awards', to: '/awards' },
+  { label: 'Testimonials', to: '/testimonials' },
   { label: 'Contact Us', to: '/contact' },
   { label: 'Amenities', to: '/amenities' },
 ]

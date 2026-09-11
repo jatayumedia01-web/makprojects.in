@@ -18,7 +18,6 @@ import SerenityGallery from '../components/SerenityGallery'
 import SerenityAmenities from '../components/SerenityAmenities'
 import SerenityFloorPlans from '../components/SerenityFloorPlans'
 import SerenityOverview from '../components/SerenityOverview'
-import SerenitySpecifications from '../components/SerenitySpecifications'
 import SerenityVideoFeatures from '../components/SerenityVideoFeatures'
 import {
   CardShell,
@@ -83,7 +82,7 @@ export default function Serenity() {
 
   return (
     <>
-      {/* Hero — video + focused CTAs */}
+      {/* Hero - video + focused CTAs */}
       <section className="relative h-[82vh] min-h-[560px] max-h-[900px] w-full overflow-hidden bg-ink md:h-[88vh]">
         <img
           src={serenityMedia.featuredVideo.poster}
@@ -184,7 +183,7 @@ export default function Serenity() {
                   to="/btr-township"
                   className="text-white/75 transition hover:text-gold-soft"
                 >
-                  MAK — BTR →
+                  MAK - BTR →
                 </Link>
               </div>
             </div>
@@ -245,7 +244,7 @@ export default function Serenity() {
         </div>
       </nav>
 
-      {/* Overview — elevation, details, about, pillars */}
+      {/* Overview - elevation, details, about, pillars */}
       <ScrollSection
         id="serenity-overview"
         index={0}
@@ -261,7 +260,6 @@ export default function Serenity() {
       <SerenityFloorPlans />
 
       <SerenityAmenities />
-      <SerenitySpecifications />
 
       {/* Map */}
       <ScrollSection

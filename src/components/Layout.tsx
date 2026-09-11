@@ -14,6 +14,8 @@ const PROJECT_PATHS = [
   '/btr-greens',
   '/btr-township',
   '/amenities',
+  '/awards',
+  '/testimonials',
   '/management',
   '/about',
   '/contact',

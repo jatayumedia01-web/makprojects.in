@@ -3,7 +3,7 @@ import { Volume2, VolumeX } from 'lucide-react'
 import { FadeIn } from '../Motion'
 import { btrClubhouse } from '../../data/content'
 
-/** MAK — BTR Club — video showcase section */
+/** MAK - BTR Club - video showcase section */
 export default function ClubhouseShowcase({ id = 'township-clubhouse' }: { id?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [ready, setReady] = useState(false)
@@ -85,7 +85,7 @@ export default function ClubhouseShowcase({ id = 'township-clubhouse' }: { id?: 
               <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-7 md:p-8">
                 <div className="pointer-events-none text-left">
                   <span className="inline-flex rounded-full bg-gold px-4 py-1.5 text-[11px] font-bold tracking-[0.14em] text-ink uppercase">
-                    MAK — BTR Club
+                    MAK - BTR Club
                   </span>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-[15px]">
                     {btrClubhouse.videoCaption}

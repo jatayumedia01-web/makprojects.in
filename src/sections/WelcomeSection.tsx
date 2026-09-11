@@ -47,7 +47,7 @@ export default function WelcomeSection() {
 
               <div className="relative mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-              {/* Same matter — justified, compact */}
+              {/* Same matter - justified, compact */}
               <div className="relative mx-auto mt-4 max-w-5xl space-y-3 text-justify text-[14px] leading-[1.65] text-[#4a5560] sm:text-[15px] sm:leading-[1.7]">
                 <p>
                   MAK Projects has established itself as a prominent player in

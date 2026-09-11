@@ -1,6 +1,6 @@
 import { MAK_CRM_FORM_IFRAME } from './makCrmConfig'
 
-/** Inline CRM form for Contact page — isolated iframe avoids widget conflicts */
+/** Inline CRM form for Contact page - isolated iframe avoids widget conflicts */
 export default function MakFormIframe({ className = '' }: { className?: string }) {
   return (
     <iframe

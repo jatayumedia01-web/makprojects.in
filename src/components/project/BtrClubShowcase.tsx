@@ -13,7 +13,7 @@ import {
   useClubLightbox,
 } from './ClubGalleryParts'
 
-/** MAK — BTR Club — video + clean photo gallery */
+/** MAK - BTR Club - video + clean photo gallery */
 export default function BtrClubShowcase({
   id = 'township-clubhouse',
 }: {

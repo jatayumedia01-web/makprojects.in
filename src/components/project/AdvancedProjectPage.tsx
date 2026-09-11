@@ -25,7 +25,7 @@ const MAP_LINK =
   'https://maps.google.com/?q=Thummalur+Maheswaram+Srisailam+Highway+Hyderabad'
 
 /**
- * Advanced project page — Serenity-parity card UI system.
+ * Advanced project page - Serenity-parity card UI system.
  * Driven by ProjectPageData for all non-Serenity project routes.
  */
 export default function AdvancedProjectPage({

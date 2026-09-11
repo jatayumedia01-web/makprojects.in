@@ -1,6 +1,6 @@
 # FTP deploy dist/ -> FTP home (Hostinger web root for this account)
 # This FTP user already lands in the site root; do NOT nest under /public_html.
-# Credentials via env only — do not commit.
+# Credentials via env only - do not commit.
 
 $ErrorActionPreference = 'Stop'
 $ftpHost = '147.93.99.94'
@@ -42,14 +42,24 @@ function Ensure-FtpDir([string]$remoteDir) {
 
 function Upload-File([string]$localFile, [string]$remoteFile) {
   $uri = "ftp://$ftpHost$remoteFile"
-  $req = Get-FtpRequest $uri ([System.Net.WebRequestMethods+Ftp]::UploadFile)
-  $bytes = [System.IO.File]::ReadAllBytes($localFile)
-  $req.ContentLength = $bytes.Length
-  $stream = $req.GetRequestStream()
-  $stream.Write($bytes, 0, $bytes.Length)
-  $stream.Close()
-  $resp = $req.GetResponse()
-  $resp.Close()
+  $ok = $false
+  for ($try = 1; $try -le 3; $try++) {
+    try {
+      $req = Get-FtpRequest $uri ([System.Net.WebRequestMethods+Ftp]::UploadFile)
+      $bytes = [System.IO.File]::ReadAllBytes($localFile)
+      $req.ContentLength = $bytes.Length
+      $stream = $req.GetRequestStream()
+      $stream.Write($bytes, 0, $bytes.Length)
+      $stream.Close()
+      $resp = $req.GetResponse()
+      $resp.Close()
+      $ok = $true
+      break
+    } catch {
+      if ($try -eq 3) { throw }
+      Start-Sleep -Seconds 2
+    }
+  }
 }
 
 Write-Host "Uploading from $localRoot to ftp://$ftpHost$remoteRoot ..."

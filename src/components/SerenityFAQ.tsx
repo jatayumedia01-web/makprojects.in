@@ -179,7 +179,7 @@ export default function SerenityFAQ() {
               </h2>
             </div>
             <p className="max-w-sm text-[14px] leading-relaxed text-stone md:text-right">
-              Specs, UDS, amenities, maintenance and more — from BTR Serenity.
+              Specs, UDS, amenities, maintenance and more - from BTR Serenity.
             </p>
           </header>
         </FadeIn>

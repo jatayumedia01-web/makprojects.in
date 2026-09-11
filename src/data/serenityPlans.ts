@@ -1,4 +1,4 @@
-/** BTR Serenity — official floor plans with facing variants */
+/** BTR Serenity - official floor plans with facing variants */
 
 export type PlanFacing = {
   id: string

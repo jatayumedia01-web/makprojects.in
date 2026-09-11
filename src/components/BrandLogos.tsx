@@ -19,10 +19,10 @@ export function MakLogo({
   )
 }
 
-/** Official BTR — Life is Beautiful logo */
+/** Official BTR - Life is Beautiful logo */
 export function BtrLogo({
   className = 'h-10',
-  alt = 'BTR — Life is Beautiful',
+  alt = 'BTR - Life is Beautiful',
 }: {
   className?: string
   alt?: string

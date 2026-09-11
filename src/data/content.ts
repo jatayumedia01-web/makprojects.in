@@ -31,20 +31,20 @@ export const contact = {
   email: 'info@makprojects.com',
   web: 'www.makprojects.com',
   corporate:
-    'Park Citi Plaza, Road No.1, Banjara Hills, Hyderabad – 500034',
+    'Park Citi Plaza, Road No.1, Banjara Hills, Hyderabad - 500034',
   project:
-    'MAK — BTR – 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) – 501359',
-  hours: 'Mon–Sat 09:00–18:00 · Sunday Holiday',
+    'MAK - BTR - 26th Milestone on Srisailam Highway, Thummalur (V), Maheswaram (M), Ranga Reddy (D) - 501359',
+  hours: 'Mon-Sat 09:00-18:00 · Sunday Holiday',
   responseNote: 'Our team typically responds within one business day.',
 }
 
 export const contactProjectOptions = [
   { value: 'general', label: 'General enquiry' },
-  { value: 'serenity', label: 'BTR Serenity — 3 & 4 BHK Apartments' },
-  { value: 'gardenia', label: 'BTR Gardenia — Villa Plots' },
+  { value: 'serenity', label: 'BTR Serenity - 3 & 4 BHK Apartments' },
+  { value: 'gardenia', label: 'BTR Gardenia - Villa Plots' },
   { value: 'villas', label: 'BTR Villas' },
-  { value: 'township', label: 'MAK — BTR' },
-  { value: 'fern', label: 'Fern by MAK — Tukkuguda Villas' },
+  { value: 'township', label: 'MAK - BTR' },
+  { value: 'fern', label: 'Fern by MAK - Tukkuguda Villas' },
   { value: 'site-visit', label: 'Schedule a site visit' },
 ] as const
 
@@ -54,7 +54,7 @@ export const contactLocations = {
     label: 'Corporate Office',
     tabShort: 'Corporate',
     subtitle: 'Banjarah Hills · Hyderabad',
-    address: 'MAK Projects Private Limited\nPark Citi Plaza\nRoad No.1, Banjara Hills\nHyderabad – 500034',
+    address: 'MAK Projects Private Limited\nPark Citi Plaza\nRoad No.1, Banjara Hills\nHyderabad - 500034',
     mapEmbed:
       'https://maps.google.com/maps?q=Park%20Citi%20Plaza%20Banjara%20Hills%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed',
     mapLink:
@@ -62,11 +62,11 @@ export const contactLocations = {
   },
   township: {
     id: 'township',
-    label: 'MAK — BTR',
-    tabShort: 'MAK — BTR',
-    subtitle: 'MAK — BTR · Srisailam Highway',
+    label: 'MAK - BTR',
+    tabShort: 'MAK - BTR',
+    subtitle: 'MAK - BTR · Srisailam Highway',
     address:
-      'MAK — BTR\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) – 501359',
+      'MAK - BTR\n26th Milestone on Srisailam Highway\nThummalur (V), Maheswaram (M)\nRanga Reddy (D) - 501359',
     mapEmbed:
       'https://maps.google.com/maps?q=MAK+BTR+Srisailam+Highway+Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed',
     mapLink:
@@ -78,33 +78,34 @@ export const contactLocations = {
     tabShort: 'Fern',
     subtitle: 'Tukkuguda · Srisailam Highway',
     address:
-      'Fern by MAK Projects\nFern Villas, On Srisailam Hwy\nTukkuguda, Hyderabad\nTelangana 501359',
+      'Fern by MAK Projects\nFern Villas, On Srisailam Highway\nTukkuguda, Hyderabad\nTelangana 501359',
     mapEmbed:
-      'https://maps.google.com/maps?q=Fern+Villas,+On+Srisailam+Hwy,+Tukkuguda,+Hyderabad,+Telangana+501359&t=&z=14&ie=UTF8&iwloc=&output=embed',
+      'https://maps.google.com/maps?q=Fern+Villas,+On+Srisailam+Highway,+Tukkuguda,+Hyderabad,+Telangana+501359&t=&z=14&ie=UTF8&iwloc=&output=embed',
     mapLink:
-      'https://www.google.com/maps/search/?api=1&query=Fern+Villas,+On+Srisailam+Hwy,+Tukkuguda,+Hyderabad,+Telangana+501359',
+      'https://www.google.com/maps/search/?api=1&query=Fern+Villas,+On+Srisailam+Highway,+Tukkuguda,+Hyderabad,+Telangana+501359',
   },
 } as const
 
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Projects', to: '/projects' },
-  { label: 'MAK — BTR', to: '/btr-township' },
-  { label: 'Amenities', to: '/amenities' },
+  { label: 'MAK - BTR', to: '/btr-township' },
   { label: 'About', to: '/about' },
+  { label: 'Awards', to: '/awards' },
+  { label: 'Testimonials', to: '/testimonials' },
   { label: 'Contact', to: '/contact' },
 ]
 
-/** MAK — BTR (master development) */
+/** MAK - BTR (master development) */
 export const btrTownship = {
-  name: 'MAK — BTR',
+  name: 'MAK - BTR',
   tagline: "Telangana’s pioneer integrated luxury township",
-  location: 'South Hyderabad · 26th Milestone, Srisailam Highway',
+  location: 'South Hyderabad · 26th Milestone, On Srisailam Highway',
   status: 'Completed',
   summary: [
-    'We delivered MAK — BTR, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 260+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
+    'We delivered MAK - BTR, Telangana’s pioneer integrated luxury township project located in South Hyderabad. Spanning over 260+ acres of land, this master-planned development has been successfully completed by MAK Projects Private Limited while upholding international quality standards.',
     'Today, it stands as a vibrant community home to over 650+ families. The township features wide 40, 50, and 60-feet internal roads, offering smooth connectivity across 333 luxury villas, 150 3 & 4 BHK apartment units with a clubhouse, and exclusive villa plots.',
-    'The entire community spreads over 1,450+ units in MAK — BTR, with easy access to public transport facilities.',
+    'The entire community spreads over 1,450+ units in MAK - BTR, with easy access to public transport facilities.',
   ],
   connectivity: [
     'ORR Exit 14',
@@ -186,17 +187,17 @@ export const btrTownship = {
         'On-site ambulance',
         'ATM',
         'Water softening plant & STP',
-        'EV charging — provision for modern mobility',
+        'EV charging - provision for modern mobility',
       ],
     },
   ],
 } as const
 
-/** BTR Township — nearby project highlights (connectivity, healthcare, schools & more) */
+/** BTR Township - nearby project highlights (connectivity, healthcare, schools & more) */
 export const btrProjectHighlights = {
   title: 'Project Highlights',
   subtitle:
-    'Schools, healthcare, workplaces and transit — minutes from MAK — BTR',
+    'Schools, healthcare, workplaces and transit - minutes from MAK - BTR',
   categories: [
     {
       id: 'connectivity',
@@ -241,7 +242,7 @@ export const btrProjectHighlights = {
       items: [
         { label: 'GMR Business Park', icon: Building },
         {
-          label: 'Adibatla Aerospace & SEZ cluster — ~10 mins',
+          label: 'Adibatla Aerospace & SEZ cluster - ~10 mins',
           icon: Plane,
         },
         { label: 'TCS · Wipro · Amazon warehouses', icon: Warehouse },
@@ -266,7 +267,7 @@ export const btrProjectHighlights = {
   ],
 } as const
 
-/** @deprecated Use btrProjectHighlights — kept for legacy imports */
+/** @deprecated Use btrProjectHighlights - kept for legacy imports */
 export const nearby = {
   schools: btrProjectHighlights.categories
     .find((c) => c.id === 'education')!
@@ -282,15 +283,15 @@ export const nearby = {
   ],
 }
 
-/** BTR Township — MAK — BTR Club showcase */
+/** BTR Township - MAK - BTR Club showcase */
 export const btrClubhouse = {
-  eyebrow: 'Lifestyle · MAK — BTR',
-  title: 'MAK — BTR Club',
+  eyebrow: 'Lifestyle · MAK - BTR',
+  title: 'MAK - BTR Club',
   subtitle: 'The signature clubhouse for wellness, leisure, and community living.',
-  body: 'MAK — BTR Club is the heart of leisure at MAK — BTR — resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
+  body: 'MAK - BTR Club is the heart of leisure at MAK - BTR - resort-style pool, gym, yoga, multipurpose halls, spa, mini theatre, and landscaped social spaces. Membership opens lifetime access to curated amenities for families across the township.',
   video: '/media/clubhouse/club-house.mp4',
   poster: '/media/clubhouse/btr-club-exterior-pool.jpg',
-  videoCaption: 'Walkthrough of MAK — BTR Club — pool, elevation, and lifestyle spaces.',
+  videoCaption: 'Walkthrough of MAK - BTR Club - pool, elevation, and lifestyle spaces.',
   highlights: [
     'Swimming Pool',
     'Fully-equipped Gym',
@@ -338,14 +339,14 @@ export const btrClubhouse = {
 
 export type BtrClubhouseImage = (typeof btrClubhouse.images)[number]
 
-/** BTR Township — Club Pavilion (second clubhouse) */
+/** BTR Township - Club Pavilion (second clubhouse) */
 export const btrClubPavilion = {
-  eyebrow: 'Second Clubhouse · MAK — BTR',
+  eyebrow: 'Second Clubhouse · MAK - BTR',
   title: 'Club Pavilion',
   subtitle:
     'A refined community pavilion with grand reception, glass atrium entrance, and landscaped forecourt.',
   body:
-    'Club Pavilion complements the signature MAK — BTR Club — offering an elegant venue for community gatherings, wellness programmes, and everyday leisure. The pavilion features a welcoming reception lounge, a marble-lined grand entrance, and a contemporary elevation framed by manicured greens.',
+    'Club Pavilion complements the signature MAK - BTR Club - offering an elegant venue for community gatherings, wellness programmes, and everyday leisure. The pavilion features a welcoming reception lounge, a marble-lined grand entrance, and a contemporary elevation framed by manicured greens.',
   highlights: [
     'Grand Reception Lounge',
     'Glass Atrium Entrance',
@@ -380,7 +381,7 @@ export const btrClubPavilion = {
 export type BtrClubPavilionImage =
   (typeof btrClubPavilion.images)[number]
 
-/** Lifestyle pillars — club, sports, security highlights */
+/** Lifestyle pillars - club, sports, security highlights */
 export const lifestylePillars = {
   eyebrow: 'Experience',
   title: 'Lifestyle Pillars',
@@ -390,14 +391,14 @@ export const lifestylePillars = {
       title: 'Club & Leisure',
       body: 'Dual clubhouses, pool, yoga and social spaces designed for everyday joy.',
       image: '/media/club-pavilion/club-pavilion-exterior.jpg',
-      alt: 'Club Pavilion at MAK — BTR',
+      alt: 'Club Pavilion at MAK - BTR',
     },
     {
       id: 'sports',
       title: 'Sports & Golf',
       body: '10-hole golf, cricket, basketball, gym and jogging tracks for active living.',
       image: '/media/township-amenities/golf-course.jpg',
-      alt: '10-hole golf course at MAK — BTR',
+      alt: '10-hole golf course at MAK - BTR',
     },
     {
       id: 'security',
@@ -409,12 +410,12 @@ export const lifestylePillars = {
   ],
 } as const
 
-/** BTR Township — amenities image gallery (drop images in public/media/township-amenities/) */
+/** BTR Township - amenities image gallery (drop images in public/media/township-amenities/) */
 export const btrAmenitiesGallery = {
-  eyebrow: 'Visual Tour · MAK — BTR',
+  eyebrow: 'Visual Tour · MAK - BTR',
   title: 'Amenities & Lifestyle Gallery',
   subtitle:
-    'Cricket, golf, club, wide roads, parks, and everyday leisure — explore life across the township.',
+    'Cricket, golf, club, wide roads, parks, and everyday leisure - explore life across the township.',
   categories: [
     { id: 'all', label: 'All' },
     { id: 'golf', label: 'Golf' },
@@ -451,7 +452,7 @@ export const btrAmenitiesGallery = {
     {
       id: 'club-exterior',
       category: 'club',
-      title: 'MAK — BTR Club',
+      title: 'MAK - BTR Club',
       caption: 'Grand clubhouse elevation',
       image: '/media/clubhouse/btr-club.jpg',
       featured: true,
@@ -502,7 +503,7 @@ export const btrAmenitiesGallery = {
       id: 'btr-greens-entrance',
       category: 'roads',
       title: 'BTR Greens Entrance',
-      caption: 'MAK Projects — master-planned township gateway',
+      caption: 'MAK Projects - master-planned township gateway',
       image: '/media/township-amenities/btr-greens-entrance.jpg',
       featured: true,
     },
@@ -523,31 +524,31 @@ export const projects = [
     size: '15 acres · 109 villas · Club Fernessa 30,000 Sft',
     status: 'New Launch',
     possession: 'TUKKUGUDA · NEAR ORR',
-    location: 'TUKKUGUDA / MALIKDANGUDA – HYDERABAD',
+    location: 'TUKKUGUDA - HYDERABAD',
     image: '/media/fern/hero.jpg',
     href: '/fern/',
     rera: 'P02400010645',
   },
   {
     slug: 'serenity',
-    title: 'BTR – Serenity',
+    title: 'BTR - Serenity',
     subtitle: '3 & 4 BHK ready-to-move apartments',
     size: '3 acres · 150 apartments',
     status: 'Ready to Move-In',
-    possession: 'PART OF MAK — BTR',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
+    possession: 'PART OF MAK - BTR',
+    location: '26TH MILE STONE ON SRISAILAM HIGHWAY - HYDERABAD',
     image: serenityCardImage,
     href: '/btr-serenity',
     rera: 'P02400002599',
   },
   {
     slug: 'township',
-    title: 'MAK – BTR',
+    title: 'MAK - BTR',
     subtitle: 'Serenity · Gardenia · Villas',
     size: '260+ acres · 1,450+ units · 80+ amenities',
     status: 'Completed',
-    possession: 'PART OF MAK — BTR',
-    location: '26TH MILE STONE ON SRISAILAM HIGHWAY – HYDERABAD',
+    possession: 'PART OF MAK - BTR',
+    location: '26TH MILE STONE ON SRISAILAM HIGHWAY - HYDERABAD',
     image: '/media/gardenia/hero.jpg',
     href: '/btr-township',
     rera: 'P02400002599 / P02400001288 / P02400001289',
@@ -561,7 +562,7 @@ export const whyUs = [
   },
   {
     title: 'Workmanship Quality',
-    body: 'At MAK Projects, quality isn’t just a goal — it’s a tradition upheld in every detail of craftsmanship.',
+    body: 'At MAK Projects, quality isn’t just a goal - it’s a tradition upheld in every detail of craftsmanship.',
   },
   {
     title: 'Quality Assurance',
@@ -660,7 +661,7 @@ export const leaders = [
     bio: [
       'Mr. A. Murali Krishna Reddy’s impressive background showcases his extensive expertise and achievements in both infrastructure projects and hospitality management. With a postgraduate degree in Business Management and over 45+ years of experience, he brings a wealth of knowledge and leadership to his roles.',
       'His tenure as the Promoter and Managing Director of the award-winning Green Park Group of Hotels highlights his ability to successfully build and operate star hotels, demonstrating a keen understanding of the hospitality industry’s demands.',
-      'Receiving the ‘Emerging India Award – 2007’ from the Hon’ble Prime Minister of India, Dr. Manmohan Singh, underscores Mr. Reddy’s significant contributions and recognition on a national level. This award further validates his dedication, innovation, and impact within the business landscape.',
+      'Receiving the ‘Emerging India Award - 2007’ from the Hon’ble Prime Minister of India, Dr. Manmohan Singh, underscores Mr. Reddy’s significant contributions and recognition on a national level. This award further validates his dedication, innovation, and impact within the business landscape.',
       'Mr. Reddy’s multifaceted background and distinguished accomplishments position him as a seasoned professional capable of steering projects to success and achieving excellence across various sectors. His leadership and experience undoubtedly play a pivotal role in the success of MAK Projects.',
     ],
   },
@@ -695,7 +696,7 @@ export const leaders = [
     image: '/media/management/saba-nayagam.png',
     bio: [
       'Mr. G. Saba Nayagam brings a wealth of experience and expertise to the table, particularly in finance, accounts, and legal domains. With a strong educational background including a Commerce degree, Fellowship of the Institute of Chartered Accountants of India, and a Diploma in Central Excise and Customs, he possesses a solid foundation for his career.',
-      'Having accrued over 35+ years of experience across various sectors including cultivation, manufacturing, exports, and constructions, Mr. Saba has honed his skills in finance and legal matters through diverse roles and responsibilities. His tenure as Vice President – Finance at Diana Hotels Ltd. (Green Park Group of Hotels) from 1996 to 2007 underscores his leadership and proficiency in managing accounts, financing, and budgeting for the group.',
+      'Having accrued over 35+ years of experience across various sectors including cultivation, manufacturing, exports, and constructions, Mr. Saba has honed his skills in finance and legal matters through diverse roles and responsibilities. His tenure as Vice President - Finance at Diana Hotels Ltd. (Green Park Group of Hotels) from 1996 to 2007 underscores his leadership and proficiency in managing accounts, financing, and budgeting for the group.',
       'His responsibilities extended beyond financial management to include project financing and project implementation, showcasing his ability to navigate complex financial landscapes and oversee successful project executions. Mr. Saba’s contributions would have been instrumental in ensuring the financial health and operational efficiency of the Green Park Group and other associated companies.',
       'With his extensive experience and comprehensive understanding of finance, accounts, and legal matters, Mr. G. Saba Nayagam adds significant value to the team at MAK Projects, contributing to the company’s strategic financial management and overall success in the real estate sector.',
     ],
@@ -707,7 +708,7 @@ export const leaders = [
     image: '/media/management/atchi-reddy.jpg',
     bio: [
       'Mr. T. Atchi Reddy’s impressive background in both management and law, coupled with his extensive experience in the hospitality industry, positions him as a valuable asset to any organization. With a postgraduate degree in Management and a law degree, he possesses a well-rounded skill set that encompasses both business acumen and legal expertise.',
-      'His tenure at Green Park – Hyderabad, where he worked across various departments including HRD, Food & Beverages, and Housekeeping, demonstrates his versatility and proficiency in different areas of hotel operations. Progressing through the ranks to the positions of Deputy General Manager at Green Park – Hyderabad and General Manager at Green Park – Visakhapatnam, Mr. Reddy has proven his leadership capabilities and ability to drive success in challenging environments.',
+      'His tenure at Green Park - Hyderabad, where he worked across various departments including HRD, Food & Beverages, and Housekeeping, demonstrates his versatility and proficiency in different areas of hotel operations. Progressing through the ranks to the positions of Deputy General Manager at Green Park - Hyderabad and General Manager at Green Park - Visakhapatnam, Mr. Reddy has proven his leadership capabilities and ability to drive success in challenging environments.',
       'Before joining MAK Projects, Mr. Reddy served as the Chief Executive Officer of Ramky Estates & Farms Pvt. Ltd., where he was responsible for overseeing divisional operations and driving the company’s growth. His experience in this role highlights his strategic vision, operational expertise, and commitment to achieving business objectives.',
       'With over 30+ years of experience in the hospitality industry and a track record of leadership and achievement, Mr. T. Atchi Reddy brings invaluable insights and leadership to the team at MAK Projects. His multifaceted background and proven track record make him well-equipped to contribute to the company’s continued success and growth in the real estate sector.',
     ],
@@ -725,14 +726,14 @@ export type FaqItem = {
 
 export const serenityFaqs: FaqItem[] = [
   {
-    q: 'What is BTR Serenity Apartments, and where is it located within MAK — BTR?',
+    q: 'What is BTR Serenity Apartments, and where is it located within MAK - BTR?',
     a: 'BTR Serenity Apartments is a part of the BTR luxurious active residential township, comprising approximately 150 residential flats across 3 acres on Srisailam Highway, Thummalur.',
   },
   {
     q: 'What flat sizes are available, and what is the UDS (Undivided Share of Land) in BTR Serenity?',
     a: 'The undivided share of land refers to the portion of the total land area owned by each flat owner. Common area is approximately 20%.',
     table: {
-      headers: ['Flat — SFT', 'UDS (sq.yds)'],
+      headers: ['Flat - SFT', 'UDS (sq.yds)'],
       rows: [
         ['1334', '77'],
         ['1448', '84'],
@@ -759,7 +760,7 @@ export const serenityFaqs: FaqItem[] = [
   },
   {
     q: 'What are the sanitary fittings and water supply arrangements in the apartments?',
-    a: 'Sanitary fittings are from Jaguar — including European commodes, wash basins, and CP fittings. Bore well water is used for flushing and toilets, with provision for drinking water in the kitchen and a WTP.',
+    a: 'Sanitary fittings are from Jaguar - including European commodes, wash basins, and CP fittings. Bore well water is used for flushing and toilets, with provision for drinking water in the kitchen and a WTP.',
   },
   {
     q: 'Is there any provision for power backup? What appliances work with backup power?',
@@ -775,7 +776,7 @@ export const serenityFaqs: FaqItem[] = [
   },
   {
     q: 'Is there any provision for telecom, cable TV, and internet connections?',
-    a: 'Yes — there is provision for telephone, cable, and internet connection.',
+    a: 'Yes - there is provision for telephone, cable, and internet connection.',
   },
   {
     q: 'Is there any car wash facility provided?',
@@ -783,7 +784,7 @@ export const serenityFaqs: FaqItem[] = [
   },
   {
     q: 'What are the ongoing developments in the vicinity of BTR Serenity?',
-    a: 'MAK — BTR is located near a 700-acre integrated township, Electronic City, Fab City, Tata Sikorsky, TCS, GMR Health Port, Electronic SEZ, Wipro, Amazon Warehouse, Malabar Gold & Diamonds, Adani Aerospace, Wonderla Amusement Park, Foxconn, and more.\n\nNearby schools include Manchester Global School, The Aga Khan Academy, Delhi Public School – Aero City, Bhashyam Blooms, Devendra Vidyalaya, Narayana IIT Academy, and others.',
+    a: 'MAK - BTR is located near a 700-acre integrated township, Electronic City, Fab City, Tata Sikorsky, TCS, GMR Health Port, Electronic SEZ, Wipro, Amazon Warehouse, Malabar Gold & Diamonds, Adani Aerospace, Wonderla Amusement Park, Foxconn, and more.\n\nNearby schools include Manchester Global School, The Aga Khan Academy, Delhi Public School - Aero City, Bhashyam Blooms, Devendra Vidyalaya, Narayana IIT Academy, and others.',
   },
   {
     q: 'Are EV charging stations available at BTR Serenity Apartments?',
@@ -791,7 +792,7 @@ export const serenityFaqs: FaqItem[] = [
   },
   {
     q: 'What is the process for obtaining club house membership?',
-    a: 'We will provide the necessary forms, details regarding membership fees, and privileges associated with MAK — BTR Club membership. A one-time subscription grants lifetime access to club amenities.',
+    a: 'We will provide the necessary forms, details regarding membership fees, and privileges associated with MAK - BTR Club membership. A one-time subscription grants lifetime access to club amenities.',
   },
   {
     q: 'What is the “corpus fund”, and how is it calculated in BTR Serenity?',
@@ -810,7 +811,7 @@ export const plotFaqs = [
   },
   {
     q: 'Is it approved?',
-    a: 'Yes — HMDA approved and registered with RERA (P02400001288 / P02400001289).',
+    a: 'Yes - HMDA approved and registered with RERA (P02400001288 / P02400001289).',
   },
   {
     q: 'How many floors are permitted?',
@@ -825,7 +826,7 @@ export const plotFaqs = [
 export const villaFaqs = [
   {
     q: 'How many villas and what area?',
-    a: '333 luxury villas within MAK — BTR’s 260+ acres of land in Hyderabad’s Knowledge City.',
+    a: '333 luxury villas within MAK - BTR’s 260+ acres of land in Hyderabad’s Knowledge City.',
   },
   {
     q: 'Who designed the project?',
@@ -833,7 +834,7 @@ export const villaFaqs = [
   },
   {
     q: 'What configurations are available?',
-    a: '3 & 4 bedroom villas from 2900–4000 sq.ft (approx 400–600 sq.yds).',
+    a: '3 & 4 bedroom villas from 2900-4000 sq.ft (approx 400-600 sq.yds).',
   },
   {
     q: 'Key amenities?',

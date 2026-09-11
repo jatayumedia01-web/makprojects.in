@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { EnquiryProvider } from './components/mak-crm/EnquiryContext'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -13,6 +13,8 @@ import Greens from './pages/Greens'
 import Township from './pages/Township'
 import GolfPlots from './pages/GolfPlots'
 import Amenities from './pages/Amenities'
+import Awards from './pages/Awards'
+import Testimonials from './pages/Testimonials'
 import About from './pages/About'
 import Management from './pages/Management'
 import Contact from './pages/Contact'
@@ -36,6 +38,9 @@ export default function App() {
           <Route path="btr-golf-plots" element={<GolfPlots />} />
           <Route path="amenities" element={<Amenities />} />
           <Route path="about" element={<About />} />
+          <Route path="csr" element={<Navigate to="/" replace />} />
+          <Route path="awards" element={<Awards />} />
+          <Route path="testimonials" element={<Testimonials />} />
           <Route path="management" element={<Management />} />
           <Route path="contact" element={<Contact />} />
         </Route>

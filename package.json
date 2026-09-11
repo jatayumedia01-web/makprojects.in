@@ -7,14 +7,17 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:hostinger": "powershell -ExecutionPolicy Bypass -File ./deploy-ftp.ps1",
+    "deploy:godaddy": "powershell -ExecutionPolicy Bypass -File ./deploy-godaddy.ps1"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.1",
+    "swiper": "^14.2.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

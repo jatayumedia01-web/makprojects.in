@@ -27,14 +27,14 @@ export const managementProfiles: ManagementProfileConfig[] = [
     focusLine: 'Infrastructure · Hospitality · Enterprise leadership',
     creds: [
       { icon: Briefcase, value: 'Green Park Group of Hotels' },
-      { icon: Award, value: 'Emerging India Award — 2007' },
+      { icon: Award, value: 'CNBC-TV-18 Emerging India Award - 2007' },
       { icon: GraduationCap, value: 'PG · Business Management' },
     ],
     spotlight: {
       icon: Award,
       label: 'National recognition',
-      title: 'Emerging India Award — 2007',
-      body: 'Conferred by the Hon’ble Prime Minister of India, Dr. Manmohan Singh — recognising national impact in enterprise leadership.',
+      title: 'CNBC-TV-18 Emerging India Award - 2007',
+      body: 'Mr. Murali Krishna Reddy, Chairman of the Group, received the coveted CNBC-TV-18 “Emerging India Award - 2007” from the Hon’ble Prime Minister of India, Dr. Manmohan Singh.',
     },
   },
   {
@@ -50,7 +50,7 @@ export const managementProfiles: ManagementProfileConfig[] = [
       icon: Building2,
       label: 'Delivery legacy',
       title: 'Frontline Constructions Ltd.',
-      body: 'Promoter & Managing Director — leading prestigious residential and commercial developments across Hyderabad.',
+      body: 'Promoter & Managing Director - leading prestigious residential and commercial developments across Hyderabad.',
     },
   },
   {
@@ -65,8 +65,8 @@ export const managementProfiles: ManagementProfileConfig[] = [
     spotlight: {
       icon: Building2,
       label: 'Hospitality tenure',
-      title: 'Green Park Group · 2001–2006',
-      body: 'Leadership across Hyderabad and Chennai — human resources, project execution and commercial management.',
+      title: 'Green Park Group · 2001-2006',
+      body: 'Leadership across Hyderabad and Chennai - human resources, project execution and commercial management.',
     },
   },
   {
@@ -81,8 +81,8 @@ export const managementProfiles: ManagementProfileConfig[] = [
     spotlight: {
       icon: Scale,
       label: 'Finance leadership',
-      title: 'Diana Hotels Ltd. · 1996–2007',
-      body: 'Vice President – Finance — accounts, financing, budgeting, project financing and implementation.',
+      title: 'Diana Hotels Ltd. · 1996-2007',
+      body: 'Vice President - Finance - accounts, financing, budgeting, project financing and implementation.',
     },
   },
   {

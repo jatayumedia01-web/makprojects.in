@@ -264,9 +264,12 @@ function initBannerVideo() {
   ).trim();
   let src = srcRaw;
   try {
-    src = new URL(srcRaw, window.location.origin).href;
+    src = new URL(srcRaw, window.location.href).href;
   } catch (err) {
     src = srcRaw;
+  }
+  if (src.includes('/assets/videos/') && !src.includes('/fern/assets/videos/')) {
+    src = src.replace('/assets/videos/', '/fern/assets/videos/');
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1473,9 +1476,12 @@ function initWalkthrough() {
   ).trim();
   let videoSrc = videoSrcRaw;
   try {
-    videoSrc = new URL(videoSrcRaw, window.location.origin).href;
+    videoSrc = new URL(videoSrcRaw, window.location.href).href;
   } catch (err) {
     videoSrc = videoSrcRaw;
+  }
+  if (videoSrc.includes('/assets/videos/') && !videoSrc.includes('/fern/assets/videos/')) {
+    videoSrc = videoSrc.replace('/assets/videos/', '/fern/assets/videos/');
   }
 
   if (!video) return;

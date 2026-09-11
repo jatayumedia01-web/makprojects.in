@@ -6,7 +6,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -18,6 +18,8 @@ type Props = {
   floating: boolean
   align?: Align
   panelWidth?: string
+  /** Extra routes that should highlight this nav item (e.g. submenu pages) */
+  activePaths?: string[]
   children: (close: () => void) => ReactNode
 }
 
@@ -27,9 +29,15 @@ export default function NavDropdown({
   floating,
   align = 'center',
   panelWidth = 'w-[720px]',
+  activePaths,
   children,
 }: Props) {
+  const { pathname } = useLocation()
   const [open, setOpen] = useState(false)
+  const routeActive =
+    activePaths?.some(
+      (p) => pathname === p || pathname.startsWith(`${p}/`),
+    ) ?? false
   const openTimer = useRef<number | null>(null)
   const closeTimer = useRef<number | null>(null)
   const rootRef = useRef<HTMLDivElement>(null)
@@ -92,7 +100,7 @@ export default function NavDropdown({
         aria-haspopup="true"
         aria-controls={panelId}
         className={({ isActive }) =>
-          `${triggerClass(isActive || open, floating)} group`
+          `${triggerClass(isActive || routeActive || open, floating)} group`
         }
         onClick={closeNow}
       >

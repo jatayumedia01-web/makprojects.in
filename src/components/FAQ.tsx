@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { FaqItem } from '../data/content'
 
 /**
- * Modern FAQ — search + single-panel accordion (+ optional table)
+ * Modern FAQ - search + single-panel accordion (+ optional table)
  */
 export default function FAQ({
   items,

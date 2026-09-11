@@ -34,12 +34,12 @@ export const serenityBrochure = {
   label: 'Download Brochure',
 }
 
-/** Primary Serenity elevation — user-provided official render */
+/** Primary Serenity elevation - user-provided official render */
 export const serenityBrandImage = '/media/serenity/elevation.jpg'
 export const serenityAerialImage = '/media/serenity/render-aerial.jpg'
 export const serenityCardImage = serenityBrandImage
 
-/** Gallery item — brochure PNGs use contain; photo renders use cover */
+/** Gallery item - brochure PNGs use contain; photo renders use cover */
 export type SerenityGalleryItem = {
   id: string
   title: string
@@ -55,7 +55,7 @@ export const serenityMedia = {
     {
       id: 'render-day',
       title: 'Elevation',
-      caption: 'BTR Serenity — day view with landscaped greens',
+      caption: 'BTR Serenity - day view with landscaped greens',
       image: serenityBrandImage,
       fit: 'contain',
     },
@@ -119,9 +119,9 @@ export const serenityMedia = {
   featuredVideo: {
     src: '/media/serenity/videos/serenity-tour.mp4',
     poster: serenityBrandImage,
-    title: 'BTR Serenity — Project Walkthrough',
+    title: 'BTR Serenity - Project Walkthrough',
     blurb:
-      'Experience serene living — 3 & 4 BHK luxury flats from 1334 to 3068 sft.',
+      'Experience serene living - 3 & 4 BHK luxury flats from 1334 to 3068 sft.',
   },
   extraVideos: [] as {
     id: string
@@ -139,7 +139,6 @@ export const serenityChapters = [
   { id: 'serenity-gallery', label: 'Gallery' },
   { id: 'serenity-plans', label: 'Plans' },
   { id: 'serenity-amenities', label: 'Amenities' },
-  { id: 'serenity-specs', label: 'Specs' },
   { id: 'serenity-map', label: 'Location' },
   { id: 'serenity-faq', label: 'FAQ' },
 ] as const
@@ -149,9 +148,9 @@ export type SerenityChapterId = (typeof serenityChapters)[number]['id']
 export const serenityHero = {
   badge: 'MAK Projects · Life is Beautiful',
   status: 'Ready to Move-In',
-  titleLead: 'BTR —',
+  titleLead: 'BTR -',
   titleAccent: 'Serenity',
-  body: 'Experience serene at BTR — 3 & 4 BHK luxury flats from 1334 to 3068 sft on 3 acres of prime land.',
+  body: 'Experience serene at BTR - 3 & 4 BHK luxury flats from 1334 to 3068 sft on 3 acres of prime land.',
   location: 'Srisailam Highway (NH-765) · Thummalur · Hyderabad',
   rera: 'P02400002599',
 }
@@ -159,7 +158,7 @@ export const serenityHero = {
 export const serenityMetrics = [
   { value: '150', label: 'Apartments', icon: Building2 },
   { value: '3 Ac', label: 'Prime land', icon: Trees },
-  { value: '1334–3068', label: 'SFT range', icon: BedDouble },
+  { value: '1334-3068', label: 'SFT range', icon: BedDouble },
   { value: 'OC ✓', label: 'RERA approved', icon: ShieldCheck },
 ] as const
 
@@ -168,7 +167,7 @@ export const serenityDetails = [
   { label: 'Project Type', value: 'Residential Apartments' },
   { label: 'Configuration', value: '3 & 4 BHK Luxury Flats' },
   { label: 'Total Units', value: '150' },
-  { label: 'Size Range', value: '1334 – 3068 SFT' },
+  { label: 'Size Range', value: '1334 - 3068 SFT' },
   { label: 'Status', value: 'Ready To Move-In' },
   { label: 'OC Obtained', value: 'Yes' },
   { label: 'RERA ID', value: serenityHero.rera },
@@ -178,7 +177,7 @@ export const serenityOverview = {
   eyebrow: 'A truly redefined way of life',
   title: 'Quiet Splendour at BTR Serenity',
   aboutTitle: 'About the project',
-  body: 'MAK Projects presents the prestigious BTR Serenity Apartments — 150 residential units on 3 acres of prime land. Luxurious 3 & 4 BHK flats are nested in landscaped spaces, redefining the concept of living in quiet splendour with world-class amenities thoughtfully planned for families.',
+  body: 'MAK Projects presents the prestigious BTR Serenity Apartments - 150 residential units on 3 acres of prime land. Luxurious 3 & 4 BHK flats are nested in landscaped spaces, redefining the concept of living in quiet splendour with world-class amenities thoughtfully planned for families.',
 }
 
 export const serenityExperience = [
@@ -190,7 +189,7 @@ export const serenityExperience = [
 
 export type SerenityAmenity = { name: string; icon: LucideIcon }
 
-/** Amenities & facilities — per official BTR Serenity brochure */
+/** Amenities & facilities - per official BTR Serenity brochure */
 export const serenityAmenityGroups = [
   {
     title: 'Amenities',
@@ -226,97 +225,11 @@ export const serenityAmenityGroups = [
   },
 ] as const
 
-export const serenitySpecifications = [
-  {
-    title: 'Structure & Finishes',
-    items: [
-      { label: 'Structure', value: 'RCC framework structure' },
-      {
-        label: 'Superstructure',
-        value: 'External walls 8″ · internal walls 4″ — C.C. blocks / bricks',
-      },
-      {
-        label: 'Flooring',
-        value:
-          '600×600 mm vitrified with skirting · anti-skid in toilets · glazed ceramic dado up to 7 ft in kitchen',
-      },
-      {
-        label: 'Plastering',
-        value:
-          'Internal: double coat cement plaster smooth finish · External: sponge finish · texture paint at designated areas',
-      },
-      {
-        label: 'Painting',
-        value:
-          'Plastic emulsion (NCL Altek / Luppam) internally · waterproof cement paint externally',
-      },
-      {
-        label: 'Waterproofing',
-        value: 'Toilets, balconies & terrace with waterproofing compounds',
-      },
-    ],
-  },
-  {
-    title: 'Doors, Kitchen & Utilities',
-    items: [
-      {
-        label: 'Main doors',
-        value: '8 ft teak wood frame & panelled shutter with melamine polish',
-      },
-      {
-        label: 'Internal doors',
-        value: '7.6 ft teak / flush doors with polish / paint',
-      },
-      { label: 'Windows', value: 'UPVC with mosquito mesh' },
-      {
-        label: 'Kitchen',
-        value:
-          'Granite platform · steel sink · 2 ft tile dado · CP fittings · exhaust & water purifier points',
-      },
-      {
-        label: 'Sanitary',
-        value: 'European commodes & wash basins — reputed CP fittings',
-      },
-      {
-        label: 'Water supply',
-        value: 'Borewell for flushing · drinking water provision in kitchens',
-      },
-    ],
-  },
-  {
-    title: 'Electrical & Security',
-    items: [
-      {
-        label: 'Electrical',
-        value: 'Concealed copper wiring · modular switches · points in all rooms',
-      },
-      {
-        label: 'Telecom & TV',
-        value: 'Telephone points in bedrooms & living · cable TV provision',
-      },
-      { label: 'Internet', value: 'Provision for broadband connection' },
-      {
-        label: 'Power backup',
-        value: 'Generator backup for lights & fan points (excluding AC & geysers)',
-      },
-      {
-        label: 'Security',
-        value: 'CCTV · intercom · boom barriers at entry',
-      },
-      {
-        label: 'WTP & STP',
-        value: 'Water softening plant · sewerage treatment plant of required capacity',
-      },
-      { label: 'Car wash', value: 'Common car wash provision' },
-    ],
-  },
-] as const
-
 export const serenityConnectivity = [
-  '5 mins — Outer Ring Road (Exit 14)',
-  '10 mins — Adibatla / Aerospace SEZ',
-  '15 mins — Rajiv Gandhi International Airport',
-  '30 mins — Gachibowli & Financial District',
+  '5 mins - Outer Ring Road (Exit 14)',
+  '10 mins - Adibatla / Aerospace SEZ',
+  '15 mins - Rajiv Gandhi International Airport',
+  '30 mins - Gachibowli & Financial District',
 ] as const
 
 export const serenityMap = {

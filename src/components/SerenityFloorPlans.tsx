@@ -95,7 +95,7 @@ function SpecRow({ label, value }: { label: string; value: string }) {
   )
 }
 
-/** Official BTR Serenity floor plans — interactive viewer */
+/** Official BTR Serenity floor plans - interactive viewer */
 export default function SerenityFloorPlans() {
   const [tab, setTab] = useState<BhkTab>(3)
   const [activePlanId, setActivePlanId] = useState('1334')
@@ -139,13 +139,13 @@ export default function SerenityFloorPlans() {
       label: 'Balcony & utility',
       value: activePlan.balconyUtility
         ? `${formatSqFt(activePlan.balconyUtility)} sq.ft`
-        : '—',
+        : '-',
     },
     {
       label: 'Common area share',
       value: activePlan.commonShare
         ? `${formatSqFt(activePlan.commonShare)} sq.ft`
-        : '—',
+        : '-',
     },
     {
       label: 'Total super built-up',
@@ -175,7 +175,7 @@ export default function SerenityFloorPlans() {
                 Floor plans
               </h2>
               <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-stone">
-                Official unit plans with carpet area, UDS and facing options —
+                Official unit plans with carpet area, UDS and facing options -
                 1334 to 3068 sft.
               </p>
             </header>
@@ -311,7 +311,7 @@ export default function SerenityFloorPlans() {
                   </button>
                 </div>
 
-                {/* Dark summary panel — matches project details styling */}
+                {/* Dark summary panel - matches project details styling */}
                 <div className="flex flex-col bg-[#0c1612] lg:col-span-4">
                   <div className="border-b border-cream/10 px-6 py-6 sm:px-7">
                     <p className="text-[10px] font-semibold tracking-[0.24em] text-gold uppercase">

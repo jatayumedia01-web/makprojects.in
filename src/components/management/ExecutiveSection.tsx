@@ -60,7 +60,7 @@ function CredList({
         <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-gold" />
         <span>
           <span className="font-medium text-ink">{spotlight.title}</span>
-          {' — '}
+          {' - '}
           {spotlight.body}
         </span>
       </li>

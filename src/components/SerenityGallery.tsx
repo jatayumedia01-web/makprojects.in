@@ -38,7 +38,7 @@ export default function SerenityGallery() {
           <FadeIn>
             <SectionHead eyebrow="Visuals" title="Project Gallery" />
             <p className="-mt-6 mx-auto mb-10 max-w-xl text-center text-sm leading-relaxed text-stone md:mb-12">
-              Elevations, master layout and official 3D renders — clubhouse,
+              Elevations, master layout and official 3D renders - clubhouse,
               amenities and landscaped spaces at BTR Serenity.
             </p>
           </FadeIn>

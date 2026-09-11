@@ -69,7 +69,7 @@ const pillars = [
   {
     icon: Handshake,
     title: 'Trusted support',
-    body: 'Customer delight at every touchpoint — beyond handovers and promises.',
+    body: 'Customer delight at every touchpoint - beyond handovers and promises.',
   },
 ] as const
 
@@ -119,15 +119,15 @@ const philosophy =
 
 const stats = [
   { value: '20+', label: 'Years of excellence', icon: Award },
-  { value: '260+', label: 'Acres · MAK — BTR', icon: Landmark },
+  { value: '260+', label: 'Acres · MAK - BTR', icon: Landmark },
   { value: '650+', label: 'Families living here', icon: Users },
   { value: '7+', label: 'Landmark projects', icon: Building2 },
 ] as const
 
 const exploreLinks = [
-  { label: 'MAK — BTR', to: '/btr-township', icon: Landmark },
+  { label: 'MAK - BTR', to: '/btr-township', icon: Landmark },
   { label: 'BTR Serenity', to: '/btr-serenity', icon: Building2 },
-  { label: 'Management', to: '/management', icon: Users },
+  { label: 'Leadership Team', to: '/management', icon: Users },
   { label: 'Contact Us', to: '/contact', icon: Phone },
 ] as const
 
@@ -142,8 +142,8 @@ const quickExplore = [
     hover: 'hover:border-sage/40',
   },
   {
-    label: 'Management',
-    hint: 'Leadership team',
+    label: 'Leadership Team',
+    hint: 'Leadership Team',
     to: '/management',
     icon: Users,
     surface: 'from-[#d4af37]/16 via-white to-[#fffbf0]',
@@ -304,7 +304,7 @@ export default function About() {
     <>
       <ScrollProgress />
 
-      {/* —— Cinematic hero —— */}
+      {/* -- Cinematic hero -- */}
       <section className="relative min-h-[68vh] overflow-hidden bg-ink sm:min-h-[74vh]">
         <motion.img
           initial={reduce ? false : { scale: 1.12 }}
@@ -337,7 +337,7 @@ export default function About() {
               <p className="mt-5 max-w-xl text-left text-[15px] leading-relaxed text-white/78 hyphens-none sm:text-base sm:leading-[1.75]">
                 Two decades of building{' '}
                 <span className="font-medium text-gold-soft">places people trust</span>{' '}
-                — infrastructure, housing, and integrated communities across
+                - infrastructure, housing, and integrated communities across
                 Hyderabad.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -374,7 +374,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Floating stats —— */}
+      {/* -- Floating stats -- */}
       <section className="relative z-20 -mt-14 sm:-mt-16">
         <PageContainer>
           <StaggerReveal className="about-stat-glass about-gradient-ring grid grid-cols-2 divide-x divide-ink/[0.06] overflow-hidden rounded-2xl sm:grid-cols-4">
@@ -412,7 +412,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Chapter navigation —— */}
+      {/* -- Chapter navigation -- */}
       <nav
         aria-label="On this page"
         className="sticky top-[4.75rem] z-[48] border-b border-ink/8 bg-white/90 py-3 backdrop-blur-xl sm:py-3.5 md:top-20"
@@ -451,7 +451,7 @@ export default function About() {
         </PageContainer>
       </nav>
 
-      {/* —— Who we are —— */}
+      {/* -- Who we are -- */}
       <section
         id="who-we-are"
         className="relative scroll-mt-[9.5rem] overflow-hidden md:scroll-mt-[10rem]"
@@ -492,7 +492,7 @@ export default function About() {
               </div>
             </FadeIn>
 
-            {/* Story content — aligned with header top on desktop */}
+            {/* Story content - aligned with header top on desktop */}
             <div className="flex min-w-0 flex-col gap-7 lg:gap-8">
               <FadeIn delay={0.05}>
                 <div className="about-gradient-ring relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#eef8f3] via-white to-[#fffdf8] p-7 sm:p-9">
@@ -524,7 +524,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* —— Bento: flagship + quick links —— */}
+          {/* -- Bento: flagship + quick links -- */}
           <div className="mt-14 grid items-stretch gap-4 lg:mt-16 lg:grid-cols-12 lg:gap-5">
             <FadeIn delay={0.05} className="lg:col-span-7">
               <Link to="/btr-township" className="group block h-full">
@@ -532,7 +532,7 @@ export default function About() {
                   <div className="project-card-shine relative h-full min-h-[280px] overflow-hidden rounded-3xl bg-ink ring-1 ring-ink/10 lg:min-h-[420px]">
                     <img
                       src={STORY_IMAGE}
-                      alt="MAK — BTR golf community"
+                      alt="MAK - BTR golf community"
                       className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.06]"
                       loading="lazy"
                     />
@@ -542,7 +542,7 @@ export default function About() {
                         Flagship community
                       </p>
                       <p className="mt-3 text-[clamp(1.35rem,2.8vw,2rem)] font-semibold leading-tight text-white">
-                        MAK — BTR
+                        MAK - BTR
                       </p>
                       <p className="mt-2 text-sm text-white/80">
                         260+ acres · Srisailam Highway
@@ -604,7 +604,7 @@ export default function About() {
             </FadeIn>
           </div>
 
-          {/* —— Pillars —— */}
+          {/* -- Pillars -- */}
           <FadeIn delay={0.1} className="mt-16 lg:mt-20">
             <div className="mb-8 flex flex-col gap-3 border-b border-ink/[0.06] pb-8 sm:flex-row sm:items-end sm:justify-between">
               <div>
@@ -672,7 +672,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Vision · Mission · Values —— */}
+      {/* -- Vision · Mission · Values -- */}
       <section
         id="guiding-principles"
         className="relative scroll-mt-[9.5rem] overflow-hidden md:scroll-mt-[10rem]"
@@ -735,7 +735,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Leadership —— */}
+      {/* -- Leadership -- */}
       <section
         id="leadership"
         className="relative scroll-mt-[9.5rem] overflow-hidden border-y border-ink/[0.06] bg-[#faf8f5] md:scroll-mt-[10rem]"
@@ -745,13 +745,13 @@ export default function About() {
             <div className="mx-auto max-w-3xl text-center">
               <p className="type-eyebrow text-sage">Leadership</p>
               <h2 className="mt-2.5 text-[clamp(1.5rem,3.2vw,2.25rem)] font-bold tracking-tight text-ink">
-                Experienced board &amp; management
+                Experienced board &amp; Leadership Team
               </h2>
               <ScrollLine className="mt-5" />
               <p className={`mx-auto mt-5 max-w-2xl ${bodyLead}`}>
                 Decades of expertise across real estate, hospitality, and
-                infrastructure — tap a profile to view the full biography on
-                our Management page.
+                infrastructure - tap a profile to view the full biography on
+                our Leadership Team page.
               </p>
             </div>
           </FadeIn>
@@ -811,7 +811,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Philosophy —— */}
+      {/* -- Philosophy -- */}
       <section
         id="philosophy"
         className="relative scroll-mt-[9.5rem] overflow-hidden md:scroll-mt-[10rem]"
@@ -862,7 +862,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— Explore projects —— */}
+      {/* -- Explore projects -- */}
       <section className="relative overflow-hidden border-t border-ink/6 bg-white">
         <PageContainer className="py-14 md:py-20">
           <FadeIn>
@@ -906,7 +906,7 @@ export default function About() {
         </PageContainer>
       </section>
 
-      {/* —— CTA —— */}
+      {/* -- CTA -- */}
       <section className="relative overflow-hidden bg-ink py-14 md:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,_rgba(31,107,85,0.25),_transparent_60%)]" />
         <PageContainer className="relative">

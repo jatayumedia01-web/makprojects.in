@@ -13,7 +13,7 @@ const pillarIcons: Record<(typeof lifestylePillars.pillars)[number]['id'], Lucid
   security: ShieldCheck,
 }
 
-/** Club · sports · security — three lifestyle pillars */
+/** Club · sports · security - three lifestyle pillars */
 export default function LifestylePillars({
   id = 'lifestyle-pillars',
   className = '',

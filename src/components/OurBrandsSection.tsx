@@ -7,7 +7,7 @@ import { btrBrands, type BtrBrand } from '../data/btrBrands'
 
 /**
  * Section name: OurBrandsSection
- * Home — half-width, advanced brand carousel above footer
+ * Home - half-width, advanced brand carousel above footer
  */
 const brands = btrBrands
 const VISIBLE = 3

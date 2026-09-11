@@ -61,7 +61,7 @@ export default function SerenityAmenities() {
         <FadeIn>
           <SectionHead eyebrow="Lifestyle" title="Amenities & Facilities" />
           <p className="-mt-6 mx-auto mb-10 max-w-2xl text-center text-[15px] leading-relaxed text-[#4a5560] md:mb-12">
-            Dedicated to BTR Serenity residents — per the official brochure.
+            Dedicated to BTR Serenity residents - per the official brochure.
           </p>
         </FadeIn>
 

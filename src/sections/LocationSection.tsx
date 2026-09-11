@@ -19,7 +19,7 @@ export default function LocationSection() {
         alt=""
         className="absolute inset-0 h-full w-full scale-105 object-cover"
       />
-      {/* Deep teal overlay — matches reference */}
+      {/* Deep teal overlay - matches reference */}
       <div className="absolute inset-0 bg-[#0c241c]/88" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink/50" />
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/5 blur-3xl" />
@@ -35,7 +35,7 @@ export default function LocationSection() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-white/75 md:text-base md:leading-7">
-            BTR on Srisailam National Highway — 5 minutes from Outer Ring Road,
+            BTR on Srisailam National Highway - 5 minutes from Outer Ring Road,
             under 15 minutes from Rajiv Gandhi International Airport.
           </p>
 

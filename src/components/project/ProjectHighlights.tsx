@@ -206,7 +206,7 @@ function HighlightCard({
   )
 }
 
-/** Nearby connectivity, healthcare, schools & corridors — below Visual Tour gallery */
+/** Nearby connectivity, healthcare, schools & corridors - below Visual Tour gallery */
 export default function ProjectHighlights({
   id = 'project-highlights',
   className = '',
@@ -368,7 +368,7 @@ export default function ProjectHighlights({
               className="flex flex-col gap-4 lg:gap-5"
             >
               <StaggerReveal className="flex flex-col gap-4 lg:gap-5">
-                {/* Featured education — wide & compact (2 rows × 5 cols) */}
+                {/* Featured education - wide & compact (2 rows × 5 cols) */}
                 <HighlightCard
                   catId={education.id}
                   title={education.title}

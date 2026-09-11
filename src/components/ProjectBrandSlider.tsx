@@ -7,7 +7,7 @@ import { btrBrands, type BtrBrand } from '../data/btrBrands'
 
 /**
  * Section name: ProjectBrandSlider
- * Side-by-side horizontal sliding — 3 brands visible, official logos per project
+ * Side-by-side horizontal sliding - 3 brands visible, official logos per project
  */
 const brands = btrBrands
 const VISIBLE = 3

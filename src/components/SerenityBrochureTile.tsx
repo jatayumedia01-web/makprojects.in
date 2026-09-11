@@ -11,7 +11,7 @@ export type BrochureTileItem = {
   fit?: 'contain' | 'cover'
 }
 
-/** Brochure PNG tile — object-contain on cream; photo renders use cover */
+/** Brochure PNG tile - object-contain on cream; photo renders use cover */
 export default function SerenityBrochureTile({
   item,
   className = '',

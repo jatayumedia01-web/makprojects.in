@@ -1,4 +1,4 @@
-BTR Serenity — video files
+BTR Serenity - video files
 
 PRIMARY (required for Tour section):
   serenity-tour.mp4   ← drop your main walkthrough video here
