@@ -11,7 +11,7 @@ export type Testimonial = {
 export const testimonialsPage = {
   hero: {
     eyebrow: 'Resident Voices',
-    title: 'Testimonials',
+    title: 'Customer Testimonials – What Our Homebuyers Say',
     subtitle:
       'Hear from families who chose MAK Projects - from ready-to-move apartments to villa communities on Srisailam Highway.',
     image: '/media/home/btr-villa-plots.jpg',

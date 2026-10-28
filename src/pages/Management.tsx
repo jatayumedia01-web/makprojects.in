@@ -24,6 +24,8 @@ import {
 import EnquireButton from '../components/mak-crm/EnquireButton'
 import { leaders } from '../data/content'
 import { managementNav, managementProfiles } from '../data/managementProfiles'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 const HERO =
   'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2200&q=80'
@@ -73,6 +75,7 @@ export default function Management() {
 
   return (
     <>
+      <PageSeo {...siteSeo.management} />
       {/* Hero */}
       <section className="relative h-[58vh] min-h-[380px] overflow-hidden bg-ink sm:h-[65vh] sm:min-h-[440px] lg:h-[70vh]">
         <img src={HERO} alt="" className="absolute inset-0 h-full w-full object-cover" aria-hidden />
@@ -84,8 +87,8 @@ export default function Management() {
             <p className="mb-3 text-[11px] font-semibold tracking-[0.28em] text-gold-soft uppercase sm:text-[11px]">
               MAK Projects Private Limited
             </p>
-            <h1 className="text-[clamp(1.75rem,5vw,3.5rem)] font-semibold leading-tight tracking-tight text-white">
-              Leadership Team
+            <h1 className="text-[clamp(1.35rem,3.8vw,2.75rem)] font-semibold leading-[1.12] tracking-tight text-white">
+              {siteSeo.management.h1}
             </h1>
             <div className="mt-4 h-px w-20 bg-gold" />
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75 sm:text-base">

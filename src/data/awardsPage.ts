@@ -25,7 +25,7 @@ export type AwardItem = {
 export const awardsPage = {
   hero: {
     eyebrow: 'Recognition & Excellence',
-    title: 'Awards & Achievements',
+    title: 'Awards & Recognition – MAK Projects',
     subtitle:
       'Two decades of trusted delivery in Hyderabad real estate - from national leadership honours to RERA-approved communities families are proud to call home.',
     image: '/media/awards/emerging-india-award-presentation.jpg',

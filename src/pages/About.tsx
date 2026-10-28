@@ -36,6 +36,8 @@ import {
 } from '../components/project/ProjectChrome'
 import { leaders } from '../data/content'
 import { managementProfiles } from '../data/managementProfiles'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 const HERO = '/media/clubhouse/btr-club-exterior-pool.jpg'
 const STORY_IMAGE = '/media/township-amenities/golf-course.jpg'
@@ -302,6 +304,7 @@ export default function About() {
 
   return (
     <>
+      <PageSeo {...siteSeo.about} />
       <ScrollProgress />
 
       {/* -- Cinematic hero -- */}
@@ -328,11 +331,8 @@ export default function About() {
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold" />
                 MAK Projects · Hyderabad
               </p>
-              <h1 className="mt-5 font-display text-[clamp(2.25rem,6vw,4.25rem)] font-semibold leading-[1.02] tracking-tight text-white">
-                About{' '}
-                <span className="bg-gradient-to-r from-gold via-gold-soft to-gold bg-clip-text text-transparent">
-                  Us
-                </span>
+              <h1 className="mt-5 font-display text-[clamp(1.5rem,3.8vw,2.65rem)] font-semibold leading-[1.12] tracking-tight text-white">
+                {siteSeo.about.h1}
               </h1>
               <p className="mt-5 max-w-xl text-left text-[15px] leading-relaxed text-white/78 hyphens-none sm:text-base sm:leading-[1.75]">
                 Two decades of building{' '}

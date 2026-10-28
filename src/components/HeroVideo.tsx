@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { FileDown, ChevronDown, Volume2, VolumeX } from 'lucide-react'
 import { FERN_SITE_URL, prefetchFernSite } from '../utils/prefetchFern'
 import EnquireButton from './mak-crm/EnquireButton'
+import { siteSeo } from '../seo/siteSeo'
 
 const FERN_VIDEO = '/fern/assets/videos/fern-walkthrough.mp4'
 const POSTER = '/fern/assets/images/aerial_view.jpg'
@@ -85,12 +86,9 @@ export default function HeroVideo() {
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[clamp(2.2rem,6vw,5rem)] font-semibold leading-[1.02] tracking-[-0.02em] text-white"
+              className="text-[clamp(1.65rem,4.2vw,3.35rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-white"
             >
-              Bespoke{' '}
-              <span className="bg-gradient-to-r from-gold-soft via-white to-gold bg-clip-text text-transparent">
-                Triplex Villas
-              </span>
+              {siteSeo.home.h1}
             </motion.h1>
 
             <motion.div

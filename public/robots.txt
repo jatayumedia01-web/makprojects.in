@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Static Fern microsite
+Allow: /fern/
+
+Sitemap: https://www.makprojects.com/sitemap.xml

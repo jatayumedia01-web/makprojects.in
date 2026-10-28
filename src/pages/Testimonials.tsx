@@ -11,12 +11,15 @@ import {
 } from '../components/pages/PageUi'
 import { PageContainer, SectionAccent, SectionBackdrop } from '../components/project/ProjectChrome'
 import { testimonialsPage } from '../data/testimonialsPage'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 export default function Testimonials() {
   const { hero, intro, stats, featured, testimonials, cta } = testimonialsPage
 
   return (
     <>
+      <PageSeo {...siteSeo.testimonials} />
       <PageHero
         eyebrow={hero.eyebrow}
         title={hero.title}

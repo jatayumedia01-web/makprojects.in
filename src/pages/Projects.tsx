@@ -24,6 +24,8 @@ import ClubPavilionShowcase from '../components/project/ClubPavilionShowcase'
 import TownshipAmenitiesGallery from '../components/project/TownshipAmenitiesGallery'
 import ProjectHighlights from '../components/project/ProjectHighlights'
 import { btrTownship, projects } from '../data/content'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 /**
  * Projects — BTR Township UI (inventory cards untouched)
@@ -176,6 +178,7 @@ export default function Projects() {
 
   return (
     <>
+      <PageSeo {...siteSeo.projects} />
       {/* Hero — clean, no heavy stats strip */}
       <section className="relative h-[78vh] min-h-[520px] overflow-hidden bg-ink md:h-[85vh]">
         <motion.img
@@ -203,8 +206,8 @@ export default function Projects() {
             <p className="text-[11px] font-medium tracking-[0.28em] text-gold-soft/80 uppercase">
               Completed · South Hyderabad
             </p>
-            <h1 className="mt-4 text-[clamp(2.5rem,6vw,4.6rem)] font-semibold leading-[0.98] tracking-tight text-white">
-              MAK — BTR
+            <h1 className="mt-4 text-[clamp(1.65rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-tight text-white">
+              {siteSeo.projects.h1}
             </h1>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70 md:text-base">
               Telangana’s pioneer integrated luxury township across 260+ acres

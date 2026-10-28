@@ -23,6 +23,8 @@ import {
   contact,
   contactLocations,
 } from '../data/content'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 const HERO = '/media/gardenia/hero.jpg'
 
@@ -52,6 +54,7 @@ export default function Contact() {
 
   return (
     <>
+      <PageSeo {...siteSeo.contact} />
       {/* Hero */}
       <section className="relative min-h-[52vh] overflow-hidden bg-ink sm:min-h-[58vh]">
         <motion.img
@@ -71,8 +74,8 @@ export default function Contact() {
             <p className="text-[11px] font-semibold tracking-[0.32em] text-gold-soft uppercase">
               Get in touch
             </p>
-            <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5.5vw,3.75rem)] font-semibold leading-[1.05] tracking-tight text-white">
-              Contact Us
+            <h1 className="mt-3 max-w-3xl text-[clamp(1.45rem,3.6vw,2.65rem)] font-semibold leading-[1.12] tracking-tight text-white">
+              {siteSeo.contact.h1}
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
               Corporate office in Banjara Hills · Project site on Srisailam

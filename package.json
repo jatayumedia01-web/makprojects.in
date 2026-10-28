@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start": "serve dist -s -l tcp://0.0.0.0:${PORT:-8080}",
     "lint": "oxlint",
     "preview": "vite preview",
     "deploy:hostinger": "powershell -ExecutionPolicy Bypass -File ./deploy-ftp.ps1",
@@ -17,7 +18,11 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",
+    "serve": "^14.2.6",
     "swiper": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

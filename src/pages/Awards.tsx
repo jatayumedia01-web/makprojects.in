@@ -13,6 +13,8 @@ import {
 } from '../components/pages/PageUi'
 import { PageContainer, SectionAccent, SectionBackdrop } from '../components/project/ProjectChrome'
 import { awardsPage, type AwardItem } from '../data/awardsPage'
+import { PageSeo } from '../seo/PageSeo'
+import { siteSeo } from '../seo/siteSeo'
 
 const COLLAPSE_CHAR_LIMIT = 140
 
@@ -109,6 +111,7 @@ export default function Awards() {
 
   return (
     <>
+      <PageSeo {...siteSeo.awards} />
       <PageHero
         eyebrow={hero.eyebrow}
         title={hero.title}
