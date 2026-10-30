@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { FERN_SITE_URL } from '../utils/prefetchFern'
+import { navigateToFernSite } from '../utils/fernNavigation'
 
 /** Exact Fern site is hosted at /fern/index.html (same as fernvillas.in) */
 export default function FernVillas() {
   useEffect(() => {
-    window.location.replace(FERN_SITE_URL)
+    navigateToFernSite()
   }, [])
 
   return (

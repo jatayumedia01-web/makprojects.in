@@ -1,0 +1,31 @@
+# Redeploy GoDaddy Airo (Node PaaS) after each push — makprojects.com serves from here (not FTP).
+# Add repo secrets: GODADDY_API_KEY, GODADDY_API_SECRET, GODADDY_HOSTING_APP_ID
+# API keys: https://developer.godaddy.com/keys (scope: hosting.paas.deploy:execute)
+
+name: Redeploy GoDaddy Airo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  airo-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Airo production deploy
+        env:
+          GODADDY_API_KEY: ${{ secrets.GODADDY_API_KEY }}
+          GODADDY_API_SECRET: ${{ secrets.GODADDY_API_SECRET }}
+          GODADDY_HOSTING_APP_ID: ${{ secrets.GODADDY_HOSTING_APP_ID }}
+        if: env.GODADDY_HOSTING_APP_ID != '' && env.GODADDY_API_KEY != ''
+        run: |
+          set -euo pipefail
+          resp=$(curl -sS -w "\n%{http_code}" -X POST \
+            "https://api.godaddy.com/v1/hosting/apps/${GODADDY_HOSTING_APP_ID}/deployments" \
+            -H "Authorization: sso-key ${GODADDY_API_KEY}:${GODADDY_API_SECRET}" \
+            -H "Content-Type: application/json")
+          body=$(echo "$resp" | head -n -1)
+          code=$(echo "$resp" | tail -n 1)
+          echo "$body"
+          test "$code" -ge 200 -a "$code" -lt 300

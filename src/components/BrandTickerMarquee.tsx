@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 const brands = [
   { label: 'MAK — BTR', href: '/btr-township' },
   { label: 'BTR Serenity', href: '/btr-serenity' },
-  { label: 'Fern by MAK', href: '/fern/', external: true },
+  { label: 'Fern by MAK', href: '/fern/index.html', external: true },
 ]
 
 export default function BrandTickerMarquee() {

@@ -15,7 +15,7 @@ const cards = [
     category: 'Bespoke Triplex Villas',
     title: 'Fern by MAK Projects',
     status: 'New Launch · Tukkuguda',
-    href: '/fern/',
+    href: '/fern/index.html',
     external: true,
     image: '/media/home/fern-villas.jpg',
     body: 'Fern by MAK Projects at Tukkuguda — RERA-approved 4BHK + Home Theatre villas on 15 acres with Club Fernessa (30,000 sft), just 5 minutes from ORR.',

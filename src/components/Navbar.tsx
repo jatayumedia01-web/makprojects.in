@@ -24,7 +24,7 @@ import {
 
 
 
-const FERN_HREF = '/fern/'
+const FERN_HREF = '/fern/index.html'
 
 const FERN_LABEL = 'Fern by MAK Projects'
 

@@ -12,7 +12,7 @@ const companyLinks = [
 ]
 
 const projectLinks = [
-  { label: 'Fern by MAK · Tukkuguda', to: '/fern/', external: true },
+  { label: 'Fern by MAK · Tukkuguda', to: '/fern/index.html', external: true },
   { label: 'MAK — BTR', to: '/btr-township' },
   { label: 'BTR — Villas', to: '/btr-villas' },
   { label: 'BTR — Serenity', to: '/btr-serenity' },

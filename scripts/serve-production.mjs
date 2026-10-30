@@ -42,6 +42,7 @@ createServer((req, res) => {
     rewrites: [
       { source: '/fern', destination: '/fern/index.html' },
       { source: '/fern/', destination: '/fern/index.html' },
+      { source: '/fern/index', destination: '/fern/index.html' },
       ...spaRewrites,
     ],
   })

@@ -526,7 +526,7 @@ export const projects = [
     possession: 'TUKKUGUDA · NEAR ORR',
     location: 'TUKKUGUDA - HYDERABAD',
     image: '/media/fern/hero.jpg',
-    href: '/fern/',
+    href: '/fern/index.html',
     rera: 'P02400010645',
   },
   {

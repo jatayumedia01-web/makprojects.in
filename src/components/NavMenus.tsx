@@ -41,7 +41,7 @@ export const projectMenuEntries: ProjectMenuEntry[] = [
     size: '15 acres · 109 villas · Club Fernessa',
     status: 'New Launch',
     image: '/media/fern/hero.jpg',
-    href: '/fern/',
+    href: '/fern/index.html',
     external: true,
     group: 'standalone',
   },

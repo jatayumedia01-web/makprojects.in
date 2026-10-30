@@ -31,7 +31,7 @@ export const btrBrands = [
     id: 'fern',
     label: 'FERN',
     style: 'caps' as const,
-    href: '/fern/',
+    href: '/fern/index.html',
     external: true,
     logo: '/media/shared/logo/fern-logo.png',
     logoAlt: 'Fern by MAK Projects — A Haven of Serene Luxury',
