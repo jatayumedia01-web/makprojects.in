@@ -40,6 +40,7 @@ createServer((req, res) => {
     directoryListing: false,
     redirects: legacyRedirects.map((r) => ({ ...r, type: 301 })),
     rewrites: [
+      { source: '/', destination: '/index.html' },
       { source: '/fern', destination: '/fern/index.html' },
       { source: '/fern/', destination: '/fern/index.html' },
       { source: '/fern/index', destination: '/fern/index.html' },
