@@ -26,4 +26,5 @@ export function prefetchFernSite() {
   fetch('/fern/index.html', { priority: 'low' } as RequestInit).catch(() => {})
 }
 
-export const FERN_SITE_URL = '/fern/'
+/** Static Fern HTML (avoid SPA shell at /fern/ on Node hosts). */
+export const FERN_SITE_URL = '/fern/index.html'

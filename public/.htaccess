@@ -1,8 +1,22 @@
-# Apache SPA routing (Hostinger / public_html)
+# Apache: legacy 301s, static /fern/, then SPA fallback (cPanel / Hostinger)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  RewriteRule ^about-us/?$ /about [R=301,L]
+  RewriteRule ^contact-us/?$ /contact [R=301,L]
+  RewriteRule ^testimonial/?$ /testimonials [R=301,L]
+  RewriteRule ^btr-serenity-ready-to-move-in-luxury-apartments-hyderabad/?$ /btr-serenity [R=301,L]
+  RewriteRule ^serenity/?$ /btr-serenity [R=301,L]
+  RewriteRule ^btr/?$ /btr-township [R=301,L]
+  RewriteRule ^gardenia/?$ /btr-villa-plots [R=301,L]
+  RewriteRule ^plots/?$ /btr-villa-plots [R=301,L]
+  RewriteRule ^fern-villas/?$ /fern/index.html [R=301,L]
+
+  RewriteRule ^fern/?$ /fern/index.html [L]
   RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_URI} ^/fern/ [NC]
+  RewriteRule ^ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]

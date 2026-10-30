@@ -18,6 +18,7 @@ import Testimonials from './pages/Testimonials'
 import About from './pages/About'
 import Management from './pages/Management'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 export default function App() {
   return (
@@ -43,6 +44,18 @@ export default function App() {
           <Route path="testimonials" element={<Testimonials />} />
           <Route path="management" element={<Management />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="about-us/*" element={<Navigate to="/about" replace />} />
+          <Route path="contact-us/*" element={<Navigate to="/contact" replace />} />
+          <Route path="testimonial/*" element={<Navigate to="/testimonials" replace />} />
+          <Route
+            path="btr-serenity-ready-to-move-in-luxury-apartments-hyderabad/*"
+            element={<Navigate to="/btr-serenity" replace />}
+          />
+          <Route path="serenity/*" element={<Navigate to="/btr-serenity" replace />} />
+          <Route path="btr/*" element={<Navigate to="/btr-township" replace />} />
+          <Route path="gardenia/*" element={<Navigate to="/btr-villa-plots" replace />} />
+          <Route path="plots/*" element={<Navigate to="/btr-villa-plots" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         </Routes>
       </BrowserRouter>

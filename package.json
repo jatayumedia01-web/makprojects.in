@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "start": "serve dist -s -l tcp://0.0.0.0:${PORT:-8080}",
+    "start": "node scripts/serve-production.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "deploy:hostinger": "powershell -ExecutionPolicy Bypass -File ./deploy-ftp.ps1",
@@ -19,6 +19,7 @@
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",
     "serve": "^14.2.6",
+    "serve-handler": "^6.1.6",
     "swiper": "^14.2.0"
   },
   "engines": {
